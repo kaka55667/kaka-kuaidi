@@ -1,0 +1,3105 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快递运费计算器</title>
+    
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 样式保持不变，与原始代码相同 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --primary-dark: #2980b9;
+            --secondary: #2ecc71;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --gray: #95a5a6;
+            --border: #ddd;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            padding-bottom: 70px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 24px;
+        }
+        
+        .logo h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .action-btn {
+            background: rgba(255, 255, 255, 0);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        /* 登录模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-header h2 {
+            color: var(--dark);
+            font-size: 22px;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        /* 导航样式 */
+        .tabs {
+            display: flex;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 500;
+            color: var(--gray);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        /* 内容区域 */
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+            animation: fadeIn 0.5s;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 卡片样式 */
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        /* 表单元素 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background: var(--gray);
+        }
+        
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        
+        .btn-success {
+            background: var(--secondary);
+        }
+        
+        .btn-success:hover {
+            background: #27ae60;
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+        }
+        
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        
+        /* 表格样式 */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table th {
+            background: #f8f9fa;
+            padding: 12px 5px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark);
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .table td {
+            padding: 10px 5px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .action-cell {
+            display: flex;
+            gap: 8px;
+        }
+        
+        /* 修改操作按钮样式 - 文字按钮 */
+        .action-cell .edit-btn, 
+        .action-cell .delete-btn {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .edit-btn {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .edit-btn:hover {
+            background: rgba(52, 152, 219, 0.2);
+        }
+        
+        .delete-btn {
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+        
+        .delete-btn:hover {
+            background: rgba(231, 76, 60, 0.2);
+        }
+        
+        /* 结果样式 */
+        .result-box {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .result-content {
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+        
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary);
+        }
+        
+        /* 底部导航 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 12px 0;
+            color: var(--gray);
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .nav-item.active {
+            color: var(--primary);
+        }
+        
+        .nav-item i {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 18px;
+            }
+            
+            .card-body {
+                padding: 15px;
+            }
+        }
+        
+        /* 动画效果 */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* 加载动画 */
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .loader .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(52, 152, 219, 0.2);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+           100% { transform: rotate(360deg); }
+        }
+        
+        /* 尺寸-重量管理样式 */
+        .size-weight-container {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .size-weight-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        
+        .size-weight-row .form-control {
+            flex: 1;
+        }
+        
+        .size-weight-row .btn {
+            width: auto;
+            padding: 10px 15px;
+        }
+        
+        .size-weight-list {
+            margin-top: 15px;
+        }
+        
+        .size-weight-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+        
+        .size-weight-item:last-child {
+            border-bottom: none;
+        }
+        
+        .size-weight-item span {
+            flex: 1;
+        }
+        
+        /* 编码输入样式 */
+        .code-input-container {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .code-input-container .form-control {
+            flex: 1;
+        }
+        
+        .code-input-container .btn {
+            width: auto;
+        }
+
+        /* 快递公司比较表格样式 */
+        .courier-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .courier-comparison th {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .courier-comparison td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .courier-comparison tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .courier-comparison tr:hover {
+            background: rgba(52, 152, 219, 0.05);
+        }
+        
+        .best-price {
+            background: rgba(46, 204, 113, 0.1) !important;
+            font-weight: 600;
+        }
+
+        /* 表单操作按钮组 */
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .form-actions .btn {
+            flex: 1;
+        }
+        
+        .cancel-edit-btn {
+            background: var(--gray);
+        }
+        
+        .cancel-edit-btn:hover {
+            background: #7f8c8d;
+        }
+        
+        /* 用户管理样式 */
+        .role-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .role-admin {
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--danger);
+        }
+        
+        .role-user {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--secondary);
+        }
+
+        /* 新增：自动搜索提示样式 */
+        .search-hint {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        .item-not-found {
+            color: var(--danger);
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 4px;
+            display: none;
+        }
+        
+        /* 新增：多尺寸选择样式 */
+        .multi-size-container {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .selected-sizes-list {
+            margin-top: 15px;
+        }
+        
+        .selected-size-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+        
+        .selected-size-item:last-child {
+            border-bottom: none;
+        }
+
+        /* 新增：分享功能样式 */
+        .share-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .share-actions .btn {
+            flex: 1;
+        }
+        
+        .share-data {
+            margin-top: 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            background: #f9f9f9;
+            font-family: monospace;
+            font-size: 14px;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        .import-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border);
+        }
+        
+        .success-message {
+            color: var(--secondary);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .error-message {
+            color: var(--danger);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <div>处理中...</div>
+    </div>
+
+    <!-- 登录模态框 -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>管理员登录</h2>
+                <button class="close-btn" id="close-login-modal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" class="form-control" placeholder="请输入管理员账号">
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" class="form-control" placeholder="请输入密码">
+            </div>
+            <button class="btn" id="login-btn">登录</button>
+            <div style="text-align: center; margin-top: 15px;">
+                <span style="color: var(--gray); font-size: 14px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 分享模态框 -->
+    <div class="modal" id="share-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>分享数据</h2>
+                <button class="close-btn" id="close-share-modal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label>分享您的数据配置</label>
+                <p style="font-size: 14px; color: var(--gray); margin-bottom: 10px;">
+                    生成的数据链接或代码可以分享给其他人，他们可以导入并使用您的配置。
+                </p>
+                <div class="share-actions">
+                    <button class="btn" id="generate-share-btn">
+                        <i class="fas fa-link"></i> 生成分享链接
+                    </button>
+                    <button class="btn btn-secondary" id="copy-share-btn">
+                        <i class="fas fa-copy"></i> 复制到剪贴板
+                    </button>
+                </div>
+                <div class="share-data" id="share-data">
+                    点击"生成分享链接"按钮生成数据...
+                </div>
+            </div>
+            <div class="import-section">
+                <label>导入分享数据</label>
+                <p style="font-size: 14px; color: var(--gray); margin-bottom: 10px;">
+                    粘贴他人分享的数据链接或代码来导入配置。
+                </p>
+                <textarea id="import-data" class="form-control" rows="4" placeholder="粘贴分享数据..."></textarea>
+                <button class="btn btn-success" id="import-btn" style="margin-top: 10px;">
+                    <i class="fas fa-download"></i> 导入数据
+                </button>
+                <div id="import-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-truck"></i>
+                    <h1>快递运费计算器</h1>
+                </div>
+                <div class="actions">
+                    <!-- 将分享按钮移出用户信息区域，使其始终显示 -->
+                    <button class="action-btn" id="share-btn" title="分享数据">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <div class="user-info" id="user-info" style="display: none;">
+                        <span id="user-name"></span>
+                        <span class="role-badge role-admin">管理员</span>
+                        <button class="action-btn" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                    <button class="action-btn" id="login-button">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="tabs">
+        <div class="tab active" data-tab="calc">运费计算</div>
+        <div class="tab" data-tab="items">物品管理</div>
+        <div class="tab" data-tab="regions">地区规则</div>
+        <div class="tab" data-tab="couriers">快递公司</div>
+    </div>
+    
+    <div class="container">
+        <!-- 运费计算页 -->
+        <div class="tab-content active" id="calc-tab">
+            <div class="card">
+                <div class="card-header">
+                    <span>计算运费</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="region-select">选择地区</label>
+                        <select id="region-select" class="form-control">
+                            <option value="">请选择地区</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 修改后的物品选择部分 -->
+                    <div class="form-group">
+                        <label for="item-code-input">物品编码</label>
+                        <input type="text" id="item-code-input" class="form-control" placeholder="输入物品编码，如: 501">
+                        <div class="search-hint">输入物品编码后，系统将自动显示物品详情</div>
+                        <div class="item-not-found" id="item-not-found">未找到该编码对应的物品</div>
+                    </div>
+                    
+                    <div class="form-group" id="item-details-container" style="display: none;">
+                        <label>物品详情</label>
+                        <div style="background: #f9f9f9; padding: 15px; border-radius: 8px;">
+                            <div id="item-details-content"></div>
+                            
+                            <div class="form-group" style="margin-top: 15px;">
+                                <label for="item-size-select">选择尺寸</label>
+                                <select id="item-size-select" class="form-control">
+                                    <option value="">请选择尺寸</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="item-quantity">数量</label>
+                                <input type="number" id="item-quantity" class="form-control" value="1" min="1">
+                            </div>
+                            
+                            <!-- 多尺寸选择容器 -->
+                            <div class="multi-size-container">
+                                <button class="btn btn-success" id="add-size-btn">
+                                    <i class="fas fa-plus"></i> 添加此尺寸
+                                </button>
+                                
+                                <div class="selected-sizes-list" id="selected-sizes-list">
+                                    <!-- 已选尺寸将在这里显示 -->
+                                    <p style="color: #999; text-align: center; padding: 10px;">暂无已选尺寸</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-success" id="add-item-btn">
+                        <i class="fas fa-plus"></i> 添加物品
+                    </button>
+                    
+                    <div class="form-group" style="margin-top: 30px;">
+                        <label>已选物品</label>
+                        <div id="selected-items" style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; min-height: 100px;">
+                            <p style="color: #999; text-align: center; padding: 20px;">请添加物品</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn" id="calculate-btn">
+                        <i class="fas fa-calculator"></i> 计算运费
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card" id="result-card" style="display: none;">
+                <div class="card-header">
+                    <span>计算结果 - 所有快递公司费用比较</span>
+                </div>
+                <div class="card-body">
+                    <div class="result-box">
+                        <div class="result-title">快递公司费用比较</div>
+                        <div id="result-content">
+                            <table class="courier-comparison">
+                                <thead>
+                                    <tr>
+                                        <th>快递公司</th>
+                                        <th>运费(元)</th>
+                                        <th>计算规则</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="courier-comparison-body">
+                                    <!-- 这里将动态填充快递公司比较数据 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="summary">
+                            <span>推荐选择:</span>
+                            <span id="recommended-courier">请先计算</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 物品管理页 -->
+        <div class="tab-content" id="items-tab">
+            <div class="card" id="item-form-card" style="display: none;">
+                <div class="card-header">
+                    <span>物品管理</span>
+                    <button id="add-item-btn-form">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" id="editing-item-id" value="">
+                    
+                    <div class="form-group">
+                        <label for="item-code">物品编码</label>
+                        <input type="text" id="item-code" class="form-control" placeholder="例如: 1123">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="item-desc">物品描述</label>
+                        <input type="text" id="item-desc" class="form-control" placeholder="例如: 小件商品">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="item-category">类别</label>
+                        <select id="item-category" class="form-control">
+                            <option value="小件">小件</option>
+                            <option value="中件">中件</option>
+                            <option value="大件">大件</option>
+                            <option value="书籍">书籍</option>
+                            <option value="电子产品">电子产品</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>尺寸-重量对应关系</label>
+                        <div class="size-weight-container">
+                            <div class="size-weight-row">
+                                <input type="text" id="size-input" class="form-control" placeholder="尺寸，如: 2cm">
+                                <input type="number" id="weight-input" class="form-control" placeholder="重量(kg)" step="0.01">
+                                <button class="btn btn-success" id="add-size-weight-btn">
+                                    <i class="fas fa-plus"></i> 添加
+                                </button>
+                            </div>
+                            
+                            <div class="size-weight-list" id="size-weight-list">
+                                <!-- 尺寸-重量列表将在这里动态生成 -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn btn-success" id="save-item-btn">
+                            <i class="fas fa-save"></i> 保存物品
+                        </button>
+                        <button class="btn cancel-edit-btn" id="cancel-item-edit-btn" style="display: none;">
+                            <i class="fas fa-times"></i> 取消编辑
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span>物品列表</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>编码</th>
+                                    <th>描述</th>
+                                    <th>类别</th>
+                                    <th>尺寸</th>
+                                    <th class="action-column">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="item-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 地区规则页 -->
+        <div class="tab-content" id="regions-tab">
+            <div class="card" id="region-form-card" style="display: none;">
+                <div class="card-header">
+                    <span>地区规则管理</span>
+                    <button id="add-region-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" id="editing-region-id" value="">
+                    
+                    <div class="form-group">
+                        <label for="courier-for-region">快递公司</label>
+                        <select id="courier-for-region" class="form-control">
+                            <option value="">请选择快递公司</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="region-name">地区名称</label>
+                        <input type="text" id="region-name" class="form-control" placeholder="例如: 北京">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="base-price">首重价格 (元)</label>
+                        <input type="number" id="base-price" class="form-control" placeholder="例如: 12">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="base-weight">首重重量 (kg)</label>
+                        <input type="number" id="base-weight" class="form-control" placeholder="例如: 1" step="0.01">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unit-price">续重单价 (元)</label>
+                        <input type="number" id="unit-price" class="form-control" placeholder="例如: 5" step="0.01">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unit-weight">续重单位 (kg)</label>
+                        <input type="number" id="unit-weight" class="form-control" placeholder="例如: 1" step="0.01">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn btn-success" id="save-region-btn">
+                            <i class="fas fa-save"></i> 保存规则
+                        </button>
+                        <button class="btn cancel-edit-btn" id="cancel-region-edit-btn" style="display: none;">
+                            <i class="fas fa-times"></i> 取消编辑
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span>地区规则列表</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>快递公司</th>
+                                    <th>地区</th>
+                                    <th>首重</th>
+                                    <th>续重</th>
+                                    <th class="action-column">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="region-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 快递公司管理页 -->
+        <div class="tab-content" id="couriers-tab">
+            <div class="card" id="courier-form-card" style="display: none;">
+                <div class="card-header">
+                    <span>快递公司管理</span>
+                    <button id="add-courier-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" id="editing-courier-id" value="">
+                    
+                    <div class="form-group">
+                        <label for="courier-name">快递公司名称</label>
+                        <input type="text" id="courier-name" class="form-control" placeholder="例如: 顺丰速运">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="courier-code">公司代码</label>
+                        <input type="text" id="courier-code" class="form-control" placeholder="例如: SF">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="courier-desc">公司描述</label>
+                        <textarea id="courier-desc" class="form-control"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn btn-success" id="save-courier-btn">
+                            <i class="fas fa-save"></i> 保存快递公司
+                        </button>
+                        <button class="btn cancel-edit-btn" id="cancel-courier-edit-btn" style="display: none;">
+                            <i class="fas fa-times"></i> 取消编辑
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span>快递公司列表</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>代码</th>
+                                    <th>名称</th>
+                                    <th>描述</th>
+                                    <th class="action-column">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="courier-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 使用localStorage存储数据
+        const STORAGE_KEY_ITEMS = 'shipping_items';
+        const STORAGE_KEY_REGIONS = 'shipping_regions';
+        const STORAGE_KEY_HISTORY = 'shipping_history';
+        const STORAGE_KEY_COURIERS = 'shipping_couriers';
+        const STORAGE_KEY_CURRENT_USER = 'shipping_current_user';
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化用户数据 - 只保留管理员
+            let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEY_CURRENT_USER)) || null;
+            
+            // 选项卡切换功能
+            const tabs = document.querySelectorAll('.tab, .nav-item');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // 更新选项卡状态
+                    document.querySelectorAll('.tab, .nav-item').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // 显示对应的内容
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    if (tabName) {
+                        document.getElementById(`${tabName}-tab`).classList.add('active');
+                    }
+                });
+            });
+            
+            // 从localStorage加载数据
+            let items = JSON.parse(localStorage.getItem(STORAGE_KEY_ITEMS)) || [
+              {
+				   "id": 1,
+				   "code": "501",
+				   "description": "薄棉珠纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 0.63 },
+					 { "size": "2.5cm", "weight": 0.81 },
+					 { "size": "3.2cm", "weight": 1.05 },
+					 { "size": "3.8cm", "weight": 1.22 },
+					 { "size": "5cm", "weight": 1.66 }
+				   ]
+				 },
+				 {
+				   "id": 2,
+				   "code": "601",
+				   "description": "加厚棉珠纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 1 },
+					 { "size": "2.5cm", "weight": 1.21 },
+					 { "size": "3.2cm", "weight": 1.55 },
+					 { "size": "3.8cm", "weight": 1.9 },
+					 { "size": "5cm", "weight": 2.5 }
+				   ]
+				 },
+				 {
+				   "id": 3,
+				   "code": "701",
+				   "description": "棉斜纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 0.72 },
+					 { "size": "2.5cm", "weight": 0.95 },
+					 { "size": "3.2cm", "weight": 1.2 },
+					 { "size": "3.8cm", "weight": 1.4 },
+					 { "size": "5cm", "weight": 2 }
+				   ]
+				 },
+				 {
+				   "id": 4,
+				   "code": "801",
+				   "description": "仿尼龙坑纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "1cm", "weight": 0.4 },
+					 { "size": "1.5cm", "weight": 0.6 },
+					 { "size": "2cm", "weight": 0.8 },
+					 { "size": "2.5cm", "weight": 1 },
+					 { "size": "3.2cm", "weight": 1.3 },
+					 { "size": "3.8cm", "weight": 1.5 },
+					 { "size": "5cm", "weight": 2 }
+				   ]
+				 },
+				 {
+				   "id": 5,
+				   "code": "901",
+				   "description": "仿尼龙人字",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 0.8 },
+					 { "size": "2.5cm", "weight": 1 },
+					 { "size": "3.2cm", "weight": 1.3 },
+					 { "size": "3.8cm", "weight": 1.5 },
+					 { "size": "5cm", "weight": 2 }
+				   ]
+				 },
+				 {
+				   "id": 6,
+				   "code": "1001",
+				   "description": "仿尼龙密纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "1cm", "weight": 0.3 },
+					 { "size": "1.3cm", "weight": 0.35 },
+					 { "size": "1.5cm", "weight": 0.45 },
+					 { "size": "2cm", "weight": 0.6 },
+					 { "size": "2.5cm", "weight": 0.7 },
+					 { "size": "3.2cm", "weight": 0.9 },
+					 { "size": "3.8cm", "weight": 1 },
+					 { "size": "5cm", "weight": 2 }
+				   ]
+				 },
+				 {
+				   "id": 7,
+				   "code": "1201",
+				   "description": "网络间色",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "1cm", "weight": 0.35 },
+					 { "size": "2cm", "weight": 0.7 },
+					 { "size": "2.5cm", "weight": 0.85 },
+					 { "size": "3.2cm", "weight": 1.1 },
+					 { "size": "3.8cm", "weight": 1.3 },
+					 { "size": "5cm", "weight": 1.7 },
+					 { "size": "7.6cm", "weight": 2.6 },
+					 { "size": "10cm", "weight": 3.4 }
+				   ]
+				 },
+				 {
+				   "id": 8,
+				   "code": "P101",
+				   "description": "PP，PP内包边薄",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 0.2 },
+					 { "size": "2.2cm", "weight": 0.2 },
+					 { "size": "2.5cm", "weight": 0.2 }
+				   ]
+				 },
+			  
+			  {
+				  "id": 9,
+				  "code": "G101",
+				  "description": "PP加厚内包边",
+				  "category": "G系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.3 },
+					{ "size": "2.2cm", "weight": 0.3 },
+					{ "size": "2.5cm", "weight": 0.3 }
+				  ]
+				},
+				{
+				  "id": 10,
+				  "code": "1105",
+				  "description": "仿尼龙杂纹织带",
+				  "category": "11系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.75 },
+					{ "size": "2.5cm", "weight": 1 },
+					{ "size": "3.2cm", "weight": 1.3 },
+					{ "size": "3.8cm", "weight": 1.5 },
+					{ "size": "5cm", "weight": 2 }
+				  ]
+				},
+				{
+				  "id": 11,
+				  "code": "MH01",
+				  "description": "麻花带",
+				  "category": "MH系列",
+				  "sizes": [
+					{ "size": "3.8cm", "weight": 1.5 }
+				  ]
+				},
+				{
+				  "id": 12,
+				  "code": "1",
+				  "description": "九条纹",
+				  "category": "九条纹系列",
+				  "sizes": [
+					{ "size": "3.8cm", "weight": 1.44 }
+				  ]
+				},
+				{
+				  "id": 13,
+				  "code": "Y001",
+				  "description": "涤棉间色",
+				  "category": "Y系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.8 },
+					{ "size": "2.5cm", "weight": 1 },
+					{ "size": "3.2cm", "weight": 1.3 },
+					{ "size": "3.8cm", "weight": 1.5 },
+					{ "size": "5cm", "weight": 2 }
+				  ]
+				},
+				{
+				  "id": 14,
+				  "code": "H001",
+				  "description": "棉人字包边",
+				  "category": "H系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.4 },
+					{ "size": "2.2cm", "weight": 0.42 },
+					{ "size": "2.5cm", "weight": 0.45 }
+				  ]
+				},
+				{
+				  "id": 15,
+				  "code": "A301",
+				  "description": "网络包边",
+				  "category": "A系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.45 },
+					{ "size": "2.2cm", "weight": 0.45 },
+					{ "size": "2.5cm", "weight": 0.45 }
+				  ]
+				},
+				{
+				  "id": 16,
+				  "code": "S001",
+				  "description": "仿尼龙内包边",
+				  "category": "S系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.3 },
+					{ "size": "2.2cm", "weight": 0.3 },
+					{ "size": "2.5cm", "weight": 0.3 }
+				  ]
+				},
+				{
+				  "id": 17,
+				  "code": "V001",
+				  "description": "锁边松紧带",
+				  "category": "V系列",
+				  "sizes": []
+				},
+				{
+				  "id": 18,
+				  "code": "CC01",
+				  "description": "丝光对折松紧带",
+				  "category": "C系列",
+				  "sizes": []
+				},
+				{
+				  "id": 19,
+				  "code": "U001",
+				  "description": "针织松紧带",
+				  "category": "U系列",
+				  "sizes": []
+				},
+				{
+				  "id": 20,
+				  "code": "D1",
+				  "description": "涤纶",
+				  "category": "D系列",
+				  "sizes": []
+				},
+				{
+				  "id": 21,
+				  "code": "DM001",
+				  "description": "涤纶提花",
+				  "category": "DM系列",
+				  "sizes": []
+				},
+				{
+				  "id": 22,
+				  "code": "Q001",
+				  "description": "PP坑纹",
+				  "category": "Q系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 1 },
+					{ "size": "2.5cm", "weight": 1.2 },
+					{ "size": "3.2cm", "weight": 1.55 },
+					{ "size": "3.8cm", "weight": 1.85 },
+					{ "size": "5cm", "weight": 2.5 },
+					{ "size": "1.5cm", "weight": 0.75 }
+				  ]
+				},
+				{
+				  "id": 23,
+				  "code": "W001",
+				  "description": "PP珠纹",
+				  "category": "W系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 1 },
+					{ "size": "2.5cm", "weight": 1.25 },
+					{ "size": "3.2cm", "weight": 1.55 },
+					{ "size": "3.8cm", "weight": 1.85 },
+					{ "size": "5cm", "weight": 2.5 }
+				  ]
+				},
+				{
+				  "id": 24,
+				  "code": "R001",
+				  "description": "平纹外包",
+				  "category": "R系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.65 },
+					{ "size": "2.2cm", "weight": 0.7 },
+					{ "size": "2.5cm", "weight": 0.75 }
+				  ]
+				},
+				{
+				  "id": 25,
+				  "code": "T001",
+				  "description": "人字外包",
+				  "category": "T系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.65 },
+					{ "size": "2.2cm", "weight": 0.7 },
+					{ "size": "2.5cm", "weight": 0.75 }
+				  ]
+				},
+				{
+				  "id": 26,
+				  "code": "JL01",
+				  "description": "涤纶网络丝加捻斜纹",
+				  "category": "JL系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 1 },
+					{ "size": "2.5cm", "weight": 1.3 },
+					{ "size": "3.2cm", "weight": 1.7 },
+					{ "size": "3.8cm", "weight": 2 },
+					{ "size": "5cm", "weight": 2.6 }
+				  ]
+				}
+                                
+            ];
+            
+            // 地区规则数据
+            let regions = JSON.parse(localStorage.getItem(STORAGE_KEY_REGIONS)) || [
+              {"id": 2,"courier_id": 1,"name": "广东","base_price": 6,"base_weight": 3,"unit_price": "1.2","unit_weight": 1},
+			  {
+				"id": 3,
+				"courier_id": 1,
+				"name": "江苏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 4,
+				"courier_id": 1,
+				"name": "上海",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 5,
+				"courier_id": 1,
+				"name": "浙江",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 6,
+				"courier_id": 1,
+				"name": "福建",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 7,
+				"courier_id": 1,
+				"name": "广西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 8,
+				"courier_id": 1,
+				"name": "湖北",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 9,
+				"courier_id": 1,
+				"name": "安徽",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 10,
+				"courier_id": 1,
+				"name": "江西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 11,
+				"courier_id": 1,
+				"name": "湖南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 12,
+				"courier_id": 1,
+				"name": "河南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 13,
+				"courier_id": 1,
+				"name": "天津",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 14,
+				"courier_id": 1,
+				"name": "北京",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 15,
+				"courier_id": 1,
+				"name": "贵州",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.7",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 16,
+				"courier_id": 1,
+				"name": "海南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.7",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 17,
+				"courier_id": 1,
+				"name": "重庆",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 18,
+				"courier_id": 1,
+				"name": "山东",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 19,
+				"courier_id": 1,
+				"name": "云南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 20,
+				"courier_id": 1,
+				"name": "四川",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 21,
+				"courier_id": 1,
+				"name": "河北",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 22,
+				"courier_id": 1,
+				"name": "山西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4.2",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 23,
+				"courier_id": 1,
+				"name": "陕西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4.2",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 24,
+				"courier_id": 1,
+				"name": "黑龙",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 25,
+				"courier_id": 1,
+				"name": "吉林",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 26,
+				"courier_id": 1,
+				"name": "辽宁",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 27,
+				"courier_id": 1,
+				"name": "甘肃",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "8",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 28,
+				"courier_id": 1,
+				"name": "内蒙",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "8",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 29,
+				"courier_id": 1,
+				"name": "宁夏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "8",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 30,
+				"courier_id": 1,
+				"name": "青海",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "8",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 31,
+				"courier_id": 1,
+				"name": "西藏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "13",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 32,
+				"courier_id": 1,
+				"name": "新疆",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "13",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 33,
+				"courier_id": 2,
+				"name": "广东",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 0.9,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 34,
+				"courier_id": 2,
+				"name": "江西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 35,
+				"courier_id": 2,
+				"name": "福建",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 36,
+				"courier_id": 2,
+				"name": "江苏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 37,
+				"courier_id": 2,
+				"name": "广西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 38,
+				"courier_id": 2,
+				"name": "湖南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 39,
+				"courier_id": 2,
+				"name": "安徽",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 40,
+				"courier_id": 2,
+				"name": "浙江",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 41,
+				"courier_id": 2,
+				"name": "湖北",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 42,
+				"courier_id": 2,
+				"name": "上海",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 43,
+				"courier_id": 2,
+				"name": "天津",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 44,
+				"courier_id": 2,
+				"name": "河北",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 45,
+				"courier_id": 2,
+				"name": "河南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 46,
+				"courier_id": 2,
+				"name": "北京",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 47,
+				"courier_id": 2,
+				"name": "山东",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 48,
+				"courier_id": 2,
+				"name": "陕西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 49,
+				"courier_id": 2,
+				"name": "山西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 50,
+				"courier_id": 2,
+				"name": "贵州",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 51,
+				"courier_id": 2,
+				"name": "四川",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 52,
+				"courier_id": 2,
+				"name": "云南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 53,
+				"courier_id": 2,
+				"name": "重庆",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 54,
+				"courier_id": 2,
+				"name": "黑龙江",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 55,
+				"courier_id": 2,
+				"name": "辽宁",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 56,
+				"courier_id": 2,
+				"name": "吉林",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2.5,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 57,
+				"courier_id": 2,
+				"name": "海南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 58,
+				"courier_id": 2,
+				"name": "甘肃",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 59,
+				"courier_id": 2,
+				"name": "宁夏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 60,
+				"courier_id": 2,
+				"name": "青海",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 3,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 61,
+				"courier_id": 2,
+				"name": "内蒙",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 3,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 62,
+				"courier_id": 2,
+				"name": "新疆",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 13,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 63,
+				"courier_id": 2,
+				"name": "西藏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 13,
+				"unit_weight": 1
+			  }
+                                          
+            ];
+            
+            // 快递公司数据
+            let couriers = JSON.parse(localStorage.getItem(STORAGE_KEY_COURIERS)) || [
+                {
+                    id: 1,
+                    code: 'ZT',
+                    name: '中通快递',
+                    description: '快递费贵一点'
+                },
+                {
+                    id: 2,
+                    code: 'JT',
+                    name: '极兔快递',
+                    description: '快递费便宜'
+                },
+            ];
+            
+            let history = JSON.parse(localStorage.getItem(STORAGE_KEY_HISTORY)) || [];
+            
+            // 已选物品数组
+            let selectedItems = [];
+            
+            // 当前编辑的物品尺寸列表
+            let currentSizes = [];
+            
+            // 当前选择的尺寸列表（用于多尺寸选择）
+            let selectedSizes = [];
+            
+            // 登录按钮事件
+            document.getElementById('login-button').addEventListener('click', function() {
+                document.getElementById('login-modal').style.display = 'flex';
+            });
+            
+            // 关闭登录模态框
+            document.getElementById('close-login-modal').addEventListener('click', function() {
+                document.getElementById('login-modal').style.display = 'none';
+            });
+            
+            // 点击模态框外部关闭
+            document.getElementById('login-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    document.getElementById('login-modal').style.display = 'none';
+                }
+            });
+            
+            // 分享按钮事件 - 现在未登录用户也可以使用
+            document.getElementById('share-btn').addEventListener('click', function() {
+                document.getElementById('share-modal').style.display = 'flex';
+            });
+            
+            // 关闭分享模态框
+            document.getElementById('close-share-modal').addEventListener('click', function() {
+                document.getElementById('share-modal').style.display = 'none';
+            });
+            
+            // 点击模态框外部关闭
+            document.getElementById('share-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    document.getElementById('share-modal').style.display = 'none';
+                }
+            });
+            
+            // 生成分享数据按钮事件 - 现在未登录用户也可以使用
+            document.getElementById('generate-share-btn').addEventListener('click', function() {
+                // 创建要分享的数据对象
+                const shareData = {
+                    items: items,
+                    regions: regions,
+                    couriers: couriers,
+                    timestamp: new Date().toISOString(),
+                    version: '1.0'
+                };
+                
+                // 转换为JSON字符串并编码为Base64
+                const jsonString = JSON.stringify(shareData);
+                const base64String = btoa(unescape(encodeURIComponent(jsonString)));
+                
+                // 显示分享数据
+                document.getElementById('share-data').textContent = base64String;
+            });
+            
+            // 复制分享数据按钮事件 - 现在未登录用户也可以使用
+            document.getElementById('copy-share-btn').addEventListener('click', function() {
+                const shareData = document.getElementById('share-data').textContent;
+                
+                if (shareData === '点击"生成分享链接"按钮生成数据...') {
+                    alert('请先生成分享数据');
+                    return;
+                }
+                
+                // 使用Clipboard API复制文本
+                navigator.clipboard.writeText(shareData).then(function() {
+                    alert('分享数据已复制到剪贴板！');
+                }, function() {
+                    // 备用方法
+                    const textArea = document.createElement('textarea');
+                    textArea.value = shareData;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('分享数据已复制到剪贴板！');
+                });
+            });
+            
+            // 导入数据按钮事件 - 现在未登录用户也可以使用
+            document.getElementById('import-btn').addEventListener('click', function() {
+                const importData = document.getElementById('import-data').value.trim();
+                const importMessage = document.getElementById('import-message');
+                
+                if (!importData) {
+                    importMessage.innerHTML = '<span class="error-message">请输入要导入的数据</span>';
+                    return;
+                }
+                
+                try {
+                    // 解码Base64并解析JSON
+                    const jsonString = decodeURIComponent(escape(atob(importData)));
+                    const importedData = JSON.parse(jsonString);
+                    
+                    // 验证数据结构
+                    if (!importedData.items || !importedData.regions || !importedData.couriers) {
+                        throw new Error('无效的数据格式');
+                    }
+                    
+                    // 确认覆盖
+                    if (!confirm('导入数据将覆盖当前的物品、地区和快递公司数据。确定要继续吗？')) {
+                        return;
+                    }
+                    
+                    // 更新数据
+                    items = importedData.items;
+                    regions = importedData.regions;
+                    couriers = importedData.couriers;
+                    
+                    // 保存到localStorage
+                    localStorage.setItem(STORAGE_KEY_ITEMS, JSON.stringify(items));
+                    localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
+                    localStorage.setItem(STORAGE_KEY_COURIERS, JSON.stringify(couriers));
+                    
+                    // 更新UI
+                    initDataLists();
+                    
+                    importMessage.innerHTML = '<span class="success-message">数据导入成功！</span>';
+                } catch (error) {
+                    console.error('导入数据错误:', error);
+                    importMessage.innerHTML = '<span class="error-message">数据格式错误，无法导入</span>';
+                }
+            });
+            
+            // 登录功能
+            document.getElementById('login-btn').addEventListener('click', function() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if (!username || !password) {
+                    alert('请输入用户名和密码');
+                    return;
+                }
+                
+                // 验证用户 - 只验证管理员
+                if (username === 'DMWEBBING' && password === '86846881') {
+                    // 登录成功
+                    currentUser = { username: '' };
+                    localStorage.setItem(STORAGE_KEY_CURRENT_USER, JSON.stringify(currentUser));
+                    updateUIForUserRole();
+                    document.getElementById('login-modal').style.display = 'none';
+                    alert(`欢迎回来，管理员 ${username}！`);
+                } else {
+                    alert('用户名或密码错误');
+                }
+            });
+            
+            // 退出登录
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                currentUser = null;
+                localStorage.removeItem(STORAGE_KEY_CURRENT_USER);
+                updateUIForUserRole();
+                alert('已退出登录');
+            });
+            
+            // 根据用户角色更新UI
+            function updateUIForUserRole() {
+                const userInfo = document.getElementById('user-info');
+                const loginButton = document.getElementById('login-button');
+                
+                // 显示或隐藏表单卡片
+                document.getElementById('item-form-card').style.display = currentUser ? 'block' : 'none';
+                document.getElementById('region-form-card').style.display = currentUser ? 'block' : 'none';
+                document.getElementById('courier-form-card').style.display = currentUser ? 'block' : 'none';
+                
+                if (currentUser) {
+                    // 已登录状态（管理员）
+                    userInfo.style.display = 'flex';
+                    loginButton.style.display = 'none';
+                    document.getElementById('user-name').textContent = currentUser.username;
+                    
+                    // 更新操作按钮的显示状态
+                    updateActionButtonsVisibility();
+                } else {
+                    // 未登录状态（普通用户）
+                    userInfo.style.display = 'none';
+                    loginButton.style.display = 'flex';
+                    
+                    // 隐藏所有操作按钮
+                    document.querySelectorAll('.edit-btn, .delete-btn, #add-item-btn-form, #add-region-btn, #add-courier-btn').forEach(btn => {
+                        btn.style.display = 'none';
+                    });
+                }
+            }
+            
+            // 更新操作按钮的可见性
+            function updateActionButtonsVisibility() {
+                const isAdmin = currentUser;
+                
+                // 显示或隐藏操作按钮
+                document.querySelectorAll('.edit-btn, .delete-btn, #add-item-btn-form, #add-region-btn, #add-courier-btn').forEach(btn => {
+                    btn.style.display = isAdmin ? '' : 'none';
+                });
+                
+                // 更新表单操作按钮
+                document.querySelectorAll('.form-actions .btn').forEach(btn => {
+                    btn.style.display = isAdmin ? '' : 'none';
+                });
+            }
+            
+            // 显示加载动画
+            function showLoader() {
+                document.getElementById('loader').style.display = 'block';
+            }
+            
+            // 隐藏加载动画
+            function hideLoader() {
+                document.getElementById('loader').style.display = 'none';
+            }
+            
+            // 重置物品表单
+            function resetItemForm() {
+                document.getElementById('editing-item-id').value = '';
+                document.getElementById('item-code').value = '';
+                document.getElementById('item-desc').value = '';
+                document.getElementById('item-category').value = '小件';
+                currentSizes = [];
+                updateSizeWeightList();
+                document.getElementById('cancel-item-edit-btn').style.display = 'none';
+            }
+            
+            // 重置地区表单
+            function resetRegionForm() {
+                document.getElementById('editing-region-id').value = '';
+                document.getElementById('courier-for-region').value = '';
+                document.getElementById('region-name').value = '';
+                document.getElementById('base-price').value = '';
+                document.getElementById('base-weight').value = '';
+                document.getElementById('unit-price').value = '';
+                document.getElementById('unit-weight').value = '';
+                document.getElementById('cancel-region-edit-btn').style.display = 'none';
+            }
+            
+            // 重置快递公司表单
+            function resetCourierForm() {
+                document.getElementById('editing-courier-id').value = '';
+                document.getElementById('courier-name').value = '';
+                document.getElementById('courier-code').value = '';
+                document.getElementById('courier-desc').value = '';
+                document.getElementById('cancel-courier-edit-btn').style.display = 'none';
+            }
+            
+            // 添加尺寸-重量按钮事件
+            document.getElementById('add-size-weight-btn').addEventListener('click', function() {
+                const sizeInput = document.getElementById('size-input');
+                const weightInput = document.getElementById('weight-input');
+                
+                const size = sizeInput.value.trim();
+                const weight = parseFloat(weightInput.value);
+                
+                if (!size || isNaN(weight)) {
+                    alert('请输入有效的尺寸和重量');
+                    return;
+                }
+                
+                // 添加到当前尺寸列表
+                currentSizes.push({ size, weight });
+                
+                // 更新尺寸列表显示
+                updateSizeWeightList();
+                
+                // 清空输入框
+                sizeInput.value = '';
+                weightInput.value = '';
+            });
+            
+            // 更新尺寸-重量列表显示
+            function updateSizeWeightList() {
+                const listContainer = document.getElementById('size-weight-list');
+                listContainer.innerHTML = '';
+                
+                if (currentSizes.length === 0) {
+                    listContainer.innerHTML = '<p style="color: #999; text-align: center; padding: 10px;">暂无尺寸-重量对应关系</p>';
+                    return;
+                }
+                
+                currentSizes.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'size-weight-item';
+                    itemElement.innerHTML = `
+                        <span>${item.size} → ${item.weight}kg</span>
+                        <button class="delete-btn" data-index="${index}">删</button>
+                    `;
+                    listContainer.appendChild(itemElement);
+                });
+                
+                // 添加删除事件
+                document.querySelectorAll('#size-weight-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        currentSizes.splice(index, 1);
+                        updateSizeWeightList();
+                    });
+                });
+            }
+            
+            // 物品编码输入框自动搜索功能
+            document.getElementById('item-code-input').addEventListener('input', function() {
+                const code = this.value.trim();
+                const detailsContainer = document.getElementById('item-details-container');
+                const notFoundMsg = document.getElementById('item-not-found');
+                
+                // 隐藏未找到消息
+                notFoundMsg.style.display = 'none';
+                
+                // 如果编码为空，隐藏物品详情容器并清空已选尺寸
+                if (!code) {
+                    detailsContainer.style.display = 'none';
+                    selectedSizes = [];
+                    updateSelectedSizesList();
+                    return;
+                }
+                
+                // 查找物品
+                const item = items.find(item => item.code === code);
+                
+                if (!item) {
+                    // 没找到，显示未找到消息
+                    notFoundMsg.style.display = 'block';
+                    detailsContainer.style.display = 'none';
+                    selectedSizes = [];
+                    updateSelectedSizesList();
+                    return;
+                }
+                
+                // 显示物品详情
+                const detailsContent = document.getElementById('item-details-content');
+                const sizeSelect = document.getElementById('item-size-select');
+                
+                detailsContent.innerHTML = `
+                    <div><strong>编码:</strong> ${item.code}</div>
+                    <div><strong>描述:</strong> ${item.description}</div>
+                    <div><strong>类别:</strong> ${item.category}</div>
+                `;
+                
+                // 填充尺寸选择下拉框
+                sizeSelect.innerHTML = '<option value="">请选择尺寸</option>';
+                item.sizes.forEach(sizeItem => {
+                    const option = document.createElement('option');
+                    option.value = sizeItem.size;
+                    option.textContent = `${sizeItem.size} (${sizeItem.weight}kg)`;
+                    option.dataset.weight = sizeItem.weight;
+                    sizeSelect.appendChild(option);
+                });
+                
+                // 显示物品详情容器
+                detailsContainer.style.display = 'block';
+                
+                // 存储当前选择的物品
+                detailsContainer.dataset.itemId = item.id;
+                
+                // 重置已选尺寸列表
+                selectedSizes = [];
+                updateSelectedSizesList();
+            });
+            
+            // 更新已选尺寸列表显示
+            function updateSelectedSizesList() {
+                const listContainer = document.getElementById('selected-sizes-list');
+                listContainer.innerHTML = '';
+                
+                if (selectedSizes.length === 0) {
+                    listContainer.innerHTML = '<p style="color: #999; text-align: center; padding: 10px;">暂无已选尺寸</p>';
+                    return;
+                }
+                
+                selectedSizes.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'selected-size-item';
+                    itemElement.innerHTML = `
+                        <span>${item.size} (${item.weight}kg) × ${item.quantity}</span>
+                        <button class="delete-btn" data-index="${index}">删</button>
+                    `;
+                    listContainer.appendChild(itemElement);
+                });
+                
+                // 添加删除事件
+                document.querySelectorAll('#selected-sizes-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        selectedSizes.splice(index, 1);
+                        updateSelectedSizesList();
+                    });
+                });
+            }
+            
+            // 添加尺寸按钮事件
+            document.getElementById('add-size-btn').addEventListener('click', function() {
+                const detailsContainer = document.getElementById('item-details-container');
+                const sizeSelect = document.getElementById('item-size-select');
+                const quantityInput = document.getElementById('item-quantity');
+                
+                if (!detailsContainer.dataset.itemId) {
+                    alert('请先输入有效的物品编码');
+                    return;
+                }
+                
+                if (!sizeSelect.value) {
+                    alert('请选择尺寸');
+                    return;
+                }
+                
+                const selectedSize = sizeSelect.value;
+                const selectedWeight = parseFloat(sizeSelect.options[sizeSelect.selectedIndex].dataset.weight);
+                const quantity = parseInt(quantityInput.value) || 1;
+                
+                // 检查是否已添加此尺寸
+                const existingSize = selectedSizes.find(item => item.size === selectedSize);
+                
+                if (existingSize) {
+                    // 如果已存在，增加数量
+                    existingSize.quantity += quantity;
+                } else {
+                    // 如果不存在，添加新尺寸
+                    selectedSizes.push({
+                        size: selectedSize,
+                        weight: selectedWeight,
+                        quantity: quantity
+                    });
+                }
+                
+                // 更新已选尺寸列表
+                updateSelectedSizesList();
+                
+                // 重置数量输入框
+                quantityInput.value = '1';
+            });
+            
+            // 添加物品按钮事件
+            document.getElementById('add-item-btn').addEventListener('click', function() {
+                const detailsContainer = document.getElementById('item-details-container');
+                
+                if (!detailsContainer.dataset.itemId) {
+                    alert('请先输入有效的物品编码');
+                    return;
+                }
+                
+                if (selectedSizes.length === 0) {
+                    alert('请至少添加一个尺寸');
+                    return;
+                }
+                
+                const itemId = parseInt(detailsContainer.dataset.itemId);
+                const selectedItem = items.find(item => item.id === itemId);
+                
+                // 为每个已选尺寸添加到已选物品
+                selectedSizes.forEach(sizeItem => {
+                    // 检查是否已存在相同物品和尺寸
+                    const existingItem = selectedItems.find(item => 
+                        item.id === selectedItem.id && item.selectedSize === sizeItem.size
+                    );
+                    
+                    if (existingItem) {
+                        existingItem.quantity += sizeItem.quantity;
+                    } else {
+                        selectedItems.push({
+                            ...selectedItem,
+                            selectedSize: sizeItem.size,
+                            selectedWeight: sizeItem.weight,
+                            quantity: sizeItem.quantity
+                        });
+                    }
+                });
+                
+                // 更新已选物品显示
+                updateSelectedItems();
+                
+                // 重置选择
+                document.getElementById('item-code-input').value = '';
+                detailsContainer.style.display = 'none';
+                detailsContainer.dataset.itemId = '';
+                selectedSizes = [];
+                updateSelectedSizesList();
+                
+                // 隐藏未找到消息
+                document.getElementById('item-not-found').style.display = 'none';
+            });
+            
+            // 更新已选物品显示
+            function updateSelectedItems() {
+                const container = document.getElementById('selected-items');
+                container.innerHTML = '';
+                
+                if (selectedItems.length === 0) {
+                    container.innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">请添加物品</p>';
+                    return;
+                }
+                
+                let totalWeight = 0;
+                let html = '<div class="selected-items-list">';
+                
+                selectedItems.forEach((item, index) => {
+                    const itemWeight = item.selectedWeight * item.quantity;
+                    totalWeight += itemWeight;
+                    
+                    html += `
+                        <div class="selected-item" style="padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: 500;">${item.code} - ${item.description}</div>
+                                <div style="font-size: 14px; color: #666;">尺寸: ${item.selectedSize}, 重量: ${item.selectedWeight}kg × ${item.quantity} = ${itemWeight.toFixed(2)}kg</div>
+                            </div>
+                            <button class="delete-btn" data-index="${index}">删</button>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                html += `<div style="padding: 10px; font-weight: 500; border-top: 1px solid #eee; margin-top: 5px;">
+                            总重量: ${totalWeight.toFixed(2)}kg
+                        </div>`;
+                
+                container.innerHTML = html;
+                
+                // 添加删除事件
+                document.querySelectorAll('#selected-items .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        selectedItems.splice(index, 1);
+                        updateSelectedItems();
+                    });
+                });
+            }
+            
+            // 计算运费按钮事件
+            document.getElementById('calculate-btn').addEventListener('click', function() {
+                const regionSelect = document.getElementById('region-select');
+                
+                if (!regionSelect.value) {
+                    alert('请选择地区');
+                    return;
+                }
+                
+                if (selectedItems.length === 0) {
+                    alert('请添加物品');
+                    return;
+                }
+                
+                // 计算总重量
+                const totalWeight = selectedItems.reduce((sum, item) => {
+                    return sum + (item.selectedWeight * item.quantity);
+                }, 0);
+                
+                // 计算所有快递公司的运费
+                const results = [];
+                
+                couriers.forEach(courier => {
+                    // 获取该快递公司在选定地区的规则
+                    const region = regions.find(r => 
+                        r.courier_id === courier.id && 
+                        r.name === regionSelect.value
+                    );
+                    
+                    if (region) {
+                        // 计算运费
+                        let cost = 0;
+                        let calculation = '';
+                        
+                        if (totalWeight <= region.base_weight) {
+                            cost = region.base_price;
+                            calculation = `总重量 ${totalWeight.toFixed(2)}kg ≤ 首重 ${region.base_weight}kg，运费 = 首重价格: ${region.base_price}元`;
+                        } else {
+                            const excess = totalWeight - region.base_weight;
+                            const units = Math.ceil(excess / region.unit_weight);
+                            cost = region.base_price + units * region.unit_price;
+                            calculation = `首重 ${region.base_weight}kg: ${region.base_price}元，续重 ${excess.toFixed(2)}kg / ${region.unit_weight}kg = ${units}单位 × ${region.unit_price}元/单位，续重费用: ${units * region.unit_price}元`;
+                        }
+                        
+                        results.push({
+                            courier: courier.name,
+                            cost: cost,
+                            calculation: calculation
+                        });
+                    }
+                });
+                
+                // 按运费从低到高排序
+                results.sort((a, b) => a.cost - b.cost);
+                
+                // 显示结果
+                const resultBody = document.getElementById('courier-comparison-body');
+                resultBody.innerHTML = '';
+                
+                if (results.length === 0) {
+                    resultBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">没有找到该地区的运费规则</td></tr>';
+                } else {
+                    // 找到最低价格
+                    const minCost = Math.min(...results.map(r => r.cost));
+                    
+                    results.forEach(result => {
+                        const row = document.createElement('tr');
+                        if (result.cost === minCost) {
+                            row.className = 'best-price';
+                        }
+                        
+                        row.innerHTML = `
+                            <td>${result.courier}</td>
+                            <td>${result.cost.toFixed(2)}</td>
+                            <td>${result.calculation}</td>
+                        `;
+                        resultBody.appendChild(row);
+                    });
+                    
+                    // 显示推荐快递公司
+                    document.getElementById('recommended-courier').textContent = 
+                        `${results[0].courier} (${results[0].cost.toFixed(2)}元)`;
+                }
+                
+                document.getElementById('result-card').style.display = 'block';
+                
+                // 保存到历史记录
+                const historyEntry = {
+                    id: Date.now(),
+                    region: regionSelect.value,
+                    items: selectedItems.map(item => ({
+                        code: item.code,
+                        description: item.description,
+                        size: item.selectedSize,
+                        quantity: item.quantity
+                    })),
+                    totalWeight: totalWeight,
+                    results: results,
+                    timestamp: new Date().toISOString()
+                };
+                
+                history.unshift(historyEntry);
+                localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
+                
+                // 滚动到结果区域
+                document.getElementById('result-card').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // 初始化物品和地区列表
+            function initDataLists() {
+                // 填充地区选择下拉框
+                const regionSelect = document.getElementById('region-select');
+                regionSelect.innerHTML = '<option value="">请选择地区</option>';
+                
+                // 获取所有不重复的地区名称
+                const uniqueRegions = [...new Set(regions.map(region => region.name))];
+                
+                uniqueRegions.forEach(regionName => {
+                    const option = document.createElement('option');
+                    option.value = regionName;
+                    option.textContent = regionName;
+                    regionSelect.appendChild(option);
+                });
+                
+                // 填充地区规则表单中的快递公司选择下拉框
+                const courierForRegion = document.getElementById('courier-for-region');
+                courierForRegion.innerHTML = '<option value="">请选择快递公司</option>';
+                couriers.forEach(courier => {
+                    const option = document.createElement('option');
+                    option.value = courier.id;
+                    option.textContent = `${courier.name} (${courier.code})`;
+                    courierForRegion.appendChild(option);
+                });
+                
+                // 填充物品列表表格
+                const itemList = document.getElementById('item-list');
+                itemList.innerHTML = '';
+                items.forEach(item => {
+                    const row = document.createElement('tr');
+                    
+                    // 生成尺寸-重量对应关系字符串
+                    const sizesText = item.sizes.map(s => `${s.size}→${s.weight}kg`).join(', ');
+                    
+                    row.innerHTML = `
+                        <td>${item.code}</td>
+                        <td>${item.description}</td>
+                        <td>${item.category}</td>
+                        <td>${sizesText}</td>
+                        <td class="action-cell">
+                            <button class="edit-btn" data-id="${item.id}" style="display: ${currentUser ? '' : 'none'}">改</button>
+                            <button class="delete-btn" data-id="${item.id}" style="display: ${currentUser ? '' : 'none'}">删</button>
+                        </td>
+                    `;
+                    itemList.appendChild(row);
+                });
+                
+                // 填充地区规则表格
+                const regionList = document.getElementById('region-list');
+                regionList.innerHTML = '';
+                regions.forEach(region => {
+                    const courier = couriers.find(c => c.id === region.courier_id);
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${courier ? courier.name : '未知'}</td>
+                        <td>${region.name}</td>
+                        <td>${region.base_weight}kg/${region.base_price}元</td>
+                        <td>${region.unit_weight}kg/${region.unit_price}元</td>
+                        <td class="action-cell">
+                            <button class="edit-btn" data-id="${region.id}" style="display: ${currentUser ? '' : 'none'}">改</button>
+                            <button class="delete-btn" data-id="${region.id}" style="display: ${currentUser ? '' : 'none'}">删</button>
+                        </td>
+                    `;
+                    regionList.appendChild(row);
+                });
+                
+                // 填充快递公司列表表格
+                const courierList = document.getElementById('courier-list');
+                courierList.innerHTML = '';
+                couriers.forEach(courier => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${courier.code}</td>
+                        <td>${courier.name}</td>
+                        <td>${courier.description}</td>
+                        <td class="action-cell">
+                            <button class="edit-btn" data-id="${courier.id}" style="display: ${currentUser ? '' : 'none'}">改</button>
+                            <button class="delete-btn" data-id="${courier.id}" style="display: ${currentUser ? '' : 'none'}">删</button>
+                        </td>
+                    `;
+                    courierList.appendChild(row);
+                });
+                
+                // 添加物品删除事件
+                document.querySelectorAll('#item-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        if (confirm('确定要删除这个物品吗？')) {
+                            items = items.filter(item => item.id !== id);
+                            localStorage.setItem(STORAGE_KEY_ITEMS, JSON.stringify(items));
+                            initDataLists();
+                        }
+                    });
+                });
+                
+                // 添加地区删除事件
+                document.querySelectorAll('#region-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        if (confirm('确定要删除这个地区规则吗？')) {
+                            regions = regions.filter(region => region.id !== id);
+                            localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
+                            initDataLists();
+                        }
+                    });
+                });
+                
+                // 添加快递公司删除事件
+                document.querySelectorAll('#courier-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        if (confirm('确定要删除这个快递公司吗？同时会删除相关的地区规则。')) {
+                            // 删除快递公司
+                            couriers = couriers.filter(courier => courier.id !== id);
+                            // 删除相关的地区规则
+                            regions = regions.filter(region => region.courier_id !== id);
+                            localStorage.setItem(STORAGE_KEY_COURIERS, JSON.stringify(couriers));
+                            localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
+                            initDataLists();
+                        }
+                    });
+                });
+                
+                // 添加物品编辑事件
+                document.querySelectorAll('#item-list .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const item = items.find(item => item.id === id);
+                        if (item) {
+                            document.getElementById('editing-item-id').value = item.id;
+                            document.getElementById('item-code').value = item.code;
+                            document.getElementById('item-desc').value = item.description;
+                            document.getElementById('item-category').value = item.category;
+                            
+                            // 设置当前尺寸列表
+                            currentSizes = [...item.sizes];
+                            updateSizeWeightList();
+                            
+                            // 显示取消编辑按钮
+                            document.getElementById('cancel-item-edit-btn').style.display = 'block';
+                            
+                            // 滚动到表单
+                            document.getElementById('items-tab').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+                
+                // 添加地区编辑事件
+                document.querySelectorAll('#region-list .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const region = regions.find(region => region.id === id);
+                        if (region) {
+                            document.getElementById('editing-region-id').value = region.id;
+                            document.getElementById('courier-for-region').value = region.courier_id;
+                            document.getElementById('region-name').value = region.name;
+                            document.getElementById('base-price').value = region.base_price;
+                            document.getElementById('base-weight').value = region.base_weight;
+                            document.getElementById('unit-price').value = region.unit_price;
+                            document.getElementById('unit-weight').value = region.unit_weight;
+                            
+                            // 显示取消编辑按钮
+                            document.getElementById('cancel-region-edit-btn').style.display = 'block';
+                            
+                            // 滚动到表单
+                            document.getElementById('regions-tab').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+                
+                // 添加快递公司编辑事件
+                document.querySelectorAll('#courier-list .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const courier = couriers.find(courier => courier.id === id);
+                        if (courier) {
+                            document.getElementById('editing-courier-id').value = courier.id;
+                            document.getElementById('courier-name').value = courier.name;
+                            document.getElementById('courier-code').value = courier.code;
+                            document.getElementById('courier-desc').value = courier.description;
+                            
+                            // 显示取消编辑按钮
+                            document.getElementById('cancel-courier-edit-btn').style.display = 'block';
+                            
+                            // 滚动到表单
+                            document.getElementById('couriers-tab').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+            
+            // 保存物品按钮事件
+            document.getElementById('save-item-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                const editingId = document.getElementById('editing-item-id').value;
+                const code = document.getElementById('item-code').value.trim();
+                const desc = document.getElementById('item-desc').value.trim();
+                const category = document.getElementById('item-category').value;
+                
+                if (!code || !desc || currentSizes.length === 0) {
+                    alert('请填写完整的物品信息和至少一个尺寸-重量对应关系');
+                    return;
+                }
+                
+                if (editingId) {
+                    // 更新现有物品
+                    const itemIndex = items.findIndex(item => item.id.toString() === editingId);
+                    if (itemIndex !== -1) {
+                        items[itemIndex].code = code;
+                        items[itemIndex].description = desc;
+                        items[itemIndex].category = category;
+                        items[itemIndex].sizes = [...currentSizes];
+                    }
+                } else {
+                    // 检查是否已存在相同编号
+                    const existingItem = items.find(item => item.code === code);
+                    if (existingItem) {
+                        alert('已存在相同编码的物品，请使用不同的编码');
+                        return;
+                    }
+                    
+                    // 添加新物品
+                    const newItem = {
+                        id: Date.now(),
+                        code,
+                        description: desc,
+                        category,
+                        sizes: [...currentSizes]
+                    };
+                    items.push(newItem);
+                }
+                
+                // 保存到localStorage
+                localStorage.setItem(STORAGE_KEY_ITEMS, JSON.stringify(items));
+                
+                // 重置表单
+                resetItemForm();
+                
+                // 更新列表
+                initDataLists();
+                
+                alert('物品保存成功');
+            });
+            
+            // 取消物品编辑按钮事件
+            document.getElementById('cancel-item-edit-btn').addEventListener('click', function() {
+                resetItemForm();
+            });
+            
+            // 保存地区按钮事件
+            document.getElementById('save-region-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                const editingId = document.getElementById('editing-region-id').value;
+                const courierId = document.getElementById('courier-for-region').value;
+                const name = document.getElementById('region-name').value.trim();
+                const basePrice = parseFloat(document.getElementById('base-price').value);
+                const baseWeight = parseFloat(document.getElementById('base-weight').value);
+                const unitPrice = parseFloat(document.getElementById('unit-price').value);
+                const unitWeight = parseFloat(document.getElementById('unit-weight').value);
+                
+                if (!courierId || !name || isNaN(basePrice) || isNaN(baseWeight) || isNaN(unitPrice) || isNaN(unitWeight)) {
+                    alert('请填写完整的地区规则信息');
+                    return;
+                }
+                
+                if (editingId) {
+                    // 更新现有地区
+                    const regionIndex = regions.findIndex(region => region.id.toString() === editingId);
+                    if (regionIndex !== -1) {
+                        regions[regionIndex].courier_id = parseInt(courierId);
+                        regions[regionIndex].name = name;
+                        regions[regionIndex].base_price = basePrice;
+                        regions[regionIndex].base_weight = baseWeight;
+                        regions[regionIndex].unit_price = unitPrice;
+                        regions[regionIndex].unit_weight = unitWeight;
+                    }
+                } else {
+                    // 检查是否已存在相同快递公司和地区的组合
+                    const existingRegion = regions.find(region => 
+                        region.courier_id.toString() === courierId && 
+                        region.name === name
+                    );
+                    
+                    if (existingRegion) {
+                        alert('该快递公司在此地区已存在规则，请修改现有规则');
+                        return;
+                    }
+                    
+                    // 添加新地区
+                    const newRegion = {
+                        id: Date.now(),
+                        courier_id: parseInt(courierId),
+                        name,
+                        base_price: basePrice,
+                        base_weight: baseWeight,
+                        unit_price: unitPrice,
+                        unit_weight: unitWeight
+                    };
+                    regions.push(newRegion);
+                }
+                
+                // 保存到localStorage
+                localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
+                
+                // 重置表单
+                resetRegionForm();
+                
+                // 更新列表
+                initDataLists();
+                
+                alert('地区规则保存成功');
+            });
+            
+            // 取消地区编辑按钮事件
+            document.getElementById('cancel-region-edit-btn').addEventListener('click', function() {
+                resetRegionForm();
+            });
+            
+            // 保存快递公司按钮事件
+            document.getElementById('save-courier-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                const editingId = document.getElementById('editing-courier-id').value;
+                const name = document.getElementById('courier-name').value.trim();
+                const code = document.getElementById('courier-code').value.trim();
+                const desc = document.getElementById('courier-desc').value.trim();
+                
+                if (!name || !code) {
+                    alert('请填写快递公司名称和代码');
+                    return;
+                }
+                
+                if (editingId) {
+                    // 更新现有快递公司
+                    const courierIndex = couriers.findIndex(courier => courier.id.toString() === editingId);
+                    if (courierIndex !== -1) {
+                        couriers[courierIndex].name = name;
+                        couriers[courierIndex].code = code;
+                        couriers[courierIndex].description = desc;
+                    }
+                } else {
+                    // 检查是否已存在相同代码
+                    const existingCourier = couriers.find(courier => courier.code === code);
+                    if (existingCourier) {
+                        alert('已存在相同代码的快递公司，请使用不同的代码');
+                        return;
+                    }
+                    
+                    // 添加新快递公司
+                    const newCourier = {
+                        id: Date.now(),
+                        code,
+                        name,
+                        description: desc
+                    };
+                    couriers.push(newCourier);
+                }
+                
+                // 保存到localStorage
+                localStorage.setItem(STORAGE_KEY_COURIERS, JSON.stringify(couriers));
+                
+                // 重置表单
+                resetCourierForm();
+                
+                // 更新列表
+                initDataLists();
+                
+                alert('快递公司保存成功');
+            });
+            
+            // 取消快递公司编辑按钮事件
+            document.getElementById('cancel-courier-edit-btn').addEventListener('click', function() {
+                resetCourierForm();
+            });
+            
+            // 添加新物品按钮事件
+            document.getElementById('add-item-btn-form').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                resetItemForm();
+            });
+            
+            // 添加新地区按钮事件
+            document.getElementById('add-region-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                resetRegionForm();
+            });
+            
+            // 添加快递公司按钮事件
+            document.getElementById('add-courier-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                resetCourierForm();
+            });
+            
+            // 初始化页面
+            updateUIForUserRole();
+            initDataLists();
+        });
+    </script>
+</body>
+</html>
