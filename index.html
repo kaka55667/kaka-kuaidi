@@ -129,22 +129,22 @@
         
         @keyframes modalFadeIn {
             from { opacity: 0; transform: translateY(-20px); }
-            到 { opacity: 1; transform: translateY(0); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        。modal-header {
+        .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
         
-        。modal-header h2 {
+        .modal-header h2 {
             color: var(--dark);
             font-size: 22px;
         }
         
-        。close-btn {
+        .close-btn {
             background: none;
             border: none;
             font-size: 24px;
@@ -153,7 +153,7 @@
         }
         
         /* 导航样式 */
-        。tabs {
+        .tabs {
             display: flex;
             background: white;
             border-bottom: 1px solid var(--border);
@@ -162,18 +162,18 @@
             z-index: 90;
         }
         
-        。tab {
+        .tab {
             flex: 1;
             text-align: center;
             padding: 15px 0;
             font-weight: 500;
             color: var(--gray);
             border-bottom: 3px solid transparent;
-            transition: 全部 0.3s;
+            transition: all 0.3s;
             cursor: pointer;
         }
         
-        .tab。active {
+        .tab.active {
             color: var(--primary);
             border-bottom: 3px solid var(--primary);
         }
@@ -191,11 +191,11 @@
         
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
-            到 { opacity: 1; transform: translateY(0); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* 卡片样式 */
-        。card {
+        .card {
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -203,7 +203,7 @@
             overflow: hidden;
         }
         
-        。card-header {
+        .card-header {
             padding: 15px 20px;
             border-bottom: 1px solid var(--border);
             font-weight: 600;
@@ -213,23 +213,23 @@
             justify-content: space-between;
         }
         
-        。card-body {
+        .card-body {
             padding: 20px;
         }
         
         /* 表单元素 */
-        。form-group {
+        .form-group {
             margin-bottom: 20px;
         }
         
-        。form-group label {
+        .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
             color: var(--dark);
         }
         
-        。form-control {
+        .form-control {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid var(--border);
@@ -238,13 +238,13 @@
             transition: border-color 0.3s;
         }
         
-        。form-control:focus {
+        .form-control:focus {
             border-color: var(--primary);
             outline: none;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
         }
         
-        。btn {
+        .btn {
             display: inline-block;
             padding: 12px 20px;
             background: var(--primary);
@@ -255,45 +255,45 @@
             font-weight: 500;
             cursor: pointer;
             text-align: center;
-            transition: 全部 0.3s;
+            transition: all 0.3s;
             width: 100%;
         }
         
-        。btn:hover {
+        .btn:hover {
             background: var(--primary-dark);
         }
         
-        。btn-secondary {
+        .btn-secondary {
             background: var(--gray);
         }
         
-        。btn-secondary:hover {
+        .btn-secondary:hover {
             background: #7f8c8d;
         }
         
-        。btn-success {
+        .btn-success {
             background: var(--secondary);
         }
         
-        。btn-success:hover {
+        .btn-success:hover {
             background: #27ae60;
         }
         
-        。btn-danger {
+        .btn-danger {
             background: var(--danger);
         }
         
-        。btn-danger:hover {
+        .btn-danger:hover {
             background: #c0392b;
         }
         
         /* 表格样式 */
-        。table {
+        .table {
             width: 100%;
             border-collapse: collapse;
         }
         
-        。table th {
+        .table th {
             background: #f8f9fa;
             padding: 12px 5px;
             text-align: left;
@@ -302,27 +302,27 @@
             border-bottom: 2px solid var(--border);
         }
         
-        。table td {
+        .table td {
             padding: 10px 5px;
             border-bottom: 1px solid var(--border);
         }
         
-        。table tr:last-child td {
+        .table tr:last-child td {
             border-bottom: none;
         }
         
-        。table tr:hover {
+        .table tr:hover {
             background: #f8f9fa;
         }
         
-        。action-cell {
+        .action-cell {
             display: flex;
             gap: 8px;
         }
         
         /* 修改操作按钮样式 - 文字按钮 */
-        。action-cell 。edit-btn， 
-        。action-cell 。delete-btn {
+        .action-cell .edit-btn, 
+        .action-cell .delete-btn {
             padding: 4px 8px;
             border-radius: 4px;
             font-size: 12px;
@@ -331,28 +331,28 @@
             text-align: center;
         }
         
-        。edit-btn {
-            background: rgba(52， 152, 219， 0.1);
+        .edit-btn {
+            background: rgba(52, 152, 219, 0.1);
             color: var(--primary);
             border: 1px solid rgba(52, 152, 219, 0.3);
         }
         
-        。edit-btn:hover {
-            background: rgba(52， 152, 219, 0.2);
+        .edit-btn:hover {
+            background: rgba(52, 152, 219, 0.2);
         }
         
-        。delete-btn {
-            background: rgba(231， 76， 60, 0.1);
+        .delete-btn {
+            background: rgba(231, 76, 60, 0.1);
             color: var(--danger);
             border: 1px solid rgba(231, 76, 60, 0.3);
         }
         
-        。delete-btn:hover {
-            background: rgba(231， 76, 60, 0.2);
+        .delete-btn:hover {
+            background: rgba(231, 76, 60, 0.2);
         }
         
         /* 结果样式 */
-        。result-box {
+        .result-box {
             background: #e3f2fd;
             border-left: 4px solid var(--primary);
             padding: 15px;
@@ -360,18 +360,18 @@
             margin-top: 20px;
         }
         
-        。result-title {
+        .result-title {
             font-weight: 600;
             margin-bottom: 10px;
             color: var(--primary);
         }
         
-        。result-content {
+        .result-content {
             line-height: 1.8;
             white-space: pre-line;
         }
         
-        。summary {
+        .summary {
             display: flex;
             justify-content: space-between;
             margin-top: 15px;
@@ -383,7 +383,7 @@
         }
         
         /* 底部导航 */
-        。bottom-nav {
+        .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
@@ -394,7 +394,7 @@
             z-index: 100;
         }
         
-        。nav-item {
+        .nav-item {
             flex: 1;
             text-align: center;
             padding: 12px 0;
@@ -403,11 +403,11 @@
             transition: all 0.3s;
         }
         
-        。nav-item.active {
+        .nav-item.active {
             color: var(--primary);
         }
         
-        。nav-item i {
+        .nav-item i {
             display: block;
             font-size: 20px;
             margin-bottom: 4px;
@@ -415,41 +415,41 @@
         
         /* 响应式调整 */
         @media (max-width: 480px) {
-            。logo h1 {
+            .logo h1 {
                 font-size: 18px;
             }
             
-            。card-body {
+            .card-body {
                 padding: 15px;
             }
         }
         
         /* 动画效果 */
-        。fade-in {
+        .fade-in {
             animation: fadeIn 0.3s ease-in-out;
         }
         
         @keyframes fadeIn {
             from { opacity: 0; }
-            到 { opacity: 1; }
+            to { opacity: 1; }
         }
         
         /* 加载动画 */
-        。loader {
+        .loader {
             display: none;
             text-align: center;
             padding: 20px;
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%， -50%);
-            background: rgba(255， 255, 255， 0.9);
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             z-index: 1000;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
-        。loader .spinner {
+        .loader .spinner {
             width: 40px;
             height: 40px;
             border: 4px solid rgba(52, 152, 219, 0.2);
@@ -465,7 +465,7 @@
         }
         
         /* 尺寸-重量管理样式 */
-        。size-weight-container {
+        .size-weight-container {
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 15px;
@@ -473,27 +473,27 @@
             overflow: hidden;
         }
         
-        。size-weight-row {
+        .size-weight-row {
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
             align-items: center;
         }
         
-        。size-weight-row 。form-control {
+        .size-weight-row .form-control {
             flex: 1;
         }
         
-        。size-weight-row 。btn {
+        .size-weight-row .btn {
             width: auto;
             padding: 10px 15px;
         }
         
-        。size-weight-list {
+        .size-weight-list {
             margin-top: 15px;
         }
         
-        。size-weight-item {
+        .size-weight-item {
             display: flex;
             justify-content: space-between;
             padding: 10px;
@@ -501,81 +501,81 @@
             align-items: center;
         }
         
-        。size-weight-item:last-child {
+        .size-weight-item:last-child {
             border-bottom: none;
         }
         
-        。size-weight-item span {
+        .size-weight-item span {
             flex: 1;
         }
         
         /* 编码输入样式 */
-        。code-input-container {
+        .code-input-container {
             display: flex;
             gap: 10px;
         }
         
-        。code-input-container .form-control {
+        .code-input-container .form-control {
             flex: 1;
         }
         
-        。code-input-container 。btn {
+        .code-input-container .btn {
             width: auto;
         }
 
         /* 快递公司比较表格样式 */
-        。courier-comparison {
+        .courier-comparison {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
         }
         
-        。courier-comparison th {
-            background: rgba(52， 152, 219, 0.1);
+        .courier-comparison th {
+            background: rgba(52, 152, 219, 0.1);
             padding: 12px;
             text-align: left;
             font-weight: 600;
         }
         
-        。courier-comparison td {
+        .courier-comparison td {
             padding: 12px;
             border-bottom: 1px solid #ddd;
         }
         
-        。courier-comparison tr:last-child td {
+        .courier-comparison tr:last-child td {
             border-bottom: none;
         }
         
-        。courier-comparison tr:hover {
+        .courier-comparison tr:hover {
             background: rgba(52, 152, 219, 0.05);
         }
         
-        。best-price {
+        .best-price {
             background: rgba(46, 204, 113, 0.1) !important;
             font-weight: 600;
         }
 
         /* 表单操作按钮组 */
-        。form-actions {
+        .form-actions {
             display: flex;
             gap: 10px;
             margin-top: 20px;
         }
         
-        。form-actions 。btn {
+        .form-actions .btn {
             flex: 1;
         }
         
-        。cancel-edit-btn {
+        .cancel-edit-btn {
             background: var(--gray);
         }
         
-        。cancel-edit-btn:hover {
+        .cancel-edit-btn:hover {
             background: #7f8c8d;
         }
         
         /* 用户管理样式 */
-        。role-badge {
+        .role-badge {
             display: inline-block;
             padding: 3px 8px;
             border-radius: 12px;
@@ -583,24 +583,24 @@
             font-weight: 500;
         }
         
-        。role-admin {
+        .role-admin {
             background: rgba(231, 76, 60, 0.1);
             color: var(--danger);
         }
         
-        。role-user {
-            background: rgba(46， 204， 113， 0.1);
+        .role-user {
+            background: rgba(46, 204, 113, 0.1);
             color: var(--secondary);
         }
 
         /* 新增：自动搜索提示样式 */
-        。search-hint {
+        .search-hint {
             font-size: 12px;
             color: var(--gray);
             margin-top: 5px;
         }
 
-        。item-not-found {
+        .item-not-found {
             color: var(--danger);
             font-size: 14px;
             margin-top: 10px;
@@ -611,18 +611,18 @@
         }
         
         /* 新增：多尺寸选择样式 */
-        。multi-size-container {
+        .multi-size-container {
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 15px;
             margin-top: 15px;
         }
         
-        。selected-sizes-list {
+        .selected-sizes-list {
             margin-top: 15px;
         }
         
-        。selected-size-item {
+        .selected-size-item {
             display: flex;
             justify-content: space-between;
             padding: 8px;
@@ -630,22 +630,22 @@
             align-items: center;
         }
         
-        。selected-size-item:last-child {
+        .selected-size-item:last-child {
             border-bottom: none;
         }
 
         /* 新增：分享功能样式 */
-        。share-actions {
+        .share-actions {
             display: flex;
             gap: 10px;
             margin-top: 20px;
         }
         
-        。share-actions 。btn {
+        .share-actions .btn {
             flex: 1;
         }
         
-        。share-data {
+        .share-data {
             margin-top: 15px;
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -659,25 +659,25 @@
             word-break: break-all;
         }
         
-        。import-section {
+        .import-section {
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px dashed var(--border);
         }
         
-        。success-message {
+        .success-message {
             color: var(--secondary);
             margin-top: 10px;
             font-weight: 500;
         }
         
-        。error-message {
+        .error-message {
             color: var(--danger);
             margin-top: 10px;
         }
         
         /* 新增：尺寸数量输入行样式 */
-        。size-quantity-row {
+        .size-quantity-row {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
@@ -687,13 +687,13 @@
             background-color: #f9f9f9;
         }
         
-        。size-label {
+        .size-label {
             flex: 70%;
             padding: 0 10px;
             font-weight: 500;
         }
         
-        。quantity-input-container {
+        .quantity-input-container {
             flex: 30%;
             display: flex;
             align-items: center;
@@ -719,19 +719,19 @@
             margin-left: 5px;
         }
         
-        。quantity-plus:hover {
+        .quantity-plus:hover {
             background: #27ae60;
         }
         
         /* 新增：已选物品分组样式 */
-        。selected-item-group {
+        .selected-item-group {
             margin-bottom: 15px;
             border: 1px solid var(--border);
             border-radius: 8px;
             overflow: hidden;
         }
         
-        。item-group-header {
+        .item-group-header {
             padding: 10px;
             background: #f9f9f9;
             display: flex;
@@ -740,33 +740,33 @@
             cursor: pointer;
         }
         
-        。item-group-header:hover {
+        .item-group-header:hover {
             background: #f0f0f0;
         }
         
-        。item-group-details {
+        .item-group-details {
             padding: 10px;
             display: none;
             background: white;
         }
         
-        。item-group-details table {
+        .item-group-details table {
             width: 100%;
             border-collapse: collapse;
         }
         
-        。item-group-details th,
-        。item-group-details td {
+        .item-group-details th,
+        .item-group-details td {
             padding: 5px;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
         
-        。item-group-details th {
+        .item-group-details th {
             font-weight: 600;
         }
         
-        。red-number {
+        .red-number {
             color: red;
             font-weight: bold;
         }
@@ -787,11 +787,11 @@
             </div>
             <div class="form-group">
                 <label for="username">用户名</label>
-                <input 输入="text" id="username" class="form-control" placeholder="请输入管理员账号">
+                <input type="text" id="username" class="form-control" placeholder="请输入管理员账号">
             </div>
             <div class="form-group">
                 <label for="password">密码</label>
-                <input 输入="password" id="password" class="form-control" placeholder="请输入密码">
+                <input type="password" id="password" class="form-control" placeholder="请输入密码">
             </div>
             <button class="btn" id="login-btn">登录</button>
             <div style="text-align: center; margin-top: 15px;">
@@ -894,7 +894,7 @@
                     <!-- 修改后的物品选择部分 -->
                     <div class="form-group">
                         <label for="item-code-input">物品编码</label>
-                        <input 输入="text" id="item-code-input" class="form-control" placeholder="输入物品编码，如: 501">
+                        <input type="text" id="item-code-input" class="form-control" placeholder="输入物品编码，如: 501">
                         <div class="search-hint">输入物品编码后，系统将自动显示物品详情</div>
                         <div class="item-not-found" id="item-not-found">未找到该编码对应的物品</div>
                     </div>
@@ -1735,16 +1735,16 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    <input 输入="hidden" id="editing-courier-id" value="">
+                    <input type="hidden" id="editing-courier-id" value="">
                     
                     <div class="form-group">
                         <label for="courier-name">快递公司名称</label>
-                        <input 输入="text" id="courier-name" class="form-control" placeholder="例如: 顺丰速运">
+                        <input type="text" id="courier-name" class="form-control" placeholder="例如: 顺丰速运">
                     </div>
                     
                     <div class="form-group">
                         <label for="courier-code">公司代码</label>
-                        <input 输入="text" id="courier-code" class="form-control" placeholder="例如: SF">
+                        <input type="text" id="courier-code" class="form-control" placeholder="例如: SF">
                     </div>
                     
                     <div class="form-group">
@@ -1839,7 +1839,7 @@
                     
                     // 显示对应的内容
                     document.querySelectorAll('.tab-content').forEach(content => {
-                        content.classList。remove('active');
+                        content.classList.remove('active');
                     });
                     if (tabName) {
                         document.getElementById(`${tabName}-tab`).classList.add('active');
@@ -1850,8 +1850,8 @@
             // 从localStorage加载数据
             let items = JSON.parse(localStorage.getItem(STORAGE_KEY_ITEMS)) || [
               {
-                   "id": 1，
-                   "code": "501"，
+                   "id": 1,
+                   "code": "501",
                    "description": "薄棉珠纹",
                    "category": "小件",
                    "sizes": [
@@ -1861,7 +1861,7 @@
                      { "size": "3.8cm", "weight": 1.22 },
                      { "size": "5cm", "weight": 1.66 }
                    ]
-                 }，
+                 },
                  {
                    "id": 2,
                    "code": "601",
@@ -1869,32 +1869,32 @@
                    "category": "小件",
                    "sizes": [
                      { "size": "2cm", "weight": 1 },
-                     { "size": "2.5cm"， "weight": 1.21 },
+                     { "size": "2.5cm", "weight": 1.21 },
                      { "size": "3.2cm", "weight": 1.55 },
-                     { "size": "3.8cm"， "weight": 1.9 },
+                     { "size": "3.8cm", "weight": 1.9 },
                      { "size": "5cm", "weight": 2.5 }
                    ]
                  },
             ];
             
             // 地区规则数据 - 修改所有快递费用规则，低于首重的物品都按首重的价格计算
-            let regions = JSON.parse(localStorage。getItem(STORAGE_KEY_REGIONS)) || [
+            let regions = JSON.parse(localStorage.getItem(STORAGE_KEY_REGIONS)) || [
               {
                 "id": 2,
                 "courier_id": 1,
                 "name": "广东",
                 "base_price": 6,
-                "base_weight": 3，
+                "base_weight": 3,
                 "unit_price": "1.2",
                 "unit_weight": 1
-              }，
+              },
               {
-                "id": 3，
-                "courier_id": 1，
+                "id": 3,
+                "courier_id": 1,
                 "name": "江苏",
                 "base_price": 6,
-                "base_weight": 3，
-                "unit_price": "2.9"，
+                "base_weight": 3,
+                "unit_price": "2.9",
                 "unit_weight": 1
               },
             ];
@@ -1908,7 +1908,7 @@
                     description: '快递费贵一点'
                 },
                 {
-                    id: 2，
+                    id: 2,
                     code: 'JT',
                     name: '极兔快递',
                     description: '快递费便宜'
@@ -1922,8 +1922,8 @@
             let currentSizes = [];
             
             // 登录按钮事件
-            document.getElementById('login-button')。addEventListener('click', function() {
-                document.getElementById('login-modal')。style.display = 'flex';
+            document.getElementById('login-button').addEventListener('click', function() {
+                document.getElementById('login-modal').style.display = 'flex';
             });
             
             // 关闭登录模态框
@@ -1932,37 +1932,37 @@
             });
             
             // 点击模态框外部关闭
-            document.getElementById('login-modal')。addEventListener('click', function(e) {
-                if (e。target === this) {
-                    document.getElementById('login-modal')。style。display = 'none';
+            document.getElementById('login-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    document.getElementById('login-modal').style.display = 'none';
                 }
             });
             
             // 分享按钮事件 - 现在未登录用户也可以使用
-            document.getElementById('share-btn')。addEventListener('click', function() {
+            document.getElementById('share-btn').addEventListener('click', function() {
                 document.getElementById('share-modal').style.display = 'flex';
             });
             
             // 关闭分享模态框
-            document.getElementById('close-share-modal')。addEventListener('click'， function() {
+            document.getElementById('close-share-modal').addEventListener('click', function() {
                 document.getElementById('share-modal').style.display = 'none';
             });
             
             // 点击模态框外部关闭
-            document.getElementById('share-modal')。addEventListener('click', function(e) {
-                if (e。target === this) {
-                    document.getElementById('share-modal')。style。display = 'none';
+            document.getElementById('share-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    document.getElementById('share-modal').style.display = 'none';
                 }
             });
             
             // 生成分享数据按钮事件 - 现在未登录用户也可以使用
-            document.getElementById('generate-share-btn')。addEventListener('click', function() {
+            document.getElementById('generate-share-btn').addEventListener('click', function() {
                 // 创建要分享的数据对象 - 只包含必要数据，去除HTML自带数据
                 const shareData = {
                     items: items,
-                    regions: regions，
-                    couriers: couriers，
-                    timestamp: new Date()。toISOString()，
+                    regions: regions,
+                    couriers: couriers,
+                    timestamp: new Date().toISOString(),
                     version: '1.0'
                 };
                 
@@ -2106,7 +2106,7 @@
             });
             
             // 退出登录
-            document.getElementById('logout-btn')。addEventListener('click'， function() {
+            document.getElementById('logout-btn').addEventListener('click', function() {
                 currentUser = null;
                 localStorage.removeItem(STORAGE_KEY_CURRENT_USER);
                 updateUIForUserRole();
@@ -2121,24 +2121,24 @@
                 // 显示或隐藏表单卡片
                 document.getElementById('item-form-card').style.display = currentUser ? 'block' : 'none';
                 document.getElementById('region-form-card').style.display = currentUser ? 'block' : 'none';
-                document。getElementById('courier-form-card').style.display = currentUser ? 'block' : 'none';
+                document.getElementById('courier-form-card').style.display = currentUser ? 'block' : 'none';
                 
                 if (currentUser) {
                     // 已登录状态（管理员）
-                    userInfo。style.display = 'flex';
-                    loginButton。style.display = 'none';
-                    document。getElementById('user-name').textContent = currentUser.username;
+                    userInfo.style.display = 'flex';
+                    loginButton.style.display = 'none';
+                    document.getElementById('user-name').textContent = currentUser.username;
                     
                     // 更新操作按钮的显示状态
                     updateActionButtonsVisibility();
                 } else {
                     // 未登录状态（普通用户）
-                    userInfo。style.display = 'none';
-                    loginButton。style.display = 'flex';
+                    userInfo.style.display = 'none';
+                    loginButton.style.display = 'flex';
                     
                     // 隐藏所有操作按钮
-                    document。querySelectorAll('.edit-btn, .delete-btn, #add-item-btn-form, #add-region-btn, #add-courier-btn')。forEach(btn => {
-                        btn。style.display = 'none';
+                    document.querySelectorAll('.edit-btn, .delete-btn, #add-item-btn-form, #add-region-btn, #add-courier-btn').forEach(btn => {
+                        btn.style.display = 'none';
                     });
                 }
             }
@@ -2148,65 +2148,65 @@
                 const isAdmin = currentUser;
                 
                 // 显示或隐藏操作按钮
-                document。querySelectorAll('.edit-btn, .delete-btn, #add-item-btn-form, #add-region-btn, #add-courier-btn')。forEach(btn => {
-                    btn。style。display = isAdmin ? '' : 'none';
+                document.querySelectorAll('.edit-btn, .delete-btn, #add-item-btn-form, #add-region-btn, #add-courier-btn').forEach(btn => {
+                    btn.style.display = isAdmin ? '' : 'none';
                 });
                 
                 // 更新表单操作按钮
-                document。querySelectorAll('.form-actions .btn')。forEach(btn => {
-                    btn。style。display = isAdmin ? '' : 'none';
+                document.querySelectorAll('.form-actions .btn').forEach(btn => {
+                    btn.style.display = isAdmin ? '' : 'none';
                 });
             }
             
             // 显示加载动画
             function showLoader() {
-                document。getElementById('loader')。style。display = 'block';
+                document.getElementById('loader').style.display = 'block';
             }
             
             // 隐藏加载动画
             function hideLoader() {
-                document。getElementById('loader')。style.display = 'none';
+                document.getElementById('loader').style.display = 'none';
             }
             
             // 重置物品表单
             function resetItemForm() {
-                document。getElementById('editing-item-id')。value = '';
+                document.getElementById('editing-item-id').value = '';
                 document.getElementById('item-code').value = '';
                 document.getElementById('item-desc').value = '';
-                document。getElementById('item-category').value = '小件';
+                document.getElementById('item-category').value = '小件';
                 currentSizes = [];
                 updateSizeWeightList();
-                document。getElementById('cancel-item-edit-btn')。style.display = 'none';
+                document.getElementById('cancel-item-edit-btn').style.display = 'none';
             }
             
             // 重置地区表单
             function resetRegionForm() {
-                document。getElementById('editing-region-id')。value = '';
-                document。getElementById('courier-for-region')。value = '';
-                document。getElementById('region-name')。value = '';
-                document。getElementById('base-price')。value = '';
-                document。getElementById('base-weight')。value = '';
-                document。getElementById('unit-price')。value = '';
-                document。getElementById('unit-weight')。value = '';
-                document。getElementById('cancel-region-edit-btn').style.display = 'none';
+                document.getElementById('editing-region-id').value = '';
+                document.getElementById('courier-for-region').value = '';
+                document.getElementById('region-name').value = '';
+                document.getElementById('base-price').value = '';
+                document.getElementById('base-weight').value = '';
+                document.getElementById('unit-price').value = '';
+                document.getElementById('unit-weight').value = '';
+                document.getElementById('cancel-region-edit-btn').style.display = 'none';
             }
             
             // 重置快递公司表单
             function resetCourierForm() {
-                document。getElementById('editing-courier-id')。value = '';
+                document.getElementById('editing-courier-id').value = '';
                 document.getElementById('courier-name').value = '';
-                document。getElementById('courier-code').value = '';
-                document。getElementById('courier-desc')。value = '';
-                document。getElementById('cancel-courier-edit-btn')。style。display = 'none';
+                document.getElementById('courier-code').value = '';
+                document.getElementById('courier-desc').value = '';
+                document.getElementById('cancel-courier-edit-btn').style.display = 'none';
             }
             
             // 添加尺寸-重量按钮事件
-            document。getElementById('add-size-weight-btn')。addEventListener('click', function() {
+            document.getElementById('add-size-weight-btn').addEventListener('click', function() {
                 const sizeInput = document.getElementById('size-input');
                 const weightInput = document.getElementById('weight-input');
                 
-                const size = sizeInput。value.trim();
-                const weight = parseFloat(weightInput。value);
+                const size = sizeInput.value.trim();
+                const weight = parseFloat(weightInput.value);
                 
                 if (!size || isNaN(weight)) {
                     alert('请输入有效的尺寸和重量');
@@ -2214,48 +2214,48 @@
                 }
                 
                 // 添加到当前尺寸列表
-                currentSizes。push({ size， weight });
+                currentSizes.push({ size, weight });
                 
                 // 更新尺寸列表显示
                 updateSizeWeightList();
                 
                 // 清空输入框
                 sizeInput.value = '';
-                weightInput。value = '';
+                weightInput.value = '';
             });
             
             // 更新尺寸-重量列表显示
             function updateSizeWeightList() {
                 const listContainer = document.getElementById('size-weight-list');
-                listContainer。innerHTML = '';
+                listContainer.innerHTML = '';
                 
-                if (currentSizes。length === 0) {
-                    listContainer。innerHTML = '<p style="color: #999; text-align: center; padding: 10px;">暂无尺寸-重量对应关系</p>';
+                if (currentSizes.length === 0) {
+                    listContainer.innerHTML = '<p style="color: #999; text-align: center; padding: 10px;">暂无尺寸-重量对应关系</p>';
                     return;
                 }
                 
-                currentSizes。forEach((item， index) => {
-                    const itemElement = document。createElement('div');
-                    itemElement。className = 'size-weight-item';
-                    itemElement。innerHTML = `
-                        <span>${item。size} → ${item。weight}kg</span>
+                currentSizes.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'size-weight-item';
+                    itemElement.innerHTML = `
+                        <span>${item.size} → ${item.weight}kg</span>
                         <button class="delete-btn" data-index="${index}">删</button>
                     `;
-                    listContainer。appendChild(itemElement);
+                    listContainer.appendChild(itemElement);
                 });
                 
                 // 添加删除事件
-                document。querySelectorAll('#size-weight-list .delete-btn')。forEach(btn => {
-                    btn。addEventListener('click', function() {
+                document.querySelectorAll('#size-weight-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
                         const index = parseInt(this.getAttribute('data-index'));
-                        currentSizes。splice(index， 1);
+                        currentSizes.splice(index, 1);
                         updateSizeWeightList();
                     });
                 });
             }
             
             // 物品编码输入框自动搜索功能 - 修改：添加检查是否需要清空已选物品的逻辑
-            document。getElementById('item-code-input')。addEventListener('input'， function() {
+            document.getElementById('item-code-input').addEventListener('input', function() {
                 // 检查是否需要清空已选物品
                 if (hasCalculated) {
                     selectedItems = [];
@@ -2264,15 +2264,15 @@
                 }
                 
                 const code = this.value.trim();
-                const detailsContainer = document。getElementById('item-details-container');
+                const detailsContainer = document.getElementById('item-details-container');
                 const notFoundMsg = document.getElementById('item-not-found');
                 
                 // 隐藏未找到消息
-                notFoundMsg。style。display = 'none';
+                notFoundMsg.style.display = 'none';
                 
                 // 如果编码为空，隐藏物品详情容器
                 if (!code) {
-                    detailsContainer。style。display = 'none';
+                    detailsContainer.style.display = 'none';
                     return;
                 }
                 
@@ -2281,39 +2281,39 @@
                 
                 if (!item) {
                     // 没找到，显示未找到消息
-                    notFoundMsg。style。display = 'block';
-                    detailsContainer。style。display = 'none';
+                    notFoundMsg.style.display = 'block';
+                    detailsContainer.style.display = 'none';
                     return;
                 }
                 
                 // 显示物品详情
                 const detailsContent = document.getElementById('item-details-content');
-                const sizeQuantityList = document。getElementById('size-quantity-list');
+                const sizeQuantityList = document.getElementById('size-quantity-list');
                 
-                detailsContent。innerHTML = `
-                    <div><strong>编码:</strong> ${item。code}</div>
-                    <div><strong>描述:</strong> ${item。description}</div>
-                    <div><strong>类别:</strong> ${item。category}</div>
+                detailsContent.innerHTML = `
+                    <div><strong>编码:</strong> ${item.code}</div>
+                    <div><strong>描述:</strong> ${item.description}</div>
+                    <div><strong>类别:</strong> ${item.category}</div>
                 `;
                 
                 // 生成尺寸数量输入行
-                sizeQuantityList。innerHTML = '';
-                item。sizes。forEach(sizeItem => {
+                sizeQuantityList.innerHTML = '';
+                item.sizes.forEach(sizeItem => {
                     const row = document.createElement('div');
                     row.className = 'size-quantity-row';
-                    row。innerHTML = `
-                        <div class="size-label">${sizeItem。size} (${sizeItem。weight}kg)</div>
+                    row.innerHTML = `
+                        <div class="size-label">${sizeItem.size} (${sizeItem.weight}kg)</div>
                         <div class="quantity-input-container">
-                            <input type="number" class="quantity-input" value="0" min="0" data-size="${sizeItem。size}" data-weight="${sizeItem。weight}">
-                            <button class="quantity-plus" data-size="${sizeItem。size}">+</button>
+                            <input type="number" class="quantity-input" value="0" min="0" data-size="${sizeItem.size}" data-weight="${sizeItem.weight}">
+                            <button class="quantity-plus" data-size="${sizeItem.size}">+</button>
                         </div>
                     `;
-                    sizeQuantityList。appendChild(row);
+                    sizeQuantityList.appendChild(row);
                 });
                 
                 // 添加加号按钮事件
-                document。querySelectorAll('.quantity-plus')。forEach(btn => {
-                    btn。addEventListener('click'， function() {
+                document.querySelectorAll('.quantity-plus').forEach(btn => {
+                    btn.addEventListener('click', function() {
                         const size = this.getAttribute('data-size');
                         const input = document.querySelector(`.quantity-input[data-size="${size}"]`);
                         input.value = parseInt(input.value) + 1;
@@ -2321,17 +2321,17 @@
                 });
                 
                 // 显示物品详情容器
-                detailsContainer。style。display = 'block';
+                detailsContainer.style.display = 'block';
                 
                 // 存储当前选择的物品
-                detailsContainer。dataset.itemId = item.id;
+                detailsContainer.dataset.itemId = item.id;
             });
             
             // 添加物品按钮事件
             document.getElementById('add-item-btn').addEventListener('click', function() {
                 const detailsContainer = document.getElementById('item-details-container');
                 
-                if (!detailsContainer。dataset.itemId) {
+                if (!detailsContainer.dataset.itemId) {
                     alert('请先输入有效的物品编码');
                     return;
                 }
@@ -2351,17 +2351,17 @@
                         const weight = parseFloat(input.getAttribute('data-weight'));
                         
                         // 检查是否已存在相同物品和尺寸
-                        const existingItem = selectedItems。find(item => 
-                            item。id === selectedItem.id && item.selectedSize === size
+                        const existingItem = selectedItems.find(item => 
+                            item.id === selectedItem.id && item.selectedSize === size
                         );
                         
                         if (existingItem) {
-                            existingItem。quantity += quantity;
+                            existingItem.quantity += quantity;
                         } else {
                             selectedItems.push({
-                                ...selectedItem，
-                                selectedSize: size，
-                                selectedWeight: weight，
+                                ...selectedItem,
+                                selectedSize: size,
+                                selectedWeight: weight,
                                 quantity: quantity
                             });
                         }
@@ -2377,12 +2377,12 @@
                 updateSelectedItems();
                 
                 // 重置选择
-                document。getElementById('item-code-input')。value = '';
-                detailsContainer。style。display = 'none';
+                document.getElementById('item-code-input').value = '';
+                detailsContainer.style.display = 'none';
                 detailsContainer.dataset.itemId = '';
                 
                 // 隐藏未找到消息
-                document.getElementById('item-not-found')。style.display = 'none';
+                document.getElementById('item-not-found').style.display = 'none';
             });
             
             // 更新已选物品显示 - 修改为分组显示
@@ -2390,18 +2390,18 @@
                 const container = document.getElementById('selected-items');
                 container.innerHTML = '';
                 
-                if (selectedItems。length === 0) {
-                    container。innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">请添加物品</p>';
+                if (selectedItems.length === 0) {
+                    container.innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">请添加物品</p>';
                     return;
                 }
                 
                 // 按物品id分组
                 const groups = {};
-                selectedItems。forEach(item => {
+                selectedItems.forEach(item => {
                     if (!groups[item.id]) {
-                        groups[item。id] = [];
+                        groups[item.id] = [];
                     }
-                    groups[item。id].push(item);
+                    groups[item.id].push(item);
                 });
                 
                 let totalWeight = 0;
@@ -2416,9 +2416,9 @@
                     let groupTotalWeight = 0;
                     
                     // 计算该分组的总数量和总重量
-                    itemsInGroup。forEach(item => {
+                    itemsInGroup.forEach(item => {
                         groupTotalQuantity += item.quantity;
-                        groupTotalWeight += item。selectedWeight * item.quantity;
+                        groupTotalWeight += item.selectedWeight * item.quantity;
                     });
                     
                     totalWeight += groupTotalWeight;
@@ -2426,15 +2426,15 @@
                     // 分组头部
                     html += `
                         <div class="selected-item-group">
-                            <div class="item-group-header" data-id="${firstItem。id}">
-                                <div style="font-weight: 500;">${firstItem。code} - ${firstItem。description}</div>
+                            <div class="item-group-header" data-id="${firstItem.id}">
+                                <div style="font-weight: 500;">${firstItem.code} - ${firstItem.description}</div>
                                 <div>
                                     <span style="margin-right: 15px;">总数量: ${groupTotalQuantity}</span>
-                                    <span style="margin-right: 15px;">总重量: ${groupTotalWeight。toFixed(2)}kg</span>
+                                    <span style="margin-right: 15px;">总重量: ${groupTotalWeight.toFixed(2)}kg</span>
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                             </div>
-                            <div class="item-group-details" id="details-${firstItem。id}">
+                            <div class="item-group-details" id="details-${firstItem.id}">
                                 <table>
                                     <thead>
                                         <tr>
@@ -2452,11 +2452,11 @@
                         const itemWeight = item.selectedWeight * item.quantity;
                         html += `
                             <tr>
-                                <td>${item。selectedSize}</td>
-								<td>${item。quantity}</td>
-                                <td>${item。selectedWeight}</td>
+                                <td>${item.selectedSize}</td>
+								<td>${item.quantity}</td>
+                                <td>${item.selectedWeight}</td>
                                
-                                <td>${itemWeight。toFixed(2)}</td>
+                                <td>${itemWeight.toFixed(2)}</td>
                             </tr>
                         `;
                     });
@@ -2464,14 +2464,14 @@
                     html += `
                                     </tbody>
                                 </table>
-                                <button class="delete-group-btn" data-id="${firstItem。id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
+                                <button class="delete-group-btn" data-id="${firstItem.id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
                             </div>
                         </div>
                     `;
                 }
                 
                 html += `<div style="padding: 10px; font-weight: 500; border-top: 1px solid #eee; margin-top: 5px;">
-                            总重量: ${totalWeight。toFixed(2)}kg
+                            总重量: ${totalWeight.toFixed(2)}kg
                          </div>`;
                 
                 container.innerHTML = html;
@@ -3114,5 +3114,3 @@
     
     
   </body><div id="sc-translator-shadow" style="all: initial;"></div></html>
-
-
