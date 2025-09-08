@@ -515,11 +515,11 @@
             gap: 10px;
         }
         
-        .code-input-container .form-control {
+        。code-input-container .form-control {
             flex: 1;
         }
         
-        .code-input-container .btn {
+        。code-input-container 。btn {
             width: auto;
         }
 
@@ -531,7 +531,7 @@
         }
         
         。courier-comparison th {
-            background: rgba(52, 152, 219, 0.1);
+            background: rgba(52， 152, 219, 0.1);
             padding: 12px;
             text-align: left;
             font-weight: 600;
@@ -588,19 +588,19 @@
             color: var(--danger);
         }
         
-        .role-user {
-            background: rgba(46, 204, 113, 0.1);
+        。role-user {
+            background: rgba(46， 204， 113， 0.1);
             color: var(--secondary);
         }
 
         /* 新增：自动搜索提示样式 */
-        .search-hint {
+        。search-hint {
             font-size: 12px;
             color: var(--gray);
             margin-top: 5px;
         }
 
-        .item-not-found {
+        。item-not-found {
             color: var(--danger);
             font-size: 14px;
             margin-top: 10px;
@@ -611,18 +611,18 @@
         }
         
         /* 新增：多尺寸选择样式 */
-        .multi-size-container {
+        。multi-size-container {
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 15px;
             margin-top: 15px;
         }
         
-        .selected-sizes-list {
+        。selected-sizes-list {
             margin-top: 15px;
         }
         
-        .selected-size-item {
+        。selected-size-item {
             display: flex;
             justify-content: space-between;
             padding: 8px;
@@ -630,7 +630,7 @@
             align-items: center;
         }
         
-        .selected-size-item:last-child {
+        。selected-size-item:last-child {
             border-bottom: none;
         }
 
@@ -641,7 +641,7 @@
             margin-top: 20px;
         }
         
-        。share-actions .btn {
+        。share-actions 。btn {
             flex: 1;
         }
         
@@ -894,7 +894,7 @@
                     <!-- 修改后的物品选择部分 -->
                     <div class="form-group">
                         <label for="item-code-input">物品编码</label>
-                        <input type="text" id="item-code-input" class="form-control" placeholder="输入物品编码，如: 501">
+                        <input 输入="text" id="item-code-input" class="form-control" placeholder="输入物品编码，如: 501">
                         <div class="search-hint">输入物品编码后，系统将自动显示物品详情</div>
                         <div class="item-not-found" id="item-not-found">未找到该编码对应的物品</div>
                     </div>
@@ -1890,7 +1890,7 @@
               }，
               {
                 "id": 3，
-                "courier_id": 1,
+                "courier_id": 1，
                 "name": "江苏",
                 "base_price": 6,
                 "base_weight": 3，
@@ -1908,7 +1908,7 @@
                     description: '快递费贵一点'
                 },
                 {
-                    id: 2,
+                    id: 2，
                     code: 'JT',
                     name: '极兔快递',
                     description: '快递费便宜'
@@ -1922,8 +1922,8 @@
             let currentSizes = [];
             
             // 登录按钮事件
-            document.getElementById('login-button').addEventListener('click', function() {
-                document.getElementById('login-modal').style.display = 'flex';
+            document.getElementById('login-button')。addEventListener('click', function() {
+                document.getElementById('login-modal')。style.display = 'flex';
             });
             
             // 关闭登录模态框
@@ -1932,37 +1932,37 @@
             });
             
             // 点击模态框外部关闭
-            document.getElementById('login-modal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    document.getElementById('login-modal').style.display = 'none';
+            document.getElementById('login-modal')。addEventListener('click', function(e) {
+                if (e。target === this) {
+                    document.getElementById('login-modal')。style。display = 'none';
                 }
             });
             
             // 分享按钮事件 - 现在未登录用户也可以使用
-            document.getElementById('share-btn').addEventListener('click', function() {
+            document.getElementById('share-btn')。addEventListener('click', function() {
                 document.getElementById('share-modal').style.display = 'flex';
             });
             
             // 关闭分享模态框
-            document.getElementById('close-share-modal').addEventListener('click', function() {
+            document.getElementById('close-share-modal')。addEventListener('click'， function() {
                 document.getElementById('share-modal').style.display = 'none';
             });
             
             // 点击模态框外部关闭
-            document.getElementById('share-modal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    document.getElementById('share-modal').style.display = 'none';
+            document.getElementById('share-modal')。addEventListener('click', function(e) {
+                if (e。target === this) {
+                    document.getElementById('share-modal')。style。display = 'none';
                 }
             });
             
             // 生成分享数据按钮事件 - 现在未登录用户也可以使用
-            document.getElementById('generate-share-btn').addEventListener('click', function() {
+            document.getElementById('generate-share-btn')。addEventListener('click', function() {
                 // 创建要分享的数据对象 - 只包含必要数据，去除HTML自带数据
                 const shareData = {
                     items: items,
-                    regions: regions,
-                    couriers: couriers,
-                    timestamp: new Date().toISOString(),
+                    regions: regions，
+                    couriers: couriers，
+                    timestamp: new Date()。toISOString()，
                     version: '1.0'
                 };
                 
@@ -2452,11 +2452,11 @@
                         const itemWeight = item.selectedWeight * item.quantity;
                         html += `
                             <tr>
-                                <td>${item.selectedSize}</td>
-								<td>${item.quantity}</td>
-                                <td>${item.selectedWeight}</td>
+                                <td>${item。selectedSize}</td>
+								<td>${item。quantity}</td>
+                                <td>${item。selectedWeight}</td>
                                
-                                <td>${itemWeight.toFixed(2)}</td>
+                                <td>${itemWeight。toFixed(2)}</td>
                             </tr>
                         `;
                     });
@@ -2464,14 +2464,14 @@
                     html += `
                                     </tbody>
                                 </table>
-                                <button class="delete-group-btn" data-id="${firstItem.id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
+                                <button class="delete-group-btn" data-id="${firstItem。id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
                             </div>
                         </div>
                     `;
                 }
                 
                 html += `<div style="padding: 10px; font-weight: 500; border-top: 1px solid #eee; margin-top: 5px;">
-                            总重量: ${totalWeight.toFixed(2)}kg
+                            总重量: ${totalWeight。toFixed(2)}kg
                          </div>`;
                 
                 container.innerHTML = html;
@@ -2603,12 +2603,12 @@
                         gdCalculation += `<br><span class="red-number">${gdRedNumber.toFixed(2)}元 (总重量 × 续重单价，不含首重)</span>`;
                     }
                 
-                    //results.push({
-                      //  courier: '联昊通快递',
-                       // cost: gdCost,
-                       // calculation: gdCalculation,
-                       // redNumber: gdRedNumber
-                  //  });
+                    results.push({
+                        courier: '联昊通快递',
+                        cost: gdCost,
+                        calculation: gdCalculation,
+                        redNumber: gdRedNumber
+                    });
                 }
 
                 
@@ -3114,4 +3114,5 @@
     
     
   </body><div id="sc-translator-shadow" style="all: initial;"></div></html>
+
 
