@@ -1,6 +1,5 @@
-<html lang="zh-CN"><head>
-    </head>
-    <body>
+<html lang="zh-CN">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>快递运费计算器</title>
@@ -9,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* 样式保持不变，与原始代码相同 */
         * {
             margin: 0;
             padding: 0;
@@ -37,7 +37,7 @@
             overflow-x: hidden;
         }
         
-        。container {
+        .container {
             max-width: 100%;
             margin: 0 auto;
             padding: 0 15px;
@@ -45,7 +45,7 @@
         
         /* 头部样式 */
         header {
-            background: linear-gradient(135deg， var(--primary)， var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             padding: 15px 0;
             position: sticky;
@@ -54,34 +54,34 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        。header-content {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        。logo {
+        .logo {
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        。logo i {
+        .logo i {
             font-size: 24px;
         }
         
-        。logo h1 {
+        .logo h1 {
             font-size: 20px;
             font-weight: 600;
         }
         
-        。actions {
+        .actions {
             display: flex;
             gap: 15px;
             align-items: center;
         }
         
-        。action-btn {
+        .action-btn {
             background: rgba(255, 255, 255, 0);
             border: none;
             color: white;
@@ -92,10 +92,10 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            transition: 全部 0.3s;
+            transition: all 0.3s;
         }
         
-        。user-info {
+        .user-info {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -104,20 +104,20 @@
         }
         
         /* 登录模态框样式 */
-        。modal {
+        .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0， 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             align-items: center;
             justify-content: center;
         }
         
-        。modal-content {
+        .modal-content {
             background: white;
             border-radius: 12px;
             width: 90%;
@@ -675,104 +675,9 @@
             color: var(--danger);
             margin-top: 10px;
         }
-        
-        /* 新增：尺寸数量输入行样式 */
-        .size-quantity-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            padding: 8px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            background-color: #f9f9f9;
-        }
-        
-        .size-label {
-            flex: 70%;
-            padding: 0 10px;
-            font-weight: 500;
-        }
-        
-        .quantity-input-container {
-            flex: 30%;
-            display: flex;
-            align-items: center;
-        }
-        
-        .quantity-input {
-            width: 60%;
-            padding: 8px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        .quantity-plus {
-            width: 40%;
-            padding: 8px;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: center;
-            margin-left: 5px;
-        }
-        
-        .quantity-plus:hover {
-            background: #27ae60;
-        }
-        
-        /* 新增：已选物品分组样式 */
-        .selected-item-group {
-            margin-bottom: 15px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .item-group-header {
-            padding: 10px;
-            background: #f9f9f9;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-        
-        .item-group-header:hover {
-            background: #f0f0f0;
-        }
-        
-        .item-group-details {
-            padding: 10px;
-            display: none;
-            background: white;
-        }
-        
-        .item-group-details table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .item-group-details th,
-        .item-group-details td {
-            padding: 5px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .item-group-details th {
-            font-weight: 600;
-        }
-        
-        .red-number {
-            color: red;
-            font-weight: bold;
-        }
     </style>
-
-
+</head>
+<body>
     <div class="loader" id="loader">
         <div class="spinner"></div>
         <div>处理中...</div>
@@ -783,7 +688,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>管理员登录</h2>
-                <button class="close-btn" id="close-login-modal">×</button>
+                <button class="close-btn" id="close-login-modal">&times;</button>
             </div>
             <div class="form-group">
                 <label for="username">用户名</label>
@@ -805,7 +710,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>分享数据</h2>
-                <button class="close-btn" id="close-share-modal">×</button>
+                <button class="close-btn" id="close-share-modal">&times;</button>
             </div>
             <div class="form-group">
                 <label>分享您的数据配置</label>
@@ -814,29 +719,22 @@
                 </p>
                 <div class="share-actions">
                     <button class="btn" id="generate-share-btn">
-                        <i class="fas fa-link"></i> 生成分享数据
+                        <i class="fas fa-link"></i> 生成分享链接
                     </button>
                     <button class="btn btn-secondary" id="copy-share-btn">
                         <i class="fas fa-copy"></i> 复制到剪贴板
                     </button>
-                    <button class="btn btn-success" id="download-share-btn">
-                        <i class="fas fa-download"></i> 下载TXT文件
-                    </button>
                 </div>
                 <div class="share-data" id="share-data">
-                    点击"生成分享数据"按钮生成数据...
+                    点击"生成分享链接"按钮生成数据...
                 </div>
             </div>
             <div class="import-section">
                 <label>导入分享数据</label>
                 <p style="font-size: 14px; color: var(--gray); margin-bottom: 10px;">
-                    粘贴他人分享的数据或上传TXT文件来导入配置。
+                    粘贴他人分享的数据链接或代码来导入配置。
                 </p>
                 <textarea id="import-data" class="form-control" rows="4" placeholder="粘贴分享数据..."></textarea>
-                <div class="form-group" style="margin-top: 10px;">
-                    <label for="import-file">或上传TXT文件</label>
-                    <input type="file" id="import-file" class="form-control" accept=".txt">
-                </div>
                 <button class="btn btn-success" id="import-btn" style="margin-top: 10px;">
                     <i class="fas fa-download"></i> 导入数据
                 </button>
@@ -864,12 +762,13 @@
                             <i class="fas fa-sign-out-alt"></i>
                         </button>
                     </div>
-                    <button class="action-btn" id="login-button" style="display: flex;">
+                    <button class="action-btn" id="login-button">
                         <i class="fas fa-user"></i>
                     </button>
+                </div>
             </div>
         </div>
-    </div></header>
+    </header>
     
     <div class="tabs">
         <div class="tab active" data-tab="calc">运费计算</div>
@@ -888,7 +787,9 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="region-select">选择地区</label>
-                        <select id="region-select" class="form-control"><option value="">请选择地区</option><option value="广东">广东</option><option value="江苏">江苏</option><option value="上海">上海</option><option value="浙江">浙江</option><option value="福建">福建</option><option value="广西">广西</option><option value="湖北">湖北</option><option value="安徽">安徽</option><option value="江西">江西</option><option value="湖南">湖南</option><option value="河南">河南</option><option value="天津">天津</option><option value="北京">北京</option><option value="贵州">贵州</option><option value="海南">海南</option><option value="重庆">重庆</option><option value="山东">山东</option><option value="云南">云南</option><option value="四川">四川</option><option value="河北">河北</option><option value="山西">山西</option><option value="陕西">陕西</option><option value="黑龙">黑龙</option><option value="吉林">吉林</option><option value="辽宁">辽宁</option><option value="甘肃">甘肃</option><option value="内蒙">内蒙</option><option value="宁夏">宁夏</option><option value="青海">青海</option><option value="西藏">西藏</option><option value="新疆">新疆</option><option value="黑龙江">黑龙江</option></select>
+                        <select id="region-select" class="form-control">
+                            <option value="">请选择地区</option>
+                        </select>
                     </div>
                     
                     <!-- 修改后的物品选择部分 -->
@@ -904,11 +805,27 @@
                         <div style="background: #f9f9f9; padding: 15px; border-radius: 8px;">
                             <div id="item-details-content"></div>
                             
-                            <!-- 修改后的尺寸数量输入区域 -->
                             <div class="form-group" style="margin-top: 15px;">
-                                <label>尺寸和数量</label>
-                                <div id="size-quantity-list">
-                                    <!-- 尺寸数量行将在这里动态生成 -->
+                                <label for="item-size-select">选择尺寸</label>
+                                <select id="item-size-select" class="form-control">
+                                    <option value="">请选择尺寸</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="item-quantity">数量</label>
+                                <input type="number" id="item-quantity" class="form-control" value="1" min="1">
+                            </div>
+                            
+                            <!-- 多尺寸选择容器 -->
+                            <div class="multi-size-container">
+                                <button class="btn btn-success" id="add-size-btn">
+                                    <i class="fas fa-plus"></i> 添加此尺寸
+                                </button>
+                                
+                                <div class="selected-sizes-list" id="selected-sizes-list">
+                                    <!-- 已选尺寸将在这里显示 -->
+                                    <p style="color: #999; text-align: center; padding: 10px;">暂无已选尺寸</p>
                                 </div>
                             </div>
                         </div>
@@ -966,7 +883,7 @@
             <div class="card" id="item-form-card" style="display: none;">
                 <div class="card-header">
                     <span>物品管理</span>
-                    <button id="add-item-btn-form" style="display: none;">
+                    <button id="add-item-btn-form">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
@@ -1039,574 +956,7 @@
                                     <th class="action-column">操作</th>
                                 </tr>
                             </thead>
-                            <tbody id="item-list"><tr>
-                        <td>501</td>
-                        <td>薄棉珠纹</td>
-                        <td>小件</td>
-                        <td>2cm→0.63kg, 2.5cm→0.81kg, 3.2cm→1.05kg, 3.8cm→1.22kg, 5cm→1.66kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>601</td>
-                        <td>加厚棉珠纹</td>
-                        <td>小件</td>
-                        <td>2cm→1kg, 2.5cm→1.21kg, 3.2cm→1.55kg, 3.8cm→1.9kg, 5cm→2.5kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="2" style="display: none">改</button>
-                            <button class="delete-btn" data-id="2" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>701</td>
-                        <td>棉斜纹</td>
-                        <td>小件</td>
-                        <td>2cm→0.72kg, 2.5cm→0.95kg, 3.2cm→1.2kg, 3.8cm→1.4kg, 5cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="3" style="display: none">改</button>
-                            <button class="delete-btn" data-id="3" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>801</td>
-                        <td>仿尼龙坑纹</td>
-                        <td>小件</td>
-                        <td>1cm→0.4kg, 1.5cm→0.6kg, 2cm→0.8kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="4" style="display: none">改</button>
-                            <button class="delete-btn" data-id="4" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>901</td>
-                        <td>仿尼龙人字</td>
-                        <td>小件</td>
-                        <td>2cm→0.8kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="5" style="display: none">改</button>
-                            <button class="delete-btn" data-id="5" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1001</td>
-                        <td>仿尼龙密纹</td>
-                        <td>小件</td>
-                        <td>1cm→0.3kg, 1.3cm→0.35kg, 1.5cm→0.45kg, 2cm→0.6kg, 2.5cm→0.7kg, 3.2cm→0.9kg, 3.8cm→1kg, 5cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="6" style="display: none">改</button>
-                            <button class="delete-btn" data-id="6" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1201</td>
-                        <td>网络间色</td>
-                        <td>小件</td>
-                        <td>1cm→0.35kg, 2cm→0.7kg, 2.5cm→0.85kg, 3.2cm→1.1kg, 3.8cm→1.3kg, 5cm→1.7kg, 7.6cm→2.6kg, 10cm→3.4kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="7" style="display: none">改</button>
-                            <button class="delete-btn" data-id="7" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>P101</td>
-                        <td>PP，PP内包边薄</td>
-                        <td>小件</td>
-                        <td>2cm→0.2kg, 2.2cm→0.2kg, 2.5cm→0.2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="8" style="display: none">改</button>
-                            <button class="delete-btn" data-id="8" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>G101</td>
-                        <td>PP加厚内包边</td>
-                        <td>G系列</td>
-                        <td>2cm→0.3kg, 2.2cm→0.3kg, 2.5cm→0.3kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="9" style="display: none">改</button>
-                            <button class="delete-btn" data-id="9" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1105</td>
-                        <td>仿尼龙杂纹织带</td>
-                        <td>11系列</td>
-                        <td>2cm→0.75kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="10" style="display: none">改</button>
-                            <button class="delete-btn" data-id="10" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>MH01</td>
-                        <td>麻花带</td>
-                        <td>MH系列</td>
-                        <td>3.8cm→1.5kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="11" style="display: none">改</button>
-                            <button class="delete-btn" data-id="11" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>TW01</td>
-                        <td>九条纹</td>
-                        <td></td>
-                        <td>3.8cm→1.44kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="12" style="display: none">改</button>
-                            <button class="delete-btn" data-id="12" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>Y001</td>
-                        <td>涤棉间色</td>
-                        <td>Y系列</td>
-                        <td>2cm→0.8kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="13" style="display: none">改</button>
-                            <button class="delete-btn" data-id="13" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>H201</td>
-                        <td>棉人字包边</td>
-                        <td></td>
-                        <td>2cm→0.4kg, 2.2cm→0.42kg, 2.5cm→0.45kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="14" style="display: none">改</button>
-                            <button class="delete-btn" data-id="14" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>A001</td>
-                        <td>网络包边</td>
-                        <td></td>
-                        <td>2cm→0.45kg, 2.2cm→0.45kg, 2.5cm→0.45kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="15" style="display: none">改</button>
-                            <button class="delete-btn" data-id="15" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>S001</td>
-                        <td>仿尼龙内包边</td>
-                        <td>S系列</td>
-                        <td>2cm→0.3kg, 2.2cm→0.3kg, 2.5cm→0.3kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="16" style="display: none">改</button>
-                            <button class="delete-btn" data-id="16" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>V001</td>
-                        <td>锁边松紧带</td>
-                        <td>V系列</td>
-                        <td></td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="17" style="display: none">改</button>
-                            <button class="delete-btn" data-id="17" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>CC01</td>
-                        <td>丝光对折松紧带</td>
-                        <td>C系列</td>
-                        <td></td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="18" style="display: none">改</button>
-                            <button class="delete-btn" data-id="18" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>D1</td>
-                        <td>涤纶</td>
-                        <td>D系列</td>
-                        <td></td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="20" style="display: none">改</button>
-                            <button class="delete-btn" data-id="20" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>DM001</td>
-                        <td>涤纶提花</td>
-                        <td>DM系列</td>
-                        <td></td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="21" style="display: none">改</button>
-                            <button class="delete-btn" data-id="21" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>Q001</td>
-                        <td>PP坑纹</td>
-                        <td>Q系列</td>
-                        <td>2cm→1kg, 2.5cm→1.2kg, 3.2cm→1.55kg, 3.8cm→1.85kg, 5cm→2.5kg, 1.5cm→0.75kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="22" style="display: none">改</button>
-                            <button class="delete-btn" data-id="22" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>W001</td>
-                        <td>PP珠纹</td>
-                        <td>W系列</td>
-                        <td>2cm→1kg, 2.5cm→1.25kg, 3.2cm→1.55kg, 3.8cm→1.85kg, 5cm→2.5kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="23" style="display: none">改</button>
-                            <button class="delete-btn" data-id="23" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>R001</td>
-                        <td>平纹外包</td>
-                        <td>R系列</td>
-                        <td>2cm→0.65kg, 2.2cm→0.7kg, 2.5cm→0.75kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="24" style="display: none">改</button>
-                            <button class="delete-btn" data-id="24" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>T001</td>
-                        <td>人字外包</td>
-                        <td>T系列</td>
-                        <td>2cm→0.65kg, 2.2cm→0.7kg, 2.5cm→0.75kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="25" style="display: none">改</button>
-                            <button class="delete-btn" data-id="25" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>JL01</td>
-                        <td>涤纶网络丝加捻斜纹</td>
-                        <td>JL系列</td>
-                        <td>2cm→1kg, 2.5cm→1.3kg, 3.2cm→1.7kg, 3.8cm→2kg, 5cm→2.6kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="26" style="display: none">改</button>
-                            <button class="delete-btn" data-id="26" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>A301</td>
-                        <td>网络包边</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.4kg, 2.2cm→0.45kg, 2.5cm→0.5kg, 3.0cm→0.6kg, 4.0cm→0.8kg, 5.0cm→1kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756456505541" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756456505541" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>701加厚</td>
-                        <td>加厚斜纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→1kg, 2.5cm→1.3kg, 3.2cm→1.7kg, 3.8cm→2kg, 5.0cm→2.6kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756456593733" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756456593733" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>801加厚</td>
-                        <td>仿尼龙加厚坑纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→1kg, 2.5cm→1.3kg, 3.2cm→1.7kg, 3.8cm→2kg, 5.0cm→2.6kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756456770229" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756456770229" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>901加厚</td>
-                        <td>仿尼龙加厚人字</td>
-                        <td>小件</td>
-                        <td>2.0cm→1kg, 2.5cm→1.3kg, 3.2cm→1.7kg, 3.8cm→2kg, 5.0cm→2.6kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756456854333" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756456854333" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1111</td>
-                        <td>仿尼龙中厚密纹</td>
-                        <td>小件</td>
-                        <td>1.0cm→0.4kg, 1.2cm→0.5kg, 1.5cm→0.65kg, 2.0cm→0.8kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5.0cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457037629" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457037629" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1119</td>
-                        <td>仿尼龙加厚密纹</td>
-                        <td>小件</td>
-                        <td>1.0cm→0.6kg, 1.5cm→0.9kg, 2.0cm→1.2kg, 2.5cm→1.5kg, 3.2cm→2kg, 3.8cm→2.3kg, 5.0cm→3kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457143461" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457143461" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1107</td>
-                        <td>仿尼龙安全纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.8kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5.0cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457262349" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457262349" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>X001</td>
-                        <td>仿尼龙安全纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.8kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5.0cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457327957" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457327957" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1108</td>
-                        <td>仿尼龙安全纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.8kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5.0cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457390757" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457390757" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1121</td>
-                        <td>仿尼龙三斜织带</td>
-                        <td>小件</td>
-                        <td>3.2cm→2.1kg, 3.8cm→2.5kg, 5.0cm→3.3kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457460965" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457460965" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1125</td>
-                        <td>仿尼龙锁边斜纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.8kg, 2.5cm→1kg, 3.2cm→1.3kg, 3.8cm→1.5kg, 5.0cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457552518" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457552518" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1127</td>
-                        <td>仿尼龙大锁边</td>
-                        <td>小件</td>
-                        <td>3.2cm→1.6kg, 3.8cm→1.9kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457619317" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457619317" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1132-1138</td>
-                        <td>仿尼龙间色</td>
-                        <td>小件</td>
-                        <td>3.2cm→2kg, 3.8cm→2.3kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457694126" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457694126" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1139</td>
-                        <td>仿尼龙斜纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→1.2kg, 2.5cm→1.6kg, 3.2cm→2kg, 3.8cm→2.3kg, 5.0cm→3.2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457779838" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457779838" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>L001</td>
-                        <td>仿尼龙斜纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→1.2kg, 2.5cm→1.6kg, 3.2cm→2kg, 3.8cm→2.3kg, 5.0cm→3.2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457855622" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457855622" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1140</td>
-                        <td>仿尼龙大珠纹</td>
-                        <td>小件</td>
-                        <td>2.0cm→1.4kg, 2.5cm→1.7kg, 3.2cm→2.2kg, 3.8cm→2.6kg, 5.0cm→3.4kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756457991502" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756457991502" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1141</td>
-                        <td>仿尼龙空心双人字</td>
-                        <td>小件</td>
-                        <td>2.5cm→1.3kg, 3.2cm→1.7kg, 3.8cm→2kg, 4.5cm→2.4kg, 5.0cm→2.6kg, 5.5cm→2.8kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756458297214" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756458297214" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1142</td>
-                        <td>仿尼龙三坑</td>
-                        <td>小件</td>
-                        <td>3.0cm→1.7kg, 3.2cm→1.8kg, 3.8cm→2.2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756458926006" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756458926006" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1143</td>
-                        <td>仿尼龙粗坑</td>
-                        <td>小件</td>
-                        <td>2.0cm→1kg, 2.5cm→1.3kg, 3.8cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459038126" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459038126" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>FG001</td>
-                        <td>仿尼龙反光带</td>
-                        <td>小件</td>
-                        <td>1.5cm→0.6kg, 2.0cm→0.8kg, 2.5cm→1kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459111686" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459111686" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>1146</td>
-                        <td>仿尼龙平纹空心</td>
-                        <td>小件</td>
-                        <td>2.0cm→1kg, 2.5cm→1.3kg, 3.2cm→1.7kg, 3.8cm→2kg, 4.5cm→2.4kg, 5.0cm→2.6kg, 5.5cm→2.8kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459196086" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459196086" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>M001</td>
-                        <td>仿尼龙平纹外包</td>
-                        <td>小件</td>
-                        <td>2.2cm→1kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459238038" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459238038" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>C001</td>
-                        <td>仿尼龙人字外包</td>
-                        <td>小件</td>
-                        <td>1.5cm→0.4kg, 2.0cm→0.9kg, 2.2cm→1kg, 2.5cm→1.2kg, 3.8cm  50码→0.9kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459328542" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459328542" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>AC001</td>
-                        <td>网络斜纹纯色</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.6kg, 2.5cm→0.8kg, 3.2cm→1kg, 3.8cm→1.2kg, 5.0cm→1.6kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459404038" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459404038" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>LY01</td>
-                        <td>网络加捻间色</td>
-                        <td>小件</td>
-                        <td>3.8cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459446702" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459446702" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>AT001</td>
-                        <td>网络人字</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.45kg, 2.2cm→0.5kg, 2.5cm→0.55kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459500350" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459500350" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>713-716</td>
-                        <td>加厚棉间色</td>
-                        <td>小件</td>
-                        <td>3.2cm→2.2kg, 3.8cm→2.6kg, 5.0cm→3.4kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459709775" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459709775" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>Y101</td>
-                        <td>1</td>
-                        <td>小件</td>
-                        <td>3.8cm→2kg, 5.0cm→2.6kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459765534" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459765534" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>Y201</td>
-                        <td>X</td>
-                        <td>小件</td>
-                        <td>3.2cm→1.3kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459802366" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459802366" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>Y301</td>
-                        <td>涤棉间色</td>
-                        <td>小件</td>
-                        <td>3.8cm→1.8kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459840591" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459840591" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>Y401</td>
-                        <td>涤棉九坑纹</td>
-                        <td>小件</td>
-                        <td>2.5cm→1.3kg, 3.2cm→1.7kg, 3.8cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459894726" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459894726" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>Y501</td>
-                        <td>涤棉间色</td>
-                        <td>小件</td>
-                        <td>3.8cm→2kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459918991" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459918991" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>CC101</td>
-                        <td>中折松紧</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.5kg, 2.2cm→0.6kg, 2.5cm→0.7kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756459978974" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756459978974" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>V101</td>
-                        <td>锁边松紧</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.55kg, 2.5cm→0.7kg, 3.0cm→0.85kg, 3.8cm→1.1kg, 5.0cm→1.4kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756460602934" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756460602934" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>U001</td>
-                        <td>针织松紧</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.23kg, 2.2cm→0.26kg, 2.5cm→0.29kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756460877135" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756460877135" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>R101</td>
-                        <td>600D平纹外包</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.6kg, 2.2cm→0.7kg, 2.5cm→0.8kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756461117055" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756461117055" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>SR01</td>
-                        <td>PP双人字</td>
-                        <td>小件</td>
-                        <td>2.5cm→1.2kg, 3.2cm→1.6kg, 3.8cm→1.9kg, 5.0cm→2.5kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756461290559" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756461290559" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>T101</td>
-                        <td>PP人字</td>
-                        <td>小件</td>
-                        <td>2.0cm→0.6kg, 2.2cm→0.7kg, 2.5cm→0.8kg, 3.2cm→1kg</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756461421559" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756461421559" style="display: none">删</button>
-                        </td>
-                    </tr></tbody>
+                            <tbody id="item-list"></tbody>
                         </table>
                     </div>
                 </div>
@@ -1618,7 +968,7 @@
             <div class="card" id="region-form-card" style="display: none;">
                 <div class="card-header">
                     <span>地区规则管理</span>
-                    <button id="add-region-btn" style="display: none;">
+                    <button id="add-region-btn">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
@@ -1627,7 +977,9 @@
                     
                     <div class="form-group">
                         <label for="courier-for-region">快递公司</label>
-                        <select id="courier-for-region" class="form-control"><option value="">请选择快递公司</option><option value="1">中通快递 (ZT)</option><option value="2">极兔快递 (JT)</option><option value="1756456163853">中通快运 (ZTKY)</option></select>
+                        <select id="courier-for-region" class="form-control">
+                            <option value="">请选择快递公司</option>
+                        </select>
                     </div>
                     
                     <div class="form-group">
@@ -1682,43 +1034,7 @@
                                     <th class="action-column">操作</th>
                                 </tr>
                             </thead>
-                            <tbody id="region-list"><tr>
-                        <td>中通快递</td>
-                        <td>广东</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="2" style="display: none">改</button>
-                            <button class="delete-btn" data-id="2" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>江苏</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="3" style="display: none">改</button>
-                            <button class="delete-btn" data-id="3" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>上海</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="4" style="display: none">改</button>
-                            <button class="delete-btn" data-id="4" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快运</td>
-                        <td>上海</td>
-                        <td>1kg/45元</td>
-                        <td>25kg/1.3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756462930183" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756462930183" style="display: none">删</button>
-                        </td>
-                    </tr></tbody>
+                            <tbody id="region-list"></tbody>
                         </table>
                     </div>
                 </div>
@@ -1730,7 +1046,7 @@
             <div class="card" id="courier-form-card" style="display: none;">
                 <div class="card-header">
                     <span>快递公司管理</span>
-                    <button id="add-courier-btn" style="display: none;">
+                    <button id="add-courier-btn">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
@@ -1778,31 +1094,7 @@
                                     <th class="action-column">操作</th>
                                 </tr>
                             </thead>
-                            <tbody id="courier-list"><tr>
-                                       <td>ZT</td>
-                                       <td>中通快递</td>
-                                       <td>快递费贵一点</td>
-                                       <td class="action-cell">
-                                           <button class="edit-btn" data-id="1" style="display: none">改</button>
-                                           <button class="delete-btn" data-id="1" style="display: none">删</button>
-                                       </td>
-                                   </tr><tr>
-                                       <td>JT</td>
-                                       <td>极兔快递</td>
-                                       <td>快递费便宜</td>
-                                       <td class="action-cell">
-                                           <button class="edit-btn" data-id="2" style="display: none">改</button>
-                                           <button class="delete-btn" data-id="2" style="display: none">删</button>
-                                       </td>
-                                   </tr><tr>
-                                       <td>ZTKY</td>
-                                       <td>中通快运</td>
-                                       <td></td>
-                                       <td class="action-cell">
-                                           <button class="edit-btn" data-id="1756456163853" style="display: none">改</button>
-                                           <button class="delete-btn" data-id="1756456163853" style="display: none">删</button>
-                                       </td>
-                                   </tr></tbody>
+                            <tbody id="courier-list"></tbody>
                         </table>
                     </div>
                 </div>
@@ -1814,35 +1106,33 @@
         // 使用localStorage存储数据
         const STORAGE_KEY_ITEMS = 'shipping_items';
         const STORAGE_KEY_REGIONS = 'shipping_regions';
+        const STORAGE_KEY_HISTORY = 'shipping_history';
         const STORAGE_KEY_COURIERS = 'shipping_couriers';
         const STORAGE_KEY_CURRENT_USER = 'shipping_current_user';
         
         // 页面加载完成后执行
-        document。addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             // 初始化用户数据 - 只保留管理员
             let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEY_CURRENT_USER)) || null;
-            
-            // 新增：标志是否已经计算过运费
-            let hasCalculated = false;
             
             // 选项卡切换功能
             const tabs = document.querySelectorAll('.tab, .nav-item');
             tabs.forEach(tab => {
-                tab。addEventListener('click', function() {
+                tab.addEventListener('click', function() {
                     const tabName = this.getAttribute('data-tab');
                     
                     // 更新选项卡状态
-                    document.querySelectorAll('.tab, .nav-item')。forEach(t => {
+                    document.querySelectorAll('.tab, .nav-item').forEach(t => {
                         t.classList.remove('active');
                     });
                     this.classList.add('active');
                     
                     // 显示对应的内容
-                    document。querySelectorAll('.tab-content').forEach(content => {
+                    document.querySelectorAll('.tab-content').forEach(content => {
                         content.classList.remove('active');
                     });
                     if (tabName) {
-                        document.getElementById(`${tabName}-tab`)。classList.add('active');
+                        document.getElementById(`${tabName}-tab`).classList.add('active');
                     }
                 });
             });
@@ -1850,53 +1140,857 @@
             // 从localStorage加载数据
             let items = JSON.parse(localStorage.getItem(STORAGE_KEY_ITEMS)) || [
               {
-                   "id": 1,
-                   "code": "501",
-                   "description": "薄棉珠纹",
-                   "category": "小件",
-                   "sizes": [
-                     { "size": "2cm", "weight": 0.63 },
-                     { "size": "2.5cm"， "weight": 0.81 },
-                     { "size": "3.2cm", "weight": 1.05 },
-                     { "size": "3.8cm", "weight": 1.22 },
-                     { "size": "5cm", "weight": 1.66 }
-                   ]
-                 },
-                 {
-                   "id": 2,
-                   "code": "601"，
-                   "description": "加厚棉珠纹",
-                   "category": "小件",
-                   "sizes": [
-                     { "size": "2cm", "weight": 1 },
-                     { "size": "2.5cm", "weight": 1.21 },
-                     { "size": "3.2cm", "weight": 1.55 },
-                     { "size": "3.8cm", "weight": 1.9 },
-                     { "size": "5cm", "weight": 2.5 }
-                   ]
-                 },
+				   "id": 1,
+				   "code": "501",
+				   "description": "薄棉珠纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 0.63 },
+					 { "size": "2.5cm", "weight": 0.81 },
+					 { "size": "3.2cm", "weight": 1.05 },
+					 { "size": "3.8cm", "weight": 1.22 },
+					 { "size": "5cm", "weight": 1.66 }
+				   ]
+				 },
+				 {
+				   "id": 2,
+				   "code": "601",
+				   "description": "加厚棉珠纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 1 },
+					 { "size": "2.5cm", "weight": 1.21 },
+					 { "size": "3.2cm", "weight": 1.55 },
+					 { "size": "3.8cm", "weight": 1.9 },
+					 { "size": "5cm", "weight": 2.5 }
+				   ]
+				 },
+				 {
+				   "id": 3,
+				   "code": "701",
+				   "description": "棉斜纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 0.72 },
+					 { "size": "2.5cm", "weight": 0.95 },
+					 { "size": "3.2cm", "weight": 1.2 },
+					 { "size": "3.8cm", "weight": 1.4 },
+					 { "size": "5cm", "weight": 2 }
+				   ]
+				 },
+				 {
+				   "id": 4,
+				   "code": "801",
+				   "description": "仿尼龙坑纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "1cm", "weight": 0.4 },
+					 { "size": "1.5cm", "weight": 0.6 },
+					 { "size": "2cm", "weight": 0.8 },
+					 { "size": "2.5cm", "weight": 1 },
+					 { "size": "3.2cm", "weight": 1.3 },
+					 { "size": "3.8cm", "weight": 1.5 },
+					 { "size": "5cm", "weight": 2 }
+				   ]
+				 },
+				 {
+				   "id": 5,
+				   "code": "901",
+				   "description": "仿尼龙人字",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 0.8 },
+					 { "size": "2.5cm", "weight": 1 },
+					 { "size": "3.2cm", "weight": 1.3 },
+					 { "size": "3.8cm", "weight": 1.5 },
+					 { "size": "5cm", "weight": 2 }
+				   ]
+				 },
+				 {
+				   "id": 6,
+				   "code": "1001",
+				   "description": "仿尼龙密纹",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "1cm", "weight": 0.3 },
+					 { "size": "1.3cm", "weight": 0.35 },
+					 { "size": "1.5cm", "weight": 0.45 },
+					 { "size": "2cm", "weight": 0.6 },
+					 { "size": "2.5cm", "weight": 0.7 },
+					 { "size": "3.2cm", "weight": 0.9 },
+					 { "size": "3.8cm", "weight": 1 },
+					 { "size": "5cm", "weight": 2 }
+				   ]
+				 },
+				 {
+				   "id": 7,
+				   "code": "1201",
+				   "description": "网络间色",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "1cm", "weight": 0.35 },
+					 { "size": "2cm", "weight": 0.7 },
+					 { "size": "2.5cm", "weight": 0.85 },
+					 { "size": "3.2cm", "weight": 1.1 },
+					 { "size": "3.8cm", "weight": 1.3 },
+					 { "size": "5cm", "weight": 1.7 },
+					 { "size": "7.6cm", "weight": 2.6 },
+					 { "size": "10cm", "weight": 3.4 }
+				   ]
+				 },
+				 {
+				   "id": 8,
+				   "code": "P101",
+				   "description": "PP，PP内包边薄",
+				   "category": "小件",
+				   "sizes": [
+					 { "size": "2cm", "weight": 0.2 },
+					 { "size": "2.2cm", "weight": 0.2 },
+					 { "size": "2.5cm", "weight": 0.2 }
+				   ]
+				 },
+			  
+			  {
+				  "id": 9,
+				  "code": "G101",
+				  "description": "PP加厚内包边",
+				  "category": "G系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.3 },
+					{ "size": "2.2cm", "weight": 0.3 },
+					{ "size": "2.5cm", "weight": 0.3 }
+				  ]
+				},
+				{
+				  "id": 10,
+				  "code": "1105",
+				  "description": "仿尼龙杂纹织带",
+				  "category": "11系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.75 },
+					{ "size": "2.5cm", "weight": 1 },
+					{ "size": "3.2cm", "weight": 1.3 },
+					{ "size": "3.8cm", "weight": 1.5 },
+					{ "size": "5cm", "weight": 2 }
+				  ]
+				},
+				{
+				  "id": 11,
+				  "code": "MH01",
+				  "description": "麻花带",
+				  "category": "MH系列",
+				  "sizes": [
+					{ "size": "3.8cm", "weight": 1.5 }
+				  ]
+				},
+				{
+				  "id": 12,
+				  "code": "1",
+				  "description": "九条纹",
+				  "category": "九条纹系列",
+				  "sizes": [
+					{ "size": "3.8cm", "weight": 1.44 }
+				  ]
+				},
+				{
+				  "id": 13,
+				  "code": "Y001",
+				  "description": "涤棉间色",
+				  "category": "Y系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.8 },
+					{ "size": "2.5cm", "weight": 1 },
+					{ "size": "3.2cm", "weight": 1.3 },
+					{ "size": "3.8cm", "weight": 1.5 },
+					{ "size": "5cm", "weight": 2 }
+				  ]
+				},
+				{
+				  "id": 14,
+				  "code": "H001",
+				  "description": "棉人字包边",
+				  "category": "H系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.4 },
+					{ "size": "2.2cm", "weight": 0.42 },
+					{ "size": "2.5cm", "weight": 0.45 }
+				  ]
+				},
+				{
+				  "id": 15,
+				  "code": "A301",
+				  "description": "网络包边",
+				  "category": "A系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.45 },
+					{ "size": "2.2cm", "weight": 0.45 },
+					{ "size": "2.5cm", "weight": 0.45 }
+				  ]
+				},
+				{
+				  "id": 16,
+				  "code": "S001",
+				  "description": "仿尼龙内包边",
+				  "category": "S系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.3 },
+					{ "size": "2.2cm", "weight": 0.3 },
+					{ "size": "2.5cm", "weight": 0.3 }
+				  ]
+				},
+				{
+				  "id": 17,
+				  "code": "V001",
+				  "description": "锁边松紧带",
+				  "category": "V系列",
+				  "sizes": []
+				},
+				{
+				  "id": 18,
+				  "code": "CC01",
+				  "description": "丝光对折松紧带",
+				  "category": "C系列",
+				  "sizes": []
+				},
+				{
+				  "id": 19,
+				  "code": "U001",
+				  "description": "针织松紧带",
+				  "category": "U系列",
+				  "sizes": []
+				},
+				{
+				  "id": 20,
+				  "code": "D1",
+				  "description": "涤纶",
+				  "category": "D系列",
+				  "sizes": []
+				},
+				{
+				  "id": 21,
+				  "code": "DM001",
+				  "description": "涤纶提花",
+				  "category": "DM系列",
+				  "sizes": []
+				},
+				{
+				  "id": 22,
+				  "code": "Q001",
+				  "description": "PP坑纹",
+				  "category": "Q系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 1 },
+					{ "size": "2.5cm", "weight": 1.2 },
+					{ "size": "3.2cm", "weight": 1.55 },
+					{ "size": "3.8cm", "weight": 1.85 },
+					{ "size": "5cm", "weight": 2.5 },
+					{ "size": "1.5cm", "weight": 0.75 }
+				  ]
+				},
+				{
+				  "id": 23,
+				  "code": "W001",
+				  "description": "PP珠纹",
+				  "category": "W系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 1 },
+					{ "size": "2.5cm", "weight": 1.25 },
+					{ "size": "3.2cm", "weight": 1.55 },
+					{ "size": "3.8cm", "weight": 1.85 },
+					{ "size": "5cm", "weight": 2.5 }
+				  ]
+				},
+				{
+				  "id": 24,
+				  "code": "R001",
+				  "description": "平纹外包",
+				  "category": "R系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.65 },
+					{ "size": "2.2cm", "weight": 0.7 },
+					{ "size": "2.5cm", "weight": 0.75 }
+				  ]
+				},
+				{
+				  "id": 25,
+				  "code": "T001",
+				  "description": "人字外包",
+				  "category": "T系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 0.65 },
+					{ "size": "2.2cm", "weight": 0.7 },
+					{ "size": "2.5cm", "weight": 0.75 }
+				  ]
+				},
+				{
+				  "id": 26,
+				  "code": "JL01",
+				  "description": "涤纶网络丝加捻斜纹",
+				  "category": "JL系列",
+				  "sizes": [
+					{ "size": "2cm", "weight": 1 },
+					{ "size": "2.5cm", "weight": 1.3 },
+					{ "size": "3.2cm", "weight": 1.7 },
+					{ "size": "3.8cm", "weight": 2 },
+					{ "size": "5cm", "weight": 2.6 }
+				  ]
+				}
+                                
             ];
             
-            // 地区规则数据 - 修改所有快递费用规则，低于首重的物品都按首重的价格计算
-            let regions = JSON.parse(localStorage。getItem(STORAGE_KEY_REGIONS)) || [
-              {
-                "id": 2,
-                "courier_id": 1,
-                "name": "广东",
-                "base_price": 6,
-                "base_weight": 3，
-                "unit_price": "1.2",
-                "unit_weight": 1
-              }，
-              {
-                "id": 3,
-                "courier_id": 1,
-                "name": "江苏",
-                "base_price": 6,
-                "base_weight": 3,
-                "unit_price": "2.9"，
-                "unit_weight": 1
-              },
+            // 地区规则数据
+            let regions = JSON.parse(localStorage.getItem(STORAGE_KEY_REGIONS)) || [
+              {"id": 2,"courier_id": 1,"name": "广东","base_price": 6,"base_weight": 3,"unit_price": "1.2","unit_weight": 1},
+			  {
+				"id": 3,
+				"courier_id": 1,
+				"name": "江苏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 4,
+				"courier_id": 1,
+				"name": "上海",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 5,
+				"courier_id": 1,
+				"name": "浙江",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 6,
+				"courier_id": 1,
+				"name": "福建",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 7,
+				"courier_id": 1,
+				"name": "广西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 8,
+				"courier_id": 1,
+				"name": "湖北",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 9,
+				"courier_id": 1,
+				"name": "安徽",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 10,
+				"courier_id": 1,
+				"name": "江西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 11,
+				"courier_id": 1,
+				"name": "湖南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "2.9",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 12,
+				"courier_id": 1,
+				"name": "河南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 13,
+				"courier_id": 1,
+				"name": "天津",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 14,
+				"courier_id": 1,
+				"name": "北京",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 15,
+				"courier_id": 1,
+				"name": "贵州",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.7",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 16,
+				"courier_id": 1,
+				"name": "海南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "3.7",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 17,
+				"courier_id": 1,
+				"name": "重庆",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 18,
+				"courier_id": 1,
+				"name": "山东",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 19,
+				"courier_id": 1,
+				"name": "云南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 20,
+				"courier_id": 1,
+				"name": "四川",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 21,
+				"courier_id": 1,
+				"name": "河北",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 22,
+				"courier_id": 1,
+				"name": "山西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4.2",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 23,
+				"courier_id": 1,
+				"name": "陕西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "4.2",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 24,
+				"courier_id": 1,
+				"name": "黑龙",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 25,
+				"courier_id": 1,
+				"name": "吉林",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 26,
+				"courier_id": 1,
+				"name": "辽宁",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "5",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 27,
+				"courier_id": 1,
+				"name": "甘肃",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "8",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 28,
+				"courier_id": 1,
+				"name": "内蒙",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "8",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 29,
+				"courier_id": 1,
+				"name": "宁夏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "8",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 30,
+				"courier_id": 1,
+				"name": "青海",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "8",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 31,
+				"courier_id": 1,
+				"name": "西藏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "13",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 32,
+				"courier_id": 1,
+				"name": "新疆",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": "13",
+				"unit_weight": 1
+			  },
+			  {
+				"id": 33,
+				"courier_id": 2,
+				"name": "广东",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 0.9,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 34,
+				"courier_id": 2,
+				"name": "江西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 35,
+				"courier_id": 2,
+				"name": "福建",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 36,
+				"courier_id": 2,
+				"name": "江苏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 37,
+				"courier_id": 2,
+				"name": "广西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 38,
+				"courier_id": 2,
+				"name": "湖南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 39,
+				"courier_id": 2,
+				"name": "安徽",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 40,
+				"courier_id": 2,
+				"name": "浙江",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 41,
+				"courier_id": 2,
+				"name": "湖北",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 42,
+				"courier_id": 2,
+				"name": "上海",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 43,
+				"courier_id": 2,
+				"name": "天津",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 44,
+				"courier_id": 2,
+				"name": "河北",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 45,
+				"courier_id": 2,
+				"name": "河南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 46,
+				"courier_id": 2,
+				"name": "北京",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 47,
+				"courier_id": 2,
+				"name": "山东",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 48,
+				"courier_id": 2,
+				"name": "陕西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 49,
+				"courier_id": 2,
+				"name": "山西",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 50,
+				"courier_id": 2,
+				"name": "贵州",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 51,
+				"courier_id": 2,
+				"name": "四川",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 52,
+				"courier_id": 2,
+				"name": "云南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 53,
+				"courier_id": 2,
+				"name": "重庆",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 1.8,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 54,
+				"courier_id": 2,
+				"name": "黑龙江",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 55,
+				"courier_id": 2,
+				"name": "辽宁",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 56,
+				"courier_id": 2,
+				"name": "吉林",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2.5,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 57,
+				"courier_id": 2,
+				"name": "海南",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 58,
+				"courier_id": 2,
+				"name": "甘肃",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 59,
+				"courier_id": 2,
+				"name": "宁夏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 2,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 60,
+				"courier_id": 2,
+				"name": "青海",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 3,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 61,
+				"courier_id": 2,
+				"name": "内蒙",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 3,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 62,
+				"courier_id": 2,
+				"name": "新疆",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 13,
+				"unit_weight": 1
+			  },
+			  {
+				"id": 63,
+				"courier_id": 2,
+				"name": "西藏",
+				"base_price": 6,
+				"base_weight": 3,
+				"unit_price": 13,
+				"unit_weight": 1
+			  }
+                                          
             ];
             
             // 快递公司数据
@@ -1915,11 +2009,16 @@
                 },
             ];
             
+            let history = JSON.parse(localStorage.getItem(STORAGE_KEY_HISTORY)) || [];
+            
             // 已选物品数组
             let selectedItems = [];
             
             // 当前编辑的物品尺寸列表
             let currentSizes = [];
+            
+            // 当前选择的尺寸列表（用于多尺寸选择）
+            let selectedSizes = [];
             
             // 登录按钮事件
             document.getElementById('login-button').addEventListener('click', function() {
@@ -1957,7 +2056,7 @@
             
             // 生成分享数据按钮事件 - 现在未登录用户也可以使用
             document.getElementById('generate-share-btn').addEventListener('click', function() {
-                // 创建要分享的数据对象 - 只包含必要数据，去除HTML自带数据
+                // 创建要分享的数据对象
                 const shareData = {
                     items: items,
                     regions: regions,
@@ -1978,7 +2077,7 @@
             document.getElementById('copy-share-btn').addEventListener('click', function() {
                 const shareData = document.getElementById('share-data').textContent;
                 
-                if (shareData === '点击"生成分享数据"按钮生成数据...') {
+                if (shareData === '点击"生成分享链接"按钮生成数据...') {
                     alert('请先生成分享数据');
                     return;
                 }
@@ -1996,45 +2095,6 @@
                     document.body.removeChild(textArea);
                     alert('分享数据已复制到剪贴板！');
                 });
-            });
-            
-            // 下载分享数据按钮事件
-            document.getElementById('download-share-btn').addEventListener('click', function() {
-                const shareData = document.getElementById('share-data').textContent;
-                
-                if (shareData === '点击"生成分享数据"按钮生成数据...') {
-                    alert('请先生成分享数据');
-                    return;
-                }
-                
-                // 创建Blob对象
-                const blob = new Blob([shareData], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                
-                // 创建下载链接
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = '快递运费配置.txt';
-                document.body.appendChild(a);
-                a.click();
-                
-                // 清理
-                setTimeout(function() {
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
-                }, 0);
-            });
-            
-            // 文件导入处理
-            document.getElementById('import-file').addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (!file) return;
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('import-data').value = e.target.result;
-                };
-                reader.readAsText(file);
             });
             
             // 导入数据按钮事件 - 现在未登录用户也可以使用
@@ -2095,7 +2155,7 @@
                 // 验证用户 - 只验证管理员
                 if (username === 'DMWEBBING' && password === '86846881') {
                     // 登录成功
-                    currentUser = { username: username };
+                    currentUser = { username: '' };
                     localStorage.setItem(STORAGE_KEY_CURRENT_USER, JSON.stringify(currentUser));
                     updateUIForUserRole();
                     document.getElementById('login-modal').style.display = 'none';
@@ -2254,15 +2314,8 @@
                 });
             }
             
-            // 物品编码输入框自动搜索功能 - 修改：添加检查是否需要清空已选物品的逻辑
+            // 物品编码输入框自动搜索功能
             document.getElementById('item-code-input').addEventListener('input', function() {
-                // 检查是否需要清空已选物品
-                if (hasCalculated) {
-                    selectedItems = [];
-                    updateSelectedItems();
-                    hasCalculated = false;
-                }
-                
                 const code = this.value.trim();
                 const detailsContainer = document.getElementById('item-details-container');
                 const notFoundMsg = document.getElementById('item-not-found');
@@ -2270,9 +2323,11 @@
                 // 隐藏未找到消息
                 notFoundMsg.style.display = 'none';
                 
-                // 如果编码为空，隐藏物品详情容器
+                // 如果编码为空，隐藏物品详情容器并清空已选尺寸
                 if (!code) {
                     detailsContainer.style.display = 'none';
+                    selectedSizes = [];
+                    updateSelectedSizesList();
                     return;
                 }
                 
@@ -2283,12 +2338,14 @@
                     // 没找到，显示未找到消息
                     notFoundMsg.style.display = 'block';
                     detailsContainer.style.display = 'none';
+                    selectedSizes = [];
+                    updateSelectedSizesList();
                     return;
                 }
                 
                 // 显示物品详情
                 const detailsContent = document.getElementById('item-details-content');
-                const sizeQuantityList = document.getElementById('size-quantity-list');
+                const sizeSelect = document.getElementById('item-size-select');
                 
                 detailsContent.innerHTML = `
                     <div><strong>编码:</strong> ${item.code}</div>
@@ -2296,28 +2353,14 @@
                     <div><strong>类别:</strong> ${item.category}</div>
                 `;
                 
-                // 生成尺寸数量输入行
-                sizeQuantityList.innerHTML = '';
+                // 填充尺寸选择下拉框
+                sizeSelect.innerHTML = '<option value="">请选择尺寸</option>';
                 item.sizes.forEach(sizeItem => {
-                    const row = document.createElement('div');
-                    row.className = 'size-quantity-row';
-                    row.innerHTML = `
-                        <div class="size-label">${sizeItem.size} (${sizeItem.weight}kg)</div>
-                        <div class="quantity-input-container">
-                            <input type="number" class="quantity-input" value="0" min="0" data-size="${sizeItem.size}" data-weight="${sizeItem.weight}">
-                            <button class="quantity-plus" data-size="${sizeItem.size}">+</button>
-                        </div>
-                    `;
-                    sizeQuantityList.appendChild(row);
-                });
-                
-                // 添加加号按钮事件
-                document.querySelectorAll('.quantity-plus').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const size = this.getAttribute('data-size');
-                        const input = document.querySelector(`.quantity-input[data-size="${size}"]`);
-                        input.value = parseInt(input.value) + 1;
-                    });
+                    const option = document.createElement('option');
+                    option.value = sizeItem.size;
+                    option.textContent = `${sizeItem.size} (${sizeItem.weight}kg)`;
+                    option.dataset.weight = sizeItem.weight;
+                    sizeSelect.appendChild(option);
                 });
                 
                 // 显示物品详情容器
@@ -2325,6 +2368,82 @@
                 
                 // 存储当前选择的物品
                 detailsContainer.dataset.itemId = item.id;
+                
+                // 重置已选尺寸列表
+                selectedSizes = [];
+                updateSelectedSizesList();
+            });
+            
+            // 更新已选尺寸列表显示
+            function updateSelectedSizesList() {
+                const listContainer = document.getElementById('selected-sizes-list');
+                listContainer.innerHTML = '';
+                
+                if (selectedSizes.length === 0) {
+                    listContainer.innerHTML = '<p style="color: #999; text-align: center; padding: 10px;">暂无已选尺寸</p>';
+                    return;
+                }
+                
+                selectedSizes.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'selected-size-item';
+                    itemElement.innerHTML = `
+                        <span>${item.size} (${item.weight}kg) × ${item.quantity}</span>
+                        <button class="delete-btn" data-index="${index}">删</button>
+                    `;
+                    listContainer.appendChild(itemElement);
+                });
+                
+                // 添加删除事件
+                document.querySelectorAll('#selected-sizes-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        selectedSizes.splice(index, 1);
+                        updateSelectedSizesList();
+                    });
+                });
+            }
+            
+            // 添加尺寸按钮事件
+            document.getElementById('add-size-btn').addEventListener('click', function() {
+                const detailsContainer = document.getElementById('item-details-container');
+                const sizeSelect = document.getElementById('item-size-select');
+                const quantityInput = document.getElementById('item-quantity');
+                
+                if (!detailsContainer.dataset.itemId) {
+                    alert('请先输入有效的物品编码');
+                    return;
+                }
+                
+                if (!sizeSelect.value) {
+                    alert('请选择尺寸');
+                    return;
+                }
+                
+                const selectedSize = sizeSelect.value;
+                const selectedWeight = parseFloat(sizeSelect.options[sizeSelect.selectedIndex].dataset.weight);
+                const quantity = parseInt(quantityInput.value) || 1;
+                
+                // 检查是否已添加此尺寸
+                const existingSize = selectedSizes.find(item => item.size === selectedSize);
+                
+                if (existingSize) {
+                    // 如果已存在，增加数量
+                    existingSize.quantity += quantity;
+                } else {
+                    // 如果不存在，添加新尺寸
+                    selectedSizes.push({
+                        size: selectedSize,
+                        weight: selectedWeight,
+                        quantity: quantity
+                    });
+                }
+                
+                // 更新已选尺寸列表
+                updateSelectedSizesList();
+                
+                // 重置数量输入框
+                quantityInput.value = '1';
             });
             
             // 添加物品按钮事件
@@ -2336,42 +2455,32 @@
                     return;
                 }
                 
+                if (selectedSizes.length === 0) {
+                    alert('请至少添加一个尺寸');
+                    return;
+                }
+                
                 const itemId = parseInt(detailsContainer.dataset.itemId);
                 const selectedItem = items.find(item => item.id === itemId);
                 
-                // 获取所有数量大于0的尺寸
-                const quantityInputs = document.querySelectorAll('.quantity-input');
-                let hasSelectedItems = false;
-                
-                quantityInputs.forEach(input => {
-                    const quantity = parseInt(input.value);
-                    if (quantity > 0) {
-                        hasSelectedItems = true;
-                        const size = input.getAttribute('data-size');
-                        const weight = parseFloat(input.getAttribute('data-weight'));
-                        
-                        // 检查是否已存在相同物品和尺寸
-                        const existingItem = selectedItems.find(item => 
-                            item.id === selectedItem.id && item.selectedSize === size
-                        );
-                        
-                        if (existingItem) {
-                            existingItem.quantity += quantity;
-                        } else {
-                            selectedItems.push({
-                                ...selectedItem,
-                                selectedSize: size,
-                                selectedWeight: weight,
-                                quantity: quantity
-                            });
-                        }
+                // 为每个已选尺寸添加到已选物品
+                selectedSizes.forEach(sizeItem => {
+                    // 检查是否已存在相同物品和尺寸
+                    const existingItem = selectedItems.find(item => 
+                        item.id === selectedItem.id && item.selectedSize === sizeItem.size
+                    );
+                    
+                    if (existingItem) {
+                        existingItem.quantity += sizeItem.quantity;
+                    } else {
+                        selectedItems.push({
+                            ...selectedItem,
+                            selectedSize: sizeItem.size,
+                            selectedWeight: sizeItem.weight,
+                            quantity: sizeItem.quantity
+                        });
                     }
                 });
-                
-                if (!hasSelectedItems) {
-                    alert('请至少选择一个尺寸并设置数量');
-                    return;
-                }
                 
                 // 更新已选物品显示
                 updateSelectedItems();
@@ -2380,12 +2489,14 @@
                 document.getElementById('item-code-input').value = '';
                 detailsContainer.style.display = 'none';
                 detailsContainer.dataset.itemId = '';
+                selectedSizes = [];
+                updateSelectedSizesList();
                 
                 // 隐藏未找到消息
                 document.getElementById('item-not-found').style.display = 'none';
             });
             
-            // 更新已选物品显示 - 修改为分组显示
+            // 更新已选物品显示
             function updateSelectedItems() {
                 const container = document.getElementById('selected-items');
                 container.innerHTML = '';
@@ -2395,118 +2506,42 @@
                     return;
                 }
                 
-                // 按物品id分组
-                const groups = {};
-                selectedItems.forEach(item => {
-                    if (!groups[item.id]) {
-                        groups[item.id] = [];
-                    }
-                    groups[item.id].push(item);
-                });
-                
                 let totalWeight = 0;
-                let html = '';
+                let html = '<div class="selected-items-list">';
                 
-                // 遍历每个分组
-                for (const itemId in groups) {
-                    const itemsInGroup = groups[itemId];
-                    // 取第一个物品获取编码和描述（同组物品这些信息相同）
-                    const firstItem = itemsInGroup[0];
-                    let groupTotalQuantity = 0;
-                    let groupTotalWeight = 0;
-                    
-                    // 计算该分组的总数量和总重量
-                    itemsInGroup.forEach(item => {
-                        groupTotalQuantity += item.quantity;
-                        groupTotalWeight += item.selectedWeight * item.quantity;
-                    });
-                    
-                    totalWeight += groupTotalWeight;
-                    
-                    // 分组头部
-                    html += `
-                        <div class="selected-item-group">
-                            <div class="item-group-header" data-id="${firstItem.id}">
-                                <div style="font-weight: 500;">${firstItem.code} - ${firstItem.description}</div>
-                                <div>
-                                    <span style="margin-right: 15px;">总数量: ${groupTotalQuantity}</span>
-                                    <span style="margin-right: 15px;">总重量: ${groupTotalWeight.toFixed(2)}kg</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                            </div>
-                            <div class="item-group-details" id="details-${firstItem.id}">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>尺寸</th>
-											<th>数量</th>
-                                            <th>重量(kg)</th>
-                                            <th>小计重量(kg)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                    `;
-                    
-                    // 添加该分组的每个尺寸详情
-                    itemsInGroup.forEach(item => {
-                        const itemWeight = item.selectedWeight * item.quantity;
-                        html += `
-                            <tr>
-                                <td>${item.selectedSize}</td>
-								<td>${item.quantity}</td>
-                                <td>${item.selectedWeight}</td>
-                               
-                                <td>${itemWeight.toFixed(2)}</td>
-                            </tr>
-                        `;
-                    });
+                selectedItems.forEach((item, index) => {
+                    const itemWeight = item.selectedWeight * item.quantity;
+                    totalWeight += itemWeight;
                     
                     html += `
-                                    </tbody>
-                                </table>
-                                <button class="delete-group-btn" data-id="${firstItem.id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
+                        <div class="selected-item" style="padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: 500;">${item.code} - ${item.description}</div>
+                                <div style="font-size: 14px; color: #666;">尺寸: ${item.selectedSize}, 重量: ${item.selectedWeight}kg × ${item.quantity} = ${itemWeight.toFixed(2)}kg</div>
                             </div>
+                            <button class="delete-btn" data-index="${index}">删</button>
                         </div>
                     `;
-                }
+                });
                 
+                html += '</div>';
                 html += `<div style="padding: 10px; font-weight: 500; border-top: 1px solid #eee; margin-top: 5px;">
                             总重量: ${totalWeight.toFixed(2)}kg
-                         </div>`;
+                        </div>`;
                 
                 container.innerHTML = html;
                 
-                // 添加分组展开/收起事件
-                document.querySelectorAll('.item-group-header').forEach(header => {
-                    header.addEventListener('click', function() {
-                        const id = this.getAttribute('data-id');
-                        const details = document.getElementById(`details-${id}`);
-                        const icon = this.querySelector('i');
-                        
-                        if (details.style.display === 'block') {
-                            details.style.display = 'none';
-                            icon.classList.remove('fa-chevron-up');
-                            icon.classList.add('fa-chevron-down');
-                        } else {
-                            details.style.display = 'block';
-                            icon.classList.remove('fa-chevron-down');
-                            icon.classList.add('fa-chevron-up');
-                        }
-                    });
-                });
-                
-                // 添加删除分组事件
-                document.querySelectorAll('.delete-group-btn').forEach(btn => {
+                // 添加删除事件
+                document.querySelectorAll('#selected-items .delete-btn').forEach(btn => {
                     btn.addEventListener('click', function() {
-                        const id = parseInt(this.getAttribute('data-id'));
-                        // 删除该分组所有物品
-                        selectedItems = selectedItems.filter(item => item.id !== id);
+                        const index = parseInt(this.getAttribute('data-index'));
+                        selectedItems.splice(index, 1);
                         updateSelectedItems();
                     });
                 });
             }
             
-            // 计算运费按钮事件 - 修改计算规则，并设置hasCalculated标志
+            // 计算运费按钮事件
             document.getElementById('calculate-btn').addEventListener('click', function() {
                 const regionSelect = document.getElementById('region-select');
                 
@@ -2539,78 +2574,24 @@
                         // 计算运费
                         let cost = 0;
                         let calculation = '';
-                        let redNumber = 0;
                         
-                        // 检查是否为名称包含"快递"的公司
-                        if (courier.name.includes('快递')) {
-                            // 新规则：小于首重的按首重价格，大于首重的按总重量*续重价+首重价格
-                            if (totalWeight <= region.base_weight) {
-                                cost = region.base_price;
-                                calculation = `总重量 ${totalWeight.toFixed(2)}kg ≤ 首重 ${region.base_weight}kg，运费 = 首重价格: ${region.base_price}元`;
-                            } else {
-                                cost = region.base_price + totalWeight * region.unit_price;
-                                calculation = `总重量 ${totalWeight.toFixed(2)}kg > 首重 ${region.base_weight}kg，运费 = 首重价格 + 总重量 × 续重单价: ${region.base_price} + ${totalWeight.toFixed(2)} × ${region.unit_price} = ${cost.toFixed(2)}元`;
-                                
-                                // 如果总重量大于30kg，计算红色数字（减首重价格）
-                                if (totalWeight > 30) {
-                                    redNumber = totalWeight * region.unit_price;
-                                    calculation += `<br><span class="red-number">${redNumber.toFixed(2)}元 (总重量 × 续重单价，不含首重)</span>`;
-                                }
-                            }
+                        if (totalWeight <= region.base_weight) {
+                            cost = region.base_price;
+                            calculation = `总重量 ${totalWeight.toFixed(2)}kg ≤ 首重 ${region.base_weight}kg，运费 = 首重价格: ${region.base_price}元`;
                         } else {
-                            // 原有规则：低于首重的物品都按首重的价格计算
-                            if (totalWeight <= region.base_weight) {
-                                cost = region.base_price;
-                                calculation = `总重量 ${totalWeight.toFixed(2)}kg ≤ 首重 ${region.base_weight}kg，运费 = 首重价格: ${region.base_price}元`;
-                            } else {
-                                const excess = totalWeight - region.base_weight;
-                                const units = Math.ceil(excess / region.unit_weight);
-                                cost = region.base_price + units * region.unit_price;
-                                calculation = `首重 ${region.base_weight}kg: ${region.base_price}元，续重 ${excess.toFixed(2)}kg / ${region.unit_weight}kg = ${units}单位 × ${region.unit_price}元/单位，续重费用: ${units * region.unit_price}元`;
-                            }
+                            const excess = totalWeight - region.base_weight;
+                            const units = Math.ceil(excess / region.unit_weight);
+                            cost = region.base_price + units * region.unit_price;
+                            calculation = `首重 ${region.base_weight}kg: ${region.base_price}元，续重 ${excess.toFixed(2)}kg / ${region.unit_weight}kg = ${units}单位 × ${region.unit_price}元/单位，续重费用: ${units * region.unit_price}元`;
                         }
                         
                         results.push({
                             courier: courier.name,
                             cost: cost,
-                            calculation: calculation,
-                            redNumber: redNumber
+                            calculation: calculation
                         });
                     }
                 });
-                
-                // 当地区是广东时，增加一条广东专属的快递费用
-                if (regionSelect.value === '广东') {
-                    let gdCost = 0;
-                    let gdCalculation = '';
-                    let gdRedNumber = 0;
-                
-                    // 首重1kg/10元，续重1kg/元
-                    // 超过1kg按去除首重的重量乘续重加首重价格
-                    // 超过30kg变为总重量乘续重
-                    if (totalWeight <= 1) {
-                        gdCost = 10;
-                        gdCalculation = `总重量 ${totalWeight.toFixed(2)}kg ≤ 首重 1kg，运费 = 首重价格: 10元`;
-                    } else if (totalWeight <= 30) {
-                        gdCost = 10 + (totalWeight - 1) * 1;
-                        gdCalculation = `首重 1kg: 10元，续重 ${(totalWeight - 1).toFixed(2)}kg × 1元/kg = ${(totalWeight - 1).toFixed(2)}元`;
-                    } else {
-                        gdCost = totalWeight * 1;
-                        gdCalculation = `总重量 ${totalWeight.toFixed(2)}kg > 30kg，运费 = 总重量 × 1元/kg = ${totalWeight.toFixed(2)}元`;
-                        
-                        // 计算红色数字（减首重价格）
-                        gdRedNumber = totalWeight * 1 - 10;
-                        gdCalculation += `<br><span class="red-number">${gdRedNumber.toFixed(2)}元 (总重量 × 续重单价，不含首重)</span>`;
-                    }
-                
-                    results.push({
-                        courier: '联昊通快递',
-                        cost: gdCost,
-                        calculation: gdCalculation,
-                        redNumber: gdRedNumber
-                    });
-                }
-
                 
                 // 按运费从低到高排序
                 results.sort((a, b) => a.cost - b.cost);
@@ -2646,8 +2627,23 @@
                 
                 document.getElementById('result-card').style.display = 'block';
                 
-                // 设置已计算标志
-                hasCalculated = true;
+                // 保存到历史记录
+                const historyEntry = {
+                    id: Date.now(),
+                    region: regionSelect.value,
+                    items: selectedItems.map(item => ({
+                        code: item.code,
+                        description: item.description,
+                        size: item.selectedSize,
+                        quantity: item.quantity
+                    })),
+                    totalWeight: totalWeight,
+                    results: results,
+                    timestamp: new Date().toISOString()
+                };
+                
+                history.unshift(historyEntry);
+                localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
                 
                 // 滚动到结果区域
                 document.getElementById('result-card').scrollIntoView({ behavior: 'smooth' });
@@ -2720,397 +2716,390 @@
                     regionList.appendChild(row);
                 });
                 
-               // 填充快递公司列表表格
-                               const courierList = document.getElementById('courier-list');
-                               courierList.innerHTML = '';
-                               couriers.forEach(courier => {
-                                   const row = document.createElement('tr');
-                                   row.innerHTML = `
-                                       <td>${courier.code}</td>
-                                       <td>${courier.name}</td>
-                                       <td>${courier.description}</td>
-                                       <td class="action-cell">
-                                           <button class="edit-btn" data-id="${courier.id}" style="display: ${currentUser ? '' : 'none'}">改</button>
-                                           <button class="delete-btn" data-id="${courier.id}" style="display: ${currentUser ? '' : 'none'}">删</button>
-                                       </td>
-                                   `;
-                                   courierList.appendChild(row);
-                               });
-                               
-                               // 添加物品删除事件
-                               document.querySelectorAll('#item-list .delete-btn').forEach(btn => {
-                                   btn.addEventListener('click', function() {
-                                       if (!currentUser) {
-                                           alert('请先登录管理员账号');
-                                           return;
-                                       }
-                                       
-                                       const id = parseInt(this.getAttribute('data-id'));
-                                       if (confirm('确定要删除这个物品吗？')) {
-                                           items = items.filter(item => item.id !== id);
-                                           localStorage.setItem(STORAGE_KEY_ITEMS, JSON.stringify(items));
-                                           initDataLists();
-                                       }
-                                   });
-                               });
-                               
-                               // 添加地区删除事件
-                               document.querySelectorAll('#region-list .delete-btn').forEach(btn => {
-                                   btn.addEventListener('click', function() {
-                                       if (!currentUser) {
-                                           alert('请先登录管理员账号');
-                                           return;
-                                       }
-                                       
-                                       const id = parseInt(this.getAttribute('data-id'));
-                                       if (confirm('确定要删除这个地区规则吗？')) {
-                                           regions = regions.filter(region => region.id !== id);
-                                           localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
-                                           initDataLists();
-                                       }
-                                   });
-                               });
-                               
-                               // 添加快递公司删除事件
-                               document.querySelectorAll('#courier-list .delete-btn').forEach(btn => {
-                                   btn.addEventListener('click', function() {
-                                       if (!currentUser) {
-                                           alert('请先登录管理员账号');
-                                           return;
-                                       }
-                                       
-                                       const id = parseInt(this.getAttribute('data-id'));
-                                       if (confirm('确定要删除这个快递公司吗？同时会删除相关的地区规则。')) {
-                                           // 删除快递公司
-                                           couriers = couriers.filter(courier => courier.id !== id);
-                                           // 删除相关的地区规则
-                                           regions = regions.filter(region => region.courier_id !== id);
-                                           localStorage.setItem(STORAGE_KEY_COURIERS, JSON.stringify(couriers));
-                                           localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
-                                           initDataLists();
-                                       }
-                                   });
-                               });
-                               
-                               // 添加物品编辑事件
-                               document.querySelectorAll('#item-list .edit-btn').forEach(btn => {
-                                   btn.addEventListener('click', function() {
-                                       if (!currentUser) {
-                                           alert('请先登录管理员账号');
-                                           return;
-                                       }
-                                       
-                                       const id = parseInt(this.getAttribute('data-id'));
-                                       const item = items.find(item => item.id === id);
-                                       if (item) {
-                                           document.getElementById('editing-item-id').value = item.id;
-                                           document.getElementById('item-code').value = item.code;
-                                           document.getElementById('item-desc').value = item.description;
-                                           document.getElementById('item-category').value = item.category;
-                                           
-                                           // 设置当前尺寸列表
-                                           currentSizes = [...item.sizes];
-                                           updateSizeWeightList();
-                                           
-                                           // 显示取消编辑按钮
-                                           document.getElementById('cancel-item-edit-btn').style.display = 'block';
-                                           
-                                           // 滚动到表单
-                                           document.getElementById('items-tab').scrollIntoView({ behavior: 'smooth' });
-                                       }
-                                   });
-                               });
-                               
-                               // 添加地区编辑事件
-                               document.querySelectorAll('#region-list .edit-btn').forEach(btn => {
-                                   btn.addEventListener('click', function() {
-                                       if (!currentUser) {
-                                           alert('请先登录管理员账号');
-                                           return;
-                                       }
-                                       
-                                       const id = parseInt(this.getAttribute('data-id'));
-                                       const region = regions.find(region => region.id === id);
-                                       if (region) {
-                                           document.getElementById('editing-region-id').value = region.id;
-                                           document.getElementById('courier-for-region').value = region.courier_id;
-                                           document.getElementById('region-name').value = region.name;
-                                           document.getElementById('base-price').value = region.base_price;
-                                           document.getElementById('base-weight').value = region.base_weight;
-                                           document.getElementById('unit-price').value = region.unit_price;
-                                           document.getElementById('unit-weight').value = region.unit_weight;
-                                           
-                                           // 显示取消编辑按钮
-                                           document.getElementById('cancel-region-edit-btn').style.display = 'block';
-                                           
-                                           // 滚动到表单
-                                           document.getElementById('regions-tab').scrollIntoView({ behavior: 'smooth' });
-                                       }
-                                   });
-                               });
-                               
-                               // 添加快递公司编辑事件
-                               document.querySelectorAll('#courier-list .edit-btn').forEach(btn => {
-                                   btn.addEventListener('click', function() {
-                                       if (!currentUser) {
-                                           alert('请先登录管理员账号');
-                                           return;
-                                       }
-                                       
-                                       const id = parseInt(this.getAttribute('data-id'));
-                                       const courier = couriers.find(courier => courier.id === id);
-                                       if (courier) {
-                                           document.getElementById('editing-courier-id').value = courier.id;
-                                           document.getElementById('courier-name').value = courier.name;
-                                           document.getElementById('courier-code').value = courier.code;
-                                           document.getElementById('courier-desc').value = courier.description;
-                                           
-                                           // 显示取消编辑按钮
-                                           document.getElementById('cancel-courier-edit-btn').style.display = 'block';
-                                           
-                                           // 滚动到表单
-                                           document.getElementById('couriers-tab').scrollIntoView({ behavior: 'smooth' });
-                                       }
-                                   });
-                               });
-                           }
-                           
-                           // 保存物品按钮事件
-                           document.getElementById('save-item-btn').addEventListener('click', function() {
-                               if (!currentUser) {
-                                   alert('请先登录管理员账号');
-                                   return;
-                               }
-                               
-                               const editingId = document.getElementById('editing-item-id').value;
-                               const code = document.getElementById('item-code').value.trim();
-                               const desc = document.getElementById('item-desc').value.trim();
-                               const category = document.getElementById('item-category').value;
-                               
-                               if (!code || !desc || currentSizes.length === 0) {
-                                   alert('请填写完整的物品信息和至少一个尺寸-重量对应关系');
-                                   return;
-                               }
-                               
-                               if (editingId) {
-                                   // 更新现有物品
-                                   const itemIndex = items.findIndex(item => item.id.toString() === editingId);
-                                   if (itemIndex !== -1) {
-                                       items[itemIndex]。code = code;
-                                       items[itemIndex]。description = desc;
-                                       items[itemIndex]。category = category;
-                                       items[itemIndex]。sizes = [...currentSizes];
-                                   }
-                               } else {
-                                   // 检查是否已存在相同编号
-                                   const existingItem = items.find(item => item.code === code);
-                                   if (existingItem) {
-                                       alert('已存在相同编码的物品，请使用不同的编码');
-                                       return;
-                                   }
-                                   
-                                   // 添加新物品
-                                   const newItem = {
-                                       id: Date.当前()，
-                                       code,
-                                       description: desc,
-                                       category，
-                                       sizes: [...currentSizes]
-                                   };
-                                   items。push(newItem);
-                               }
-                               
-                               // 保存到localStorage
-                               localStorage.setItem(STORAGE_KEY_ITEMS, JSON.stringify(items));
-                               
-                               // 重置表单
-                               resetItemForm();
-                               
-                               // 更新列表
-                               initDataLists();
-                               
-                               alert('物品保存成功');
-                           });
-                           
-                           // 取消物品编辑按钮事件
-                           document.getElementById('cancel-item-edit-btn')。addEventListener('click'， function() {
-                               resetItemForm();
-                           });
-                           
-                           // 保存地区按钮事件
-                           document.getElementById('save-region-btn').addEventListener('click', function() {
-                               if (!currentUser) {
-                                   alert('请先登录管理员账号');
-                                   return;
-                               }
-                               
-                               const editingId = document.getElementById('editing-region-id').value;
-                               const courierId = document.getElementById('courier-for-region').value;
-                               const name = document。getElementById('region-name').value.trim();
-                               const basePrice = parseFloat(document.getElementById('base-price').value);
-                               const baseWeight = parseFloat(document.getElementById('base-weight').value);
-                               const unitPrice = parseFloat(document.getElementById('unit-price').value);
-                               const unitWeight = parseFloat(document.getElementById('unit-weight')。value);
-                               
-                               if (!courierId || !name || isNaN(basePrice) || isNaN(baseWeight) || isNaN(unitPrice) || isNaN(unitWeight)) {
-                                   alert('请填写完整的地区规则信息');
-                                   return;
-                               }
-                               
-                               if (editingId) {
-                                   // 更新现有地区
-                                   const regionIndex = regions.findIndex(region => region.id.toString() === editingId);
-                                   if (regionIndex !== -1) {
-                                       regions[regionIndex]。courier_id = parseInt(courierId);
-                                       regions[regionIndex]。name = name;
-                                       regions[regionIndex]。base_price = basePrice;
-                                       regions[regionIndex].base_weight = baseWeight;
-                                       regions[regionIndex].unit_price = unitPrice;
-                                       regions[regionIndex]。unit_weight = unitWeight;
-                                   }
-                               } else {
-                                   // 检查是否已存在相同快递公司和地区的组合
-                                   const existingRegion = regions.find(region => 
-                                       region.courier_id.toString() === courierId && 
-                                       region.name === name
-                                   );
-                                   
-                                   if (existingRegion) {
-                                       alert('该快递公司在此地区已存在规则，请修改现有规则');
-                                       return;
-                                   }
-                                   
-                                   // 添加新地区
-                                   const newRegion = {
-                                       id: Date.now(),
-                                       courier_id: parseInt(courierId),
-                                       name,
-                                       base_price: basePrice,
-                                       base_weight: baseWeight,
-                                       unit_price: unitPrice,
-                                       unit_weight: unitWeight
-                                   };
-                                   regions.push(newRegion);
-                               }
-                               
-                               // 保存到localStorage
-                               localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
-                               
-                               // 重置表单
-                               resetRegionForm();
-                               
-                               // 更新列表
-                               initDataLists();
-                               
-                               alert('地区规则保存成功');
-                           });
-                           
-                           // 取消地区编辑按钮事件
-                           document.getElementById('cancel-region-edit-btn').addEventListener('click', function() {
-                               resetRegionForm();
-                           });
-                           
-                           // 保存快递公司按钮事件
-                           document.getElementById('save-courier-btn').addEventListener('click', function() {
-                               if (!currentUser) {
-                                   alert('请先登录管理员账号');
-                                   return;
-                               }
-                               
-                               const editingId = document.getElementById('editing-courier-id').value;
-                               const name = document.getElementById('courier-name').value.trim();
-                               const code = document.getElementById('courier-code').value.trim();
-                               const desc = document.getElementById('courier-desc').value.trim();
-                               
-                               if (!name || !code) {
-                                   alert('请填写快递公司名称和代码');
-                                   return;
-                               }
-                               
-                               if (editingId) {
-                                   // 更新现有快递公司
-                                   const courierIndex = couriers.findIndex(courier => courier.id.toString() === editingId);
-                                   if (courierIndex !== -1) {
-                                       couriers[courierIndex].name = name;
-                                       couriers[courierIndex].code = code;
-                                       couriers[courierIndex].description = desc;
-                                   }
-                               } else {
-                                   // 检查是否已存在相同代码
-                                   const existingCourier = couriers.find(courier => courier.code === code);
-                                   if (existingCourier) {
-                                       alert('已存在相同代码的快递公司，请使用不同的代码');
-                                       return;
-                                   }
-                                   
-                                   // 添加新快递公司
-                                   const newCourier = {
-                                       id: Date.now(),
-                                       code,
-                                       name,
-                                       description: desc
-                                   };
-                                   couriers。push(newCourier);
-                               }
-                               
-                               // 保存到localStorage
-                               localStorage。setItem(STORAGE_KEY_COURIERS， JSON.stringify(couriers));
-                               
-                               // 重置表单
-                               resetCourierForm();
-                               
-                               // 更新列表
-                               initDataLists();
-                               
-                               alert('快递公司保存成功');
-                           });
-                           
-                           // 取消快递公司编辑按钮事件
-                           document。getElementById('cancel-courier-edit-btn')。addEventListener('click'， function() {
-                               resetCourierForm();
-                           });
-                           
-                           // 添加新物品按钮事件
-                           document。getElementById('add-item-btn-form')。addEventListener('click'， function() {
-                               if (!currentUser) {
-                                   alert('请先登录管理员账号');
-                                   return;
-                               }
-                               
-                               resetItemForm();
-                           });
-                           
-                           // 添加新地区按钮事件
-                           document。getElementById('add-region-btn')。addEventListener('click', function() {
-                               if (!currentUser) {
-                                   alert('请先登录管理员账号');
-                                   return;
-                               }
-                               
-                               resetRegionForm();
-                           });
-                           
-                           // 添加快递公司按钮事件
-                           document。getElementById('add-courier-btn')。addEventListener('click'， function() {
-                               if (!currentUser) {
-                                   alert('请先登录管理员账号');
-                                   return;
-                               }
-                               
-                               resetCourierForm();
-                           });
-                           
-                           // 初始化页面
-                           updateUIForUserRole();
-                           initDataLists();
-                       });
-                   </script>
-               
-               
-      
-      
-      
-      <script></script>
-    
-    
-  </body><div id="sc-translator-shadow" style="all: initial;"></div></html>
+                // 填充快递公司列表表格
+                const courierList = document.getElementById('courier-list');
+                courierList.innerHTML = '';
+                couriers.forEach(courier => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${courier.code}</td>
+                        <td>${courier.name}</td>
+                        <td>${courier.description}</td>
+                        <td class="action-cell">
+                            <button class="edit-btn" data-id="${courier.id}" style="display: ${currentUser ? '' : 'none'}">改</button>
+                            <button class="delete-btn" data-id="${courier.id}" style="display: ${currentUser ? '' : 'none'}">删</button>
+                        </td>
+                    `;
+                    courierList.appendChild(row);
+                });
+                
+                // 添加物品删除事件
+                document.querySelectorAll('#item-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        if (confirm('确定要删除这个物品吗？')) {
+                            items = items.filter(item => item.id !== id);
+                            localStorage.setItem(STORAGE_KEY_ITEMS, JSON.stringify(items));
+                            initDataLists();
+                        }
+                    });
+                });
+                
+                // 添加地区删除事件
+                document.querySelectorAll('#region-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        if (confirm('确定要删除这个地区规则吗？')) {
+                            regions = regions.filter(region => region.id !== id);
+                            localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
+                            initDataLists();
+                        }
+                    });
+                });
+                
+                // 添加快递公司删除事件
+                document.querySelectorAll('#courier-list .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        if (confirm('确定要删除这个快递公司吗？同时会删除相关的地区规则。')) {
+                            // 删除快递公司
+                            couriers = couriers.filter(courier => courier.id !== id);
+                            // 删除相关的地区规则
+                            regions = regions.filter(region => region.courier_id !== id);
+                            localStorage.setItem(STORAGE_KEY_COURIERS, JSON.stringify(couriers));
+                            localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
+                            initDataLists();
+                        }
+                    });
+                });
+                
+                // 添加物品编辑事件
+                document.querySelectorAll('#item-list .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const item = items.find(item => item.id === id);
+                        if (item) {
+                            document.getElementById('editing-item-id').value = item.id;
+                            document.getElementById('item-code').value = item.code;
+                            document.getElementById('item-desc').value = item.description;
+                            document.getElementById('item-category').value = item.category;
+                            
+                            // 设置当前尺寸列表
+                            currentSizes = [...item.sizes];
+                            updateSizeWeightList();
+                            
+                            // 显示取消编辑按钮
+                            document.getElementById('cancel-item-edit-btn').style.display = 'block';
+                            
+                            // 滚动到表单
+                            document.getElementById('items-tab').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+                
+                // 添加地区编辑事件
+                document.querySelectorAll('#region-list .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const region = regions.find(region => region.id === id);
+                        if (region) {
+                            document.getElementById('editing-region-id').value = region.id;
+                            document.getElementById('courier-for-region').value = region.courier_id;
+                            document.getElementById('region-name').value = region.name;
+                            document.getElementById('base-price').value = region.base_price;
+                            document.getElementById('base-weight').value = region.base_weight;
+                            document.getElementById('unit-price').value = region.unit_price;
+                            document.getElementById('unit-weight').value = region.unit_weight;
+                            
+                            // 显示取消编辑按钮
+                            document.getElementById('cancel-region-edit-btn').style.display = 'block';
+                            
+                            // 滚动到表单
+                            document.getElementById('regions-tab').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+                
+                // 添加快递公司编辑事件
+                document.querySelectorAll('#courier-list .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (!currentUser) {
+                            alert('请先登录管理员账号');
+                            return;
+                        }
+                        
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const courier = couriers.find(courier => courier.id === id);
+                        if (courier) {
+                            document.getElementById('editing-courier-id').value = courier.id;
+                            document.getElementById('courier-name').value = courier.name;
+                            document.getElementById('courier-code').value = courier.code;
+                            document.getElementById('courier-desc').value = courier.description;
+                            
+                            // 显示取消编辑按钮
+                            document.getElementById('cancel-courier-edit-btn').style.display = 'block';
+                            
+                            // 滚动到表单
+                            document.getElementById('couriers-tab').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+            
+            // 保存物品按钮事件
+            document.getElementById('save-item-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                const editingId = document.getElementById('editing-item-id').value;
+                const code = document.getElementById('item-code').value.trim();
+                const desc = document.getElementById('item-desc').value.trim();
+                const category = document.getElementById('item-category').value;
+                
+                if (!code || !desc || currentSizes.length === 0) {
+                    alert('请填写完整的物品信息和至少一个尺寸-重量对应关系');
+                    return;
+                }
+                
+                if (editingId) {
+                    // 更新现有物品
+                    const itemIndex = items.findIndex(item => item.id.toString() === editingId);
+                    if (itemIndex !== -1) {
+                        items[itemIndex].code = code;
+                        items[itemIndex].description = desc;
+                        items[itemIndex].category = category;
+                        items[itemIndex].sizes = [...currentSizes];
+                    }
+                } else {
+                    // 检查是否已存在相同编号
+                    const existingItem = items.find(item => item.code === code);
+                    if (existingItem) {
+                        alert('已存在相同编码的物品，请使用不同的编码');
+                        return;
+                    }
+                    
+                    // 添加新物品
+                    const newItem = {
+                        id: Date.now(),
+                        code,
+                        description: desc,
+                        category,
+                        sizes: [...currentSizes]
+                    };
+                    items.push(newItem);
+                }
+                
+                // 保存到localStorage
+                localStorage.setItem(STORAGE_KEY_ITEMS, JSON.stringify(items));
+                
+                // 重置表单
+                resetItemForm();
+                
+                // 更新列表
+                initDataLists();
+                
+                alert('物品保存成功');
+            });
+            
+            // 取消物品编辑按钮事件
+            document.getElementById('cancel-item-edit-btn').addEventListener('click', function() {
+                resetItemForm();
+            });
+            
+            // 保存地区按钮事件
+            document.getElementById('save-region-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                const editingId = document.getElementById('editing-region-id').value;
+                const courierId = document.getElementById('courier-for-region').value;
+                const name = document.getElementById('region-name').value.trim();
+                const basePrice = parseFloat(document.getElementById('base-price').value);
+                const baseWeight = parseFloat(document.getElementById('base-weight').value);
+                const unitPrice = parseFloat(document.getElementById('unit-price').value);
+                const unitWeight = parseFloat(document.getElementById('unit-weight').value);
+                
+                if (!courierId || !name || isNaN(basePrice) || isNaN(baseWeight) || isNaN(unitPrice) || isNaN(unitWeight)) {
+                    alert('请填写完整的地区规则信息');
+                    return;
+                }
+                
+                if (editingId) {
+                    // 更新现有地区
+                    const regionIndex = regions.findIndex(region => region.id.toString() === editingId);
+                    if (regionIndex !== -1) {
+                        regions[regionIndex].courier_id = parseInt(courierId);
+                        regions[regionIndex].name = name;
+                        regions[regionIndex].base_price = basePrice;
+                        regions[regionIndex].base_weight = baseWeight;
+                        regions[regionIndex].unit_price = unitPrice;
+                        regions[regionIndex].unit_weight = unitWeight;
+                    }
+                } else {
+                    // 检查是否已存在相同快递公司和地区的组合
+                    const existingRegion = regions.find(region => 
+                        region.courier_id.toString() === courierId && 
+                        region.name === name
+                    );
+                    
+                    if (existingRegion) {
+                        alert('该快递公司在此地区已存在规则，请修改现有规则');
+                        return;
+                    }
+                    
+                    // 添加新地区
+                    const newRegion = {
+                        id: Date.now(),
+                        courier_id: parseInt(courierId),
+                        name,
+                        base_price: basePrice,
+                        base_weight: baseWeight,
+                        unit_price: unitPrice,
+                        unit_weight: unitWeight
+                    };
+                    regions.push(newRegion);
+                }
+                
+                // 保存到localStorage
+                localStorage.setItem(STORAGE_KEY_REGIONS, JSON.stringify(regions));
+                
+                // 重置表单
+                resetRegionForm();
+                
+                // 更新列表
+                initDataLists();
+                
+                alert('地区规则保存成功');
+            });
+            
+            // 取消地区编辑按钮事件
+            document.getElementById('cancel-region-edit-btn').addEventListener('click', function() {
+                resetRegionForm();
+            });
+            
+            // 保存快递公司按钮事件
+            document.getElementById('save-courier-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                const editingId = document.getElementById('editing-courier-id').value;
+                const name = document.getElementById('courier-name').value.trim();
+                const code = document.getElementById('courier-code').value.trim();
+                const desc = document.getElementById('courier-desc').value.trim();
+                
+                if (!name || !code) {
+                    alert('请填写快递公司名称和代码');
+                    return;
+                }
+                
+                if (editingId) {
+                    // 更新现有快递公司
+                    const courierIndex = couriers.findIndex(courier => courier.id.toString() === editingId);
+                    if (courierIndex !== -1) {
+                        couriers[courierIndex].name = name;
+                        couriers[courierIndex].code = code;
+                        couriers[courierIndex].description = desc;
+                    }
+                } else {
+                    // 检查是否已存在相同代码
+                    const existingCourier = couriers.find(courier => courier.code === code);
+                    if (existingCourier) {
+                        alert('已存在相同代码的快递公司，请使用不同的代码');
+                        return;
+                    }
+                    
+                    // 添加新快递公司
+                    const newCourier = {
+                        id: Date.now(),
+                        code,
+                        name,
+                        description: desc
+                    };
+                    couriers.push(newCourier);
+                }
+                
+                // 保存到localStorage
+                localStorage.setItem(STORAGE_KEY_COURIERS, JSON.stringify(couriers));
+                
+                // 重置表单
+                resetCourierForm();
+                
+                // 更新列表
+                initDataLists();
+                
+                alert('快递公司保存成功');
+            });
+            
+            // 取消快递公司编辑按钮事件
+            document.getElementById('cancel-courier-edit-btn').addEventListener('click', function() {
+                resetCourierForm();
+            });
+            
+            // 添加新物品按钮事件
+            document.getElementById('add-item-btn-form').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                resetItemForm();
+            });
+            
+            // 添加新地区按钮事件
+            document.getElementById('add-region-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                resetRegionForm();
+            });
+            
+            // 添加快递公司按钮事件
+            document.getElementById('add-courier-btn').addEventListener('click', function() {
+                if (!currentUser) {
+                    alert('请先登录管理员账号');
+                    return;
+                }
+                
+                resetCourierForm();
+            });
+            
+            // 初始化页面
+            updateUIForUserRole();
+            initDataLists();
+        });
+    </script>
+</body>
+</html>
