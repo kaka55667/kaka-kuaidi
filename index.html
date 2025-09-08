@@ -37,7 +37,7 @@
             overflow-x: hidden;
         }
         
-        .container {
+        。container {
             max-width: 100%;
             margin: 0 auto;
             padding: 0 15px;
@@ -45,7 +45,7 @@
         
         /* 头部样式 */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg， var(--primary)， var(--primary-dark));
             color: white;
             padding: 15px 0;
             position: sticky;
@@ -54,34 +54,34 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .header-content {
+        。header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        .logo {
+        。logo {
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .logo i {
+        。logo i {
             font-size: 24px;
         }
         
-        .logo h1 {
+        。logo h1 {
             font-size: 20px;
             font-weight: 600;
         }
         
-        .actions {
+        。actions {
             display: flex;
             gap: 15px;
             align-items: center;
         }
         
-        .action-btn {
+        。action-btn {
             background: rgba(255, 255, 255, 0);
             border: none;
             color: white;
@@ -92,7 +92,7 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            transition: all 0.3s;
+            transition: 全部 0.3s;
         }
         
         。user-info {
@@ -111,7 +111,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0， 0, 0, 0.5);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -129,22 +129,22 @@
         
         @keyframes modalFadeIn {
             from { opacity: 0; transform: translateY(-20px); }
-            到 { opacity: 1; transform: translateY(0); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        。modal-header {
+        .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
         
-        。modal-header h2 {
+        .modal-header h2 {
             color: var(--dark);
             font-size: 22px;
         }
         
-        。close-btn {
+        .close-btn {
             background: none;
             border: none;
             font-size: 24px;
@@ -394,7 +394,7 @@
             z-index: 100;
         }
         
-        。nav-item {
+        .nav-item {
             flex: 1;
             text-align: center;
             padding: 12px 0;
@@ -403,11 +403,11 @@
             transition: all 0.3s;
         }
         
-        。nav-item。active {
+        .nav-item.active {
             color: var(--primary);
         }
         
-        。nav-item i {
+        .nav-item i {
             display: block;
             font-size: 20px;
             margin-bottom: 4px;
@@ -415,41 +415,41 @@
         
         /* 响应式调整 */
         @media (max-width: 480px) {
-            。logo h1 {
+            .logo h1 {
                 font-size: 18px;
             }
             
-            。card-body {
+            .card-body {
                 padding: 15px;
             }
         }
         
         /* 动画效果 */
-        。fade-in {
+        .fade-in {
             animation: fadeIn 0.3s ease-in-out;
         }
         
         @keyframes fadeIn {
             from { opacity: 0; }
-            到 { opacity: 1; }
+            to { opacity: 1; }
         }
         
         /* 加载动画 */
-        。loader {
+        .loader {
             display: none;
             text-align: center;
             padding: 20px;
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%， -50%);
-            background: rgba(255, 255， 255, 0.9);
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             z-index: 1000;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
-        。loader 。spinner {
+        .loader .spinner {
             width: 40px;
             height: 40px;
             border: 4px solid rgba(52, 152, 219, 0.2);
@@ -465,7 +465,7 @@
         }
         
         /* 尺寸-重量管理样式 */
-        。size-weight-container {
+        .size-weight-container {
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 15px;
@@ -473,27 +473,27 @@
             overflow: hidden;
         }
         
-        。size-weight-row {
+        .size-weight-row {
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
             align-items: center;
         }
         
-        。size-weight-row .form-control {
+        .size-weight-row .form-control {
             flex: 1;
         }
         
-        。size-weight-row .btn {
+        .size-weight-row .btn {
             width: auto;
             padding: 10px 15px;
         }
         
-        。size-weight-list {
+        .size-weight-list {
             margin-top: 15px;
         }
         
-        。size-weight-item {
+        .size-weight-item {
             display: flex;
             justify-content: space-between;
             padding: 10px;
@@ -501,30 +501,30 @@
             align-items: center;
         }
         
-        。size-weight-item:last-child {
+        .size-weight-item:last-child {
             border-bottom: none;
         }
         
-        。size-weight-item span {
+        .size-weight-item span {
             flex: 1;
         }
         
         /* 编码输入样式 */
-        。code-input-container {
+        .code-input-container {
             display: flex;
             gap: 10px;
         }
         
-        。code-input-container 。form-control {
+        .code-input-container .form-control {
             flex: 1;
         }
         
-        。code-input-container 。btn {
+        .code-input-container .btn {
             width: auto;
         }
 
         /* 快递公司比较表格样式 */
-        。courier-comparison {
+        .courier-comparison {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
@@ -1710,546 +1710,6 @@
                             <button class="delete-btn" data-id="4" style="display: none">删</button>
                         </td>
                     </tr><tr>
-                        <td>中通快递</td>
-                        <td>浙江</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="5" style="display: none">改</button>
-                            <button class="delete-btn" data-id="5" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>福建</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="6" style="display: none">改</button>
-                            <button class="delete-btn" data-id="6" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>广西</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="7" style="display: none">改</button>
-                            <button class="delete-btn" data-id="7" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>湖北</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="8" style="display: none">改</button>
-                            <button class="delete-btn" data-id="8" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>安徽</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="9" style="display: none">改</button>
-                            <button class="delete-btn" data-id="9" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>江西</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="10" style="display: none">改</button>
-                            <button class="delete-btn" data-id="10" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>湖南</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="11" style="display: none">改</button>
-                            <button class="delete-btn" data-id="11" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>河南</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3.6元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="12" style="display: none">改</button>
-                            <button class="delete-btn" data-id="12" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>天津</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3.6元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="13" style="display: none">改</button>
-                            <button class="delete-btn" data-id="13" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>北京</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3.6元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="14" style="display: none">改</button>
-                            <button class="delete-btn" data-id="14" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>贵州</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3.8元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="15" style="display: none">改</button>
-                            <button class="delete-btn" data-id="15" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>海南</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3.8元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="16" style="display: none">改</button>
-                            <button class="delete-btn" data-id="16" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>重庆</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/4.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="17" style="display: none">改</button>
-                            <button class="delete-btn" data-id="17" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>山东</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/4.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="18" style="display: none">改</button>
-                            <button class="delete-btn" data-id="18" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>云南</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/4.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="19" style="display: none">改</button>
-                            <button class="delete-btn" data-id="19" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>四川</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/4.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="20" style="display: none">改</button>
-                            <button class="delete-btn" data-id="20" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>河北</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/4.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="21" style="display: none">改</button>
-                            <button class="delete-btn" data-id="21" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>山西</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/4.3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="22" style="display: none">改</button>
-                            <button class="delete-btn" data-id="22" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>陕西</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/4.3元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="23" style="display: none">改</button>
-                            <button class="delete-btn" data-id="23" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>黑龙</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/5.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="24" style="display: none">改</button>
-                            <button class="delete-btn" data-id="24" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>吉林</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/5.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="25" style="display: none">改</button>
-                            <button class="delete-btn" data-id="25" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>辽宁</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/5.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="26" style="display: none">改</button>
-                            <button class="delete-btn" data-id="26" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>甘肃</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/8.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="27" style="display: none">改</button>
-                            <button class="delete-btn" data-id="27" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>内蒙</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/8.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="28" style="display: none">改</button>
-                            <button class="delete-btn" data-id="28" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>宁夏</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/8.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="29" style="display: none">改</button>
-                            <button class="delete-btn" data-id="29" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>青海</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/8.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="30" style="display: none">改</button>
-                            <button class="delete-btn" data-id="30" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>西藏</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/13.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="31" style="display: none">改</button>
-                            <button class="delete-btn" data-id="31" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快递</td>
-                        <td>新疆</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/13.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="32" style="display: none">改</button>
-                            <button class="delete-btn" data-id="32" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>广东</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="33" style="display: none">改</button>
-                            <button class="delete-btn" data-id="33" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>江西</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="34" style="display: none">改</button>
-                            <button class="delete-btn" data-id="34" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>福建</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="35" style="display: none">改</button>
-                            <button class="delete-btn" data-id="35" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>江苏</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="36" style="display: none">改</button>
-                            <button class="delete-btn" data-id="36" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>广西</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="37" style="display: none">改</button>
-                            <button class="delete-btn" data-id="37" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>湖南</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="38" style="display: none">改</button>
-                            <button class="delete-btn" data-id="38" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>安徽</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="39" style="display: none">改</button>
-                            <button class="delete-btn" data-id="39" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>浙江</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="40" style="display: none">改</button>
-                            <button class="delete-btn" data-id="40" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>湖北</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="41" style="display: none">改</button>
-                            <button class="delete-btn" data-id="41" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>上海</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="42" style="display: none">改</button>
-                            <button class="delete-btn" data-id="42" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>天津</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="43" style="display: none">改</button>
-                            <button class="delete-btn" data-id="43" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>河北</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="44" style="display: none">改</button>
-                            <button class="delete-btn" data-id="44" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>河南</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="45" style="display: none">改</button>
-                            <button class="delete-btn" data-id="45" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>北京</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="46" style="display: none">改</button>
-                            <button class="delete-btn" data-id="46" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>山东</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="47" style="display: none">改</button>
-                            <button class="delete-btn" data-id="47" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>陕西</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="48" style="display: none">改</button>
-                            <button class="delete-btn" data-id="48" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>山西</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="49" style="display: none">改</button>
-                            <button class="delete-btn" data-id="49" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>贵州</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="50" style="display: none">改</button>
-                            <button class="delete-btn" data-id="50" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>四川</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="51" style="display: none">改</button>
-                            <button class="delete-btn" data-id="51" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>云南</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="52" style="display: none">改</button>
-                            <button class="delete-btn" data-id="52" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>重庆</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/1.9元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="53" style="display: none">改</button>
-                            <button class="delete-btn" data-id="53" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>黑龙江</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/2.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="54" style="display: none">改</button>
-                            <button class="delete-btn" data-id="54" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>辽宁</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/2.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="55" style="display: none">改</button>
-                            <button class="delete-btn" data-id="55" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>吉林</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/2.6元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="56" style="display: none">改</button>
-                            <button class="delete-btn" data-id="56" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>海南</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/2.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="57" style="display: none">改</button>
-                            <button class="delete-btn" data-id="57" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>甘肃</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/2.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="58" style="display: none">改</button>
-                            <button class="delete-btn" data-id="58" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>宁夏</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/2.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="59" style="display: none">改</button>
-                            <button class="delete-btn" data-id="59" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>青海</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="60" style="display: none">改</button>
-                            <button class="delete-btn" data-id="60" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>内蒙</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/3.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="61" style="display: none">改</button>
-                            <button class="delete-btn" data-id="61" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>新疆</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/13.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="62" style="display: none">改</button>
-                            <button class="delete-btn" data-id="62" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>极兔快递</td>
-                        <td>西藏</td>
-                        <td>3kg/6元</td>
-                        <td>1kg/13.1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="63" style="display: none">改</button>
-                            <button class="delete-btn" data-id="63" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
-                        <td>中通快运</td>
-                        <td>广东</td>
-                        <td>25kg/35元</td>
-                        <td>1kg/1元</td>
-                        <td class="action-cell">
-                            <button class="edit-btn" data-id="1756462889712" style="display: none">改</button>
-                            <button class="delete-btn" data-id="1756462889712" style="display: none">删</button>
-                        </td>
-                    </tr><tr>
                         <td>中通快运</td>
                         <td>上海</td>
                         <td>1kg/45元</td>
@@ -2275,7 +1735,7 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    <input 输入="hidden" id="editing-courier-id" value="">
+                    <input type="hidden" id="editing-courier-id" value="">
                     
                     <div class="form-group">
                         <label for="courier-name">快递公司名称</label>
@@ -2358,31 +1818,31 @@
         const STORAGE_KEY_CURRENT_USER = 'shipping_current_user';
         
         // 页面加载完成后执行
-        document。addEventListener('DOMContentLoaded'， function() {
+        document。addEventListener('DOMContentLoaded', function() {
             // 初始化用户数据 - 只保留管理员
-            let currentUser = JSON。parse(localStorage。getItem(STORAGE_KEY_CURRENT_USER)) || null;
+            let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEY_CURRENT_USER)) || null;
             
             // 新增：标志是否已经计算过运费
             let hasCalculated = false;
             
             // 选项卡切换功能
             const tabs = document.querySelectorAll('.tab, .nav-item');
-            tabs。forEach(tab => {
-                tab。addEventListener('click'， function() {
+            tabs.forEach(tab => {
+                tab。addEventListener('click', function() {
                     const tabName = this.getAttribute('data-tab');
                     
                     // 更新选项卡状态
-                    document。querySelectorAll('.tab, .nav-item')。forEach(t => {
-                        t。classList。remove('active');
+                    document.querySelectorAll('.tab, .nav-item')。forEach(t => {
+                        t.classList.remove('active');
                     });
                     this.classList.add('active');
                     
                     // 显示对应的内容
                     document。querySelectorAll('.tab-content').forEach(content => {
-                        content。classList.remove('active');
+                        content.classList.remove('active');
                     });
                     if (tabName) {
-                        document。getElementById(`${tabName}-tab`).classList.add('active');
+                        document.getElementById(`${tabName}-tab`)。classList.add('active');
                     }
                 });
             });
@@ -2392,67 +1852,67 @@
               {
                    "id": 1,
                    "code": "501",
-                   "description": "薄棉珠纹"，
+                   "description": "薄棉珠纹",
                    "category": "小件",
                    "sizes": [
                      { "size": "2cm", "weight": 0.63 },
-                     { "size": "2.5cm", "weight": 0.81 },
+                     { "size": "2.5cm"， "weight": 0.81 },
                      { "size": "3.2cm", "weight": 1.05 },
-                     { "size": "3.8cm"， "weight": 1.22 },
-                     { "size": "5cm"， "weight": 1.66 }
+                     { "size": "3.8cm", "weight": 1.22 },
+                     { "size": "5cm", "weight": 1.66 }
                    ]
                  },
                  {
-                   "id": 2，
-                   "code": "601",
+                   "id": 2,
+                   "code": "601"，
                    "description": "加厚棉珠纹",
-                   "category": "小件"，
+                   "category": "小件",
                    "sizes": [
                      { "size": "2cm", "weight": 1 },
                      { "size": "2.5cm", "weight": 1.21 },
                      { "size": "3.2cm", "weight": 1.55 },
-                     { "size": "3.8cm", "weight": 1.9 }，
+                     { "size": "3.8cm", "weight": 1.9 },
                      { "size": "5cm", "weight": 2.5 }
                    ]
-                 }，
+                 },
             ];
             
             // 地区规则数据 - 修改所有快递费用规则，低于首重的物品都按首重的价格计算
-            let regions = JSON.parse(localStorage.getItem(STORAGE_KEY_REGIONS)) || [
+            let regions = JSON.parse(localStorage。getItem(STORAGE_KEY_REGIONS)) || [
               {
                 "id": 2,
-                "courier_id": 1，
-                "name": "广东"，
+                "courier_id": 1,
+                "name": "广东",
                 "base_price": 6,
-                "base_weight": 3,
+                "base_weight": 3，
                 "unit_price": "1.2",
                 "unit_weight": 1
               }，
               {
                 "id": 3,
-                "courier_id": 1，
+                "courier_id": 1,
                 "name": "江苏",
-                "base_price": 6，
-                "base_weight": 3，
-                "unit_price": "2.9",
+                "base_price": 6,
+                "base_weight": 3,
+                "unit_price": "2.9"，
                 "unit_weight": 1
-              }，
+              },
             ];
             
             // 快递公司数据
-            let couriers = JSON。parse(localStorage.getItem(STORAGE_KEY_COURIERS)) || [
+            let couriers = JSON.parse(localStorage.getItem(STORAGE_KEY_COURIERS)) || [
                 {
                     id: 1,
-                    code: 'ZT'，
-                    name: '中通快递'，
+                    code: 'ZT',
+                    name: '中通快递',
                     description: '快递费贵一点'
-                }，
+                },
                 {
-                    id: 2，
-                    code: 'JT'，
-                    name: '极兔快递'，
+                    id: 2,
+                    code: 'JT',
+                    name: '极兔快递',
                     description: '快递费便宜'
-                }，
+                },
             ];
             
             // 已选物品数组
@@ -2462,30 +1922,30 @@
             let currentSizes = [];
             
             // 登录按钮事件
-            document。getElementById('login-button')。addEventListener('click', function() {
-                document。getElementById('login-modal')。style.display = 'flex';
+            document.getElementById('login-button').addEventListener('click', function() {
+                document.getElementById('login-modal').style.display = 'flex';
             });
             
             // 关闭登录模态框
-            document。getElementById('close-login-modal')。addEventListener('click', function() {
-                document。getElementById('login-modal')。style.display = 'none';
+            document.getElementById('close-login-modal').addEventListener('click', function() {
+                document.getElementById('login-modal').style.display = 'none';
             });
             
             // 点击模态框外部关闭
-            document。getElementById('login-modal')。addEventListener('click', function(e) {
-                if (e。target === this) {
+            document.getElementById('login-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
                     document.getElementById('login-modal').style.display = 'none';
                 }
             });
             
             // 分享按钮事件 - 现在未登录用户也可以使用
-            document。getElementById('share-btn')。addEventListener('click', function() {
+            document.getElementById('share-btn').addEventListener('click', function() {
                 document.getElementById('share-modal').style.display = 'flex';
             });
             
             // 关闭分享模态框
-            document。getElementById('close-share-modal')。addEventListener('click', function() {
-                document。getElementById('share-modal')。style.display = 'none';
+            document.getElementById('close-share-modal').addEventListener('click', function() {
+                document.getElementById('share-modal').style.display = 'none';
             });
             
             // 点击模态框外部关闭
@@ -2831,9 +2291,9 @@
                 const sizeQuantityList = document.getElementById('size-quantity-list');
                 
                 detailsContent.innerHTML = `
-                    <div><strong>编码:</strong> ${item。code}</div>
-                    <div><strong>描述:</strong> ${item。description}</div>
-                    <div><strong>类别:</strong> ${item。category}</div>
+                    <div><strong>编码:</strong> ${item.code}</div>
+                    <div><strong>描述:</strong> ${item.description}</div>
+                    <div><strong>类别:</strong> ${item.category}</div>
                 `;
                 
                 // 生成尺寸数量输入行
@@ -2842,10 +2302,10 @@
                     const row = document.createElement('div');
                     row.className = 'size-quantity-row';
                     row.innerHTML = `
-                        <div class="size-label">${sizeItem。size} (${sizeItem.weight}kg)</div>
+                        <div class="size-label">${sizeItem.size} (${sizeItem.weight}kg)</div>
                         <div class="quantity-input-container">
-                            <input type="number" class="quantity-input" value="0" min="0" data-size="${sizeItem。size}" data-weight="${sizeItem.weight}">
-                            <button class="quantity-plus" data-size="${sizeItem。size}">+</button>
+                            <input type="number" class="quantity-input" value="0" min="0" data-size="${sizeItem.size}" data-weight="${sizeItem.weight}">
+                            <button class="quantity-plus" data-size="${sizeItem.size}">+</button>
                         </div>
                     `;
                     sizeQuantityList.appendChild(row);
@@ -2966,15 +2426,15 @@
                     // 分组头部
                     html += `
                         <div class="selected-item-group">
-                            <div class="item-group-header" data-id="${firstItem。id}">
-                                <div style="font-weight: 500;">${firstItem。code} - ${firstItem。description}</div>
+                            <div class="item-group-header" data-id="${firstItem.id}">
+                                <div style="font-weight: 500;">${firstItem.code} - ${firstItem.description}</div>
                                 <div>
                                     <span style="margin-right: 15px;">总数量: ${groupTotalQuantity}</span>
-                                    <span style="margin-right: 15px;">总重量: ${groupTotalWeight。toFixed(2)}kg</span>
+                                    <span style="margin-right: 15px;">总重量: ${groupTotalWeight.toFixed(2)}kg</span>
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                             </div>
-                            <div class="item-group-details" id="details-${firstItem。id}">
+                            <div class="item-group-details" id="details-${firstItem.id}">
                                 <table>
                                     <thead>
                                         <tr>
@@ -2992,11 +2452,11 @@
                         const itemWeight = item.selectedWeight * item.quantity;
                         html += `
                             <tr>
-                                <td>${item。selectedSize}</td>
-								<td>${item。quantity}</td>
-                                <td>${item。selectedWeight}</td>
+                                <td>${item.selectedSize}</td>
+								<td>${item.quantity}</td>
+                                <td>${item.selectedWeight}</td>
                                
-                                <td>${itemWeight。toFixed(2)}</td>
+                                <td>${itemWeight.toFixed(2)}</td>
                             </tr>
                         `;
                     });
@@ -3004,14 +2464,14 @@
                     html += `
                                     </tbody>
                                 </table>
-                                <button class="delete-group-btn" data-id="${firstItem。id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
+                                <button class="delete-group-btn" data-id="${firstItem.id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
                             </div>
                         </div>
                     `;
                 }
                 
                 html += `<div style="padding: 10px; font-weight: 500; border-top: 1px solid #eee; margin-top: 5px;">
-                            总重量: ${totalWeight。toFixed(2)}kg
+                            总重量: ${totalWeight.toFixed(2)}kg
                          </div>`;
                 
                 container.innerHTML = html;
@@ -3119,7 +2579,7 @@
                     }
                 });
                 
-                  // 当地区是广东时，增加一条广东专属的快递费用
+                // 当地区是广东时，增加一条广东专属的快递费用
                 if (regionSelect.value === '广东') {
                     let gdCost = 0;
                     let gdCalculation = '';
@@ -3150,6 +2610,7 @@
                         redNumber: gdRedNumber
                     });
                 }
+
                 
                 // 按运费从低到高排序
                 results.sort((a, b) => a.cost - b.cost);
@@ -3435,10 +2896,10 @@
                                    // 更新现有物品
                                    const itemIndex = items.findIndex(item => item.id.toString() === editingId);
                                    if (itemIndex !== -1) {
-                                       items[itemIndex].code = code;
-                                       items[itemIndex].description = desc;
-                                       items[itemIndex].category = category;
-                                       items[itemIndex].sizes = [...currentSizes];
+                                       items[itemIndex]。code = code;
+                                       items[itemIndex]。description = desc;
+                                       items[itemIndex]。category = category;
+                                       items[itemIndex]。sizes = [...currentSizes];
                                    }
                                } else {
                                    // 检查是否已存在相同编号
@@ -3450,13 +2911,13 @@
                                    
                                    // 添加新物品
                                    const newItem = {
-                                       id: Date.now(),
+                                       id: Date.当前()，
                                        code,
                                        description: desc,
-                                       category,
+                                       category，
                                        sizes: [...currentSizes]
                                    };
-                                   items.push(newItem);
+                                   items。push(newItem);
                                }
                                
                                // 保存到localStorage
@@ -3472,7 +2933,7 @@
                            });
                            
                            // 取消物品编辑按钮事件
-                           document.getElementById('cancel-item-edit-btn').addEventListener('click', function() {
+                           document.getElementById('cancel-item-edit-btn')。addEventListener('click'， function() {
                                resetItemForm();
                            });
                            
@@ -3485,11 +2946,11 @@
                                
                                const editingId = document.getElementById('editing-region-id').value;
                                const courierId = document.getElementById('courier-for-region').value;
-                               const name = document.getElementById('region-name').value.trim();
+                               const name = document。getElementById('region-name').value.trim();
                                const basePrice = parseFloat(document.getElementById('base-price').value);
                                const baseWeight = parseFloat(document.getElementById('base-weight').value);
                                const unitPrice = parseFloat(document.getElementById('unit-price').value);
-                               const unitWeight = parseFloat(document.getElementById('unit-weight').value);
+                               const unitWeight = parseFloat(document.getElementById('unit-weight')。value);
                                
                                if (!courierId || !name || isNaN(basePrice) || isNaN(baseWeight) || isNaN(unitPrice) || isNaN(unitWeight)) {
                                    alert('请填写完整的地区规则信息');
@@ -3500,12 +2961,12 @@
                                    // 更新现有地区
                                    const regionIndex = regions.findIndex(region => region.id.toString() === editingId);
                                    if (regionIndex !== -1) {
-                                       regions[regionIndex].courier_id = parseInt(courierId);
-                                       regions[regionIndex].name = name;
-                                       regions[regionIndex].base_price = basePrice;
+                                       regions[regionIndex]。courier_id = parseInt(courierId);
+                                       regions[regionIndex]。name = name;
+                                       regions[regionIndex]。base_price = basePrice;
                                        regions[regionIndex].base_weight = baseWeight;
                                        regions[regionIndex].unit_price = unitPrice;
-                                       regions[regionIndex].unit_weight = unitWeight;
+                                       regions[regionIndex]。unit_weight = unitWeight;
                                    }
                                } else {
                                    // 检查是否已存在相同快递公司和地区的组合
@@ -3589,11 +3050,11 @@
                                        name,
                                        description: desc
                                    };
-                                   couriers.push(newCourier);
+                                   couriers。push(newCourier);
                                }
                                
                                // 保存到localStorage
-                               localStorage.setItem(STORAGE_KEY_COURIERS, JSON.stringify(couriers));
+                               localStorage。setItem(STORAGE_KEY_COURIERS， JSON.stringify(couriers));
                                
                                // 重置表单
                                resetCourierForm();
@@ -3605,12 +3066,12 @@
                            });
                            
                            // 取消快递公司编辑按钮事件
-                           document.getElementById('cancel-courier-edit-btn').addEventListener('click', function() {
+                           document。getElementById('cancel-courier-edit-btn')。addEventListener('click'， function() {
                                resetCourierForm();
                            });
                            
                            // 添加新物品按钮事件
-                           document.getElementById('add-item-btn-form').addEventListener('click', function() {
+                           document。getElementById('add-item-btn-form')。addEventListener('click'， function() {
                                if (!currentUser) {
                                    alert('请先登录管理员账号');
                                    return;
@@ -3620,7 +3081,7 @@
                            });
                            
                            // 添加新地区按钮事件
-                           document.getElementById('add-region-btn').addEventListener('click', function() {
+                           document。getElementById('add-region-btn')。addEventListener('click', function() {
                                if (!currentUser) {
                                    alert('请先登录管理员账号');
                                    return;
@@ -3630,7 +3091,7 @@
                            });
                            
                            // 添加快递公司按钮事件
-                           document.getElementById('add-courier-btn').addEventListener('click', function() {
+                           document。getElementById('add-courier-btn')。addEventListener('click'， function() {
                                if (!currentUser) {
                                    alert('请先登录管理员账号');
                                    return;
@@ -3647,12 +3108,9 @@
                
                
       
-    
+      
       
       <script></script>
     
     
   </body><div id="sc-translator-shadow" style="all: initial;"></div></html>
-
-
-
