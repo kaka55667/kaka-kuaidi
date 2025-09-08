@@ -95,7 +95,7 @@
             transition: all 0.3s;
         }
         
-        .user-info {
+        。user-info {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -104,7 +104,7 @@
         }
         
         /* 登录模态框样式 */
-        .modal {
+        。modal {
             display: none;
             position: fixed;
             top: 0;
@@ -117,7 +117,7 @@
             justify-content: center;
         }
         
-        .modal-content {
+        。modal-content {
             background: white;
             border-radius: 12px;
             width: 90%;
@@ -129,22 +129,22 @@
         
         @keyframes modalFadeIn {
             from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            到 { opacity: 1; transform: translateY(0); }
         }
         
-        .modal-header {
+        。modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
         
-        .modal-header h2 {
+        。modal-header h2 {
             color: var(--dark);
             font-size: 22px;
         }
         
-        .close-btn {
+        。close-btn {
             background: none;
             border: none;
             font-size: 24px;
@@ -394,7 +394,7 @@
             z-index: 100;
         }
         
-        .nav-item {
+        。nav-item {
             flex: 1;
             text-align: center;
             padding: 12px 0;
@@ -403,11 +403,11 @@
             transition: all 0.3s;
         }
         
-        .nav-item.active {
+        。nav-item。active {
             color: var(--primary);
         }
         
-        .nav-item i {
+        。nav-item i {
             display: block;
             font-size: 20px;
             margin-bottom: 4px;
@@ -415,41 +415,41 @@
         
         /* 响应式调整 */
         @media (max-width: 480px) {
-            .logo h1 {
+            。logo h1 {
                 font-size: 18px;
             }
             
-            .card-body {
+            。card-body {
                 padding: 15px;
             }
         }
         
         /* 动画效果 */
-        .fade-in {
+        。fade-in {
             animation: fadeIn 0.3s ease-in-out;
         }
         
         @keyframes fadeIn {
             from { opacity: 0; }
-            to { opacity: 1; }
+            到 { opacity: 1; }
         }
         
         /* 加载动画 */
-        .loader {
+        。loader {
             display: none;
             text-align: center;
             padding: 20px;
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.9);
+            transform: translate(-50%， -50%);
+            background: rgba(255, 255， 255, 0.9);
             border-radius: 8px;
             z-index: 1000;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
-        .loader .spinner {
+        。loader 。spinner {
             width: 40px;
             height: 40px;
             border: 4px solid rgba(52, 152, 219, 0.2);
@@ -465,7 +465,7 @@
         }
         
         /* 尺寸-重量管理样式 */
-        .size-weight-container {
+        。size-weight-container {
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 15px;
@@ -473,27 +473,27 @@
             overflow: hidden;
         }
         
-        .size-weight-row {
+        。size-weight-row {
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
             align-items: center;
         }
         
-        .size-weight-row .form-control {
+        。size-weight-row .form-control {
             flex: 1;
         }
         
-        .size-weight-row .btn {
+        。size-weight-row .btn {
             width: auto;
             padding: 10px 15px;
         }
         
-        .size-weight-list {
+        。size-weight-list {
             margin-top: 15px;
         }
         
-        .size-weight-item {
+        。size-weight-item {
             display: flex;
             justify-content: space-between;
             padding: 10px;
@@ -501,30 +501,30 @@
             align-items: center;
         }
         
-        .size-weight-item:last-child {
+        。size-weight-item:last-child {
             border-bottom: none;
         }
         
-        .size-weight-item span {
+        。size-weight-item span {
             flex: 1;
         }
         
         /* 编码输入样式 */
-        .code-input-container {
+        。code-input-container {
             display: flex;
             gap: 10px;
         }
         
-        .code-input-container .form-control {
+        。code-input-container 。form-control {
             flex: 1;
         }
         
-        .code-input-container .btn {
+        。code-input-container 。btn {
             width: auto;
         }
 
         /* 快递公司比较表格样式 */
-        .courier-comparison {
+        。courier-comparison {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
@@ -2275,7 +2275,7 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    <input type="hidden" id="editing-courier-id" value="">
+                    <input 输入="hidden" id="editing-courier-id" value="">
                     
                     <div class="form-group">
                         <label for="courier-name">快递公司名称</label>
@@ -2358,31 +2358,31 @@
         const STORAGE_KEY_CURRENT_USER = 'shipping_current_user';
         
         // 页面加载完成后执行
-        document.addEventListener('DOMContentLoaded', function() {
+        document。addEventListener('DOMContentLoaded'， function() {
             // 初始化用户数据 - 只保留管理员
-            let currentUser = JSON.parse(localStorage.getItem(STORAGE_KEY_CURRENT_USER)) || null;
+            let currentUser = JSON。parse(localStorage。getItem(STORAGE_KEY_CURRENT_USER)) || null;
             
             // 新增：标志是否已经计算过运费
             let hasCalculated = false;
             
             // 选项卡切换功能
             const tabs = document.querySelectorAll('.tab, .nav-item');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+            tabs。forEach(tab => {
+                tab。addEventListener('click'， function() {
                     const tabName = this.getAttribute('data-tab');
                     
                     // 更新选项卡状态
-                    document.querySelectorAll('.tab, .nav-item').forEach(t => {
-                        t.classList.remove('active');
+                    document。querySelectorAll('.tab, .nav-item')。forEach(t => {
+                        t。classList。remove('active');
                     });
                     this.classList.add('active');
                     
                     // 显示对应的内容
-                    document.querySelectorAll('.tab-content').forEach(content => {
-                        content.classList.remove('active');
+                    document。querySelectorAll('.tab-content').forEach(content => {
+                        content。classList.remove('active');
                     });
                     if (tabName) {
-                        document.getElementById(`${tabName}-tab`).classList.add('active');
+                        document。getElementById(`${tabName}-tab`).classList.add('active');
                     }
                 });
             });
@@ -2392,67 +2392,67 @@
               {
                    "id": 1,
                    "code": "501",
-                   "description": "薄棉珠纹",
+                   "description": "薄棉珠纹"，
                    "category": "小件",
                    "sizes": [
                      { "size": "2cm", "weight": 0.63 },
                      { "size": "2.5cm", "weight": 0.81 },
                      { "size": "3.2cm", "weight": 1.05 },
-                     { "size": "3.8cm", "weight": 1.22 },
-                     { "size": "5cm", "weight": 1.66 }
+                     { "size": "3.8cm"， "weight": 1.22 },
+                     { "size": "5cm"， "weight": 1.66 }
                    ]
                  },
                  {
-                   "id": 2,
+                   "id": 2，
                    "code": "601",
                    "description": "加厚棉珠纹",
-                   "category": "小件",
+                   "category": "小件"，
                    "sizes": [
                      { "size": "2cm", "weight": 1 },
                      { "size": "2.5cm", "weight": 1.21 },
                      { "size": "3.2cm", "weight": 1.55 },
-                     { "size": "3.8cm", "weight": 1.9 },
+                     { "size": "3.8cm", "weight": 1.9 }，
                      { "size": "5cm", "weight": 2.5 }
                    ]
-                 },
+                 }，
             ];
             
             // 地区规则数据 - 修改所有快递费用规则，低于首重的物品都按首重的价格计算
             let regions = JSON.parse(localStorage.getItem(STORAGE_KEY_REGIONS)) || [
               {
                 "id": 2,
-                "courier_id": 1,
-                "name": "广东",
+                "courier_id": 1，
+                "name": "广东"，
                 "base_price": 6,
                 "base_weight": 3,
                 "unit_price": "1.2",
                 "unit_weight": 1
-              },
+              }，
               {
                 "id": 3,
-                "courier_id": 1,
+                "courier_id": 1，
                 "name": "江苏",
-                "base_price": 6,
-                "base_weight": 3,
+                "base_price": 6，
+                "base_weight": 3，
                 "unit_price": "2.9",
                 "unit_weight": 1
-              },
+              }，
             ];
             
             // 快递公司数据
-            let couriers = JSON.parse(localStorage.getItem(STORAGE_KEY_COURIERS)) || [
+            let couriers = JSON。parse(localStorage.getItem(STORAGE_KEY_COURIERS)) || [
                 {
                     id: 1,
-                    code: 'ZT',
-                    name: '中通快递',
+                    code: 'ZT'，
+                    name: '中通快递'，
                     description: '快递费贵一点'
-                },
+                }，
                 {
-                    id: 2,
-                    code: 'JT',
-                    name: '极兔快递',
+                    id: 2，
+                    code: 'JT'，
+                    name: '极兔快递'，
                     description: '快递费便宜'
-                },
+                }，
             ];
             
             // 已选物品数组
@@ -2462,30 +2462,30 @@
             let currentSizes = [];
             
             // 登录按钮事件
-            document.getElementById('login-button').addEventListener('click', function() {
-                document.getElementById('login-modal').style.display = 'flex';
+            document。getElementById('login-button')。addEventListener('click', function() {
+                document。getElementById('login-modal')。style.display = 'flex';
             });
             
             // 关闭登录模态框
-            document.getElementById('close-login-modal').addEventListener('click', function() {
-                document.getElementById('login-modal').style.display = 'none';
+            document。getElementById('close-login-modal')。addEventListener('click', function() {
+                document。getElementById('login-modal')。style.display = 'none';
             });
             
             // 点击模态框外部关闭
-            document.getElementById('login-modal').addEventListener('click', function(e) {
-                if (e.target === this) {
+            document。getElementById('login-modal')。addEventListener('click', function(e) {
+                if (e。target === this) {
                     document.getElementById('login-modal').style.display = 'none';
                 }
             });
             
             // 分享按钮事件 - 现在未登录用户也可以使用
-            document.getElementById('share-btn').addEventListener('click', function() {
+            document。getElementById('share-btn')。addEventListener('click', function() {
                 document.getElementById('share-modal').style.display = 'flex';
             });
             
             // 关闭分享模态框
-            document.getElementById('close-share-modal').addEventListener('click', function() {
-                document.getElementById('share-modal').style.display = 'none';
+            document。getElementById('close-share-modal')。addEventListener('click', function() {
+                document。getElementById('share-modal')。style.display = 'none';
             });
             
             // 点击模态框外部关闭
@@ -2831,9 +2831,9 @@
                 const sizeQuantityList = document.getElementById('size-quantity-list');
                 
                 detailsContent.innerHTML = `
-                    <div><strong>编码:</strong> ${item.code}</div>
-                    <div><strong>描述:</strong> ${item.description}</div>
-                    <div><strong>类别:</strong> ${item.category}</div>
+                    <div><strong>编码:</strong> ${item。code}</div>
+                    <div><strong>描述:</strong> ${item。description}</div>
+                    <div><strong>类别:</strong> ${item。category}</div>
                 `;
                 
                 // 生成尺寸数量输入行
@@ -2842,10 +2842,10 @@
                     const row = document.createElement('div');
                     row.className = 'size-quantity-row';
                     row.innerHTML = `
-                        <div class="size-label">${sizeItem.size} (${sizeItem.weight}kg)</div>
+                        <div class="size-label">${sizeItem。size} (${sizeItem.weight}kg)</div>
                         <div class="quantity-input-container">
-                            <input type="number" class="quantity-input" value="0" min="0" data-size="${sizeItem.size}" data-weight="${sizeItem.weight}">
-                            <button class="quantity-plus" data-size="${sizeItem.size}">+</button>
+                            <input type="number" class="quantity-input" value="0" min="0" data-size="${sizeItem。size}" data-weight="${sizeItem.weight}">
+                            <button class="quantity-plus" data-size="${sizeItem。size}">+</button>
                         </div>
                     `;
                     sizeQuantityList.appendChild(row);
@@ -2966,15 +2966,15 @@
                     // 分组头部
                     html += `
                         <div class="selected-item-group">
-                            <div class="item-group-header" data-id="${firstItem.id}">
-                                <div style="font-weight: 500;">${firstItem.code} - ${firstItem.description}</div>
+                            <div class="item-group-header" data-id="${firstItem。id}">
+                                <div style="font-weight: 500;">${firstItem。code} - ${firstItem。description}</div>
                                 <div>
                                     <span style="margin-right: 15px;">总数量: ${groupTotalQuantity}</span>
-                                    <span style="margin-right: 15px;">总重量: ${groupTotalWeight.toFixed(2)}kg</span>
+                                    <span style="margin-right: 15px;">总重量: ${groupTotalWeight。toFixed(2)}kg</span>
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                             </div>
-                            <div class="item-group-details" id="details-${firstItem.id}">
+                            <div class="item-group-details" id="details-${firstItem。id}">
                                 <table>
                                     <thead>
                                         <tr>
@@ -2992,11 +2992,11 @@
                         const itemWeight = item.selectedWeight * item.quantity;
                         html += `
                             <tr>
-                                <td>${item.selectedSize}</td>
-								<td>${item.quantity}</td>
-                                <td>${item.selectedWeight}</td>
+                                <td>${item。selectedSize}</td>
+								<td>${item。quantity}</td>
+                                <td>${item。selectedWeight}</td>
                                
-                                <td>${itemWeight.toFixed(2)}</td>
+                                <td>${itemWeight。toFixed(2)}</td>
                             </tr>
                         `;
                     });
@@ -3004,14 +3004,14 @@
                     html += `
                                     </tbody>
                                 </table>
-                                <button class="delete-group-btn" data-id="${firstItem.id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
+                                <button class="delete-group-btn" data-id="${firstItem。id}" style="margin-top: 10px; padding: 5px 10px; background: var(--danger); color: white; border: none; border-radius: 4px; cursor: pointer;">删除此物品</button>
                             </div>
                         </div>
                     `;
                 }
                 
                 html += `<div style="padding: 10px; font-weight: 500; border-top: 1px solid #eee; margin-top: 5px;">
-                            总重量: ${totalWeight.toFixed(2)}kg
+                            总重量: ${totalWeight。toFixed(2)}kg
                          </div>`;
                 
                 container.innerHTML = html;
@@ -3119,21 +3119,21 @@
                     }
                 });
                 
-                // 当地区是广东时，增加一条广东专属的快递费用
+                  // 当地区是广东时，增加一条广东专属的快递费用
                 if (regionSelect.value === '广东') {
                     let gdCost = 0;
                     let gdCalculation = '';
                     let gdRedNumber = 0;
-                    
-                    // 首重3kg/10元，续重1kg/元
-                    // 超过3kg按去除首重的重量乘续重加首重价格
+                
+                    // 首重1kg/10元，续重1kg/元
+                    // 超过1kg按去除首重的重量乘续重加首重价格
                     // 超过30kg变为总重量乘续重
-                    if (totalWeight <= 3) {
+                    if (totalWeight <= 1) {
                         gdCost = 10;
-                        gdCalculation = `总重量 ${totalWeight.toFixed(2)}kg ≤ 首重 3kg，运费 = 首重价格: 10元`;
+                        gdCalculation = `总重量 ${totalWeight.toFixed(2)}kg ≤ 首重 1kg，运费 = 首重价格: 10元`;
                     } else if (totalWeight <= 30) {
-                        gdCost = 10 + (totalWeight - 3) * 1;
-                        gdCalculation = `首重 3kg: 10元，续重 ${(totalWeight - 3).toFixed(2)}kg × 1元/kg = ${(totalWeight - 3).toFixed(2)}元`;
+                        gdCost = 10 + (totalWeight - 1) * 1;
+                        gdCalculation = `首重 1kg: 10元，续重 ${(totalWeight - 1).toFixed(2)}kg × 1元/kg = ${(totalWeight - 1).toFixed(2)}元`;
                     } else {
                         gdCost = totalWeight * 1;
                         gdCalculation = `总重量 ${totalWeight.toFixed(2)}kg > 30kg，运费 = 总重量 × 1元/kg = ${totalWeight.toFixed(2)}元`;
@@ -3142,7 +3142,7 @@
                         gdRedNumber = totalWeight * 1 - 10;
                         gdCalculation += `<br><span class="red-number">${gdRedNumber.toFixed(2)}元 (总重量 × 续重单价，不含首重)</span>`;
                     }
-                    
+                
                     results.push({
                         courier: '联昊通快递',
                         cost: gdCost,
@@ -3653,5 +3653,6 @@
     
     
   </body><div id="sc-translator-shadow" style="all: initial;"></div></html>
+
 
 
