@@ -1734,6 +1734,7 @@
                 document.getElementById('heavy-weight-next-custom-price').style.display = 'none';
                 
                 updateFormulaPreview();
+                generateFormulaExpression(); // 添加这行，确保表单显示时就生成公式表达式
                 
                 // 滚动到表单
                 document.getElementById('formula-form-card').scrollIntoView({ behavior: 'smooth' });
@@ -2148,22 +2149,31 @@
             }
             
             // 公式构建器变化事件
-            document.getElementById('weight-type').addEventListener('change', updateFormulaPreview);
-            document.getElementById('operator').addEventListener('change', updateFormulaPreview);
+            document.getElementById('weight-type').addEventListener('change', function() {
+                updateFormulaPreview();
+                generateFormulaExpression();
+            });
+            document.getElementById('operator').addEventListener('change', function() {
+                updateFormulaPreview();
+                generateFormulaExpression();
+            });
             document.getElementById('price-type').addEventListener('change', function() {
                 document.getElementById('custom-price').style.display = 
                     this.value === 'custom' ? 'inline-block' : 'none';
                 updateFormulaPreview();
+                generateFormulaExpression();
             });
             document.getElementById('next-operator').addEventListener('change', function() {
                 document.getElementById('next-price-type').style.display = 
                     this.value ? 'inline-block' : 'none';
                 updateFormulaPreview();
+                generateFormulaExpression();
             });
             document.getElementById('next-price-type').addEventListener('change', function() {
                 document.getElementById('next-custom-price').style.display = 
                     this.value === 'custom' ? 'inline-block' : 'none';
                 updateFormulaPreview();
+                generateFormulaExpression();
             });
             // 大重量特殊计费规则显示/隐藏逻辑
             document.getElementById('use-heavy-weight-rule').addEventListener('change', function() {
@@ -2229,9 +2239,18 @@
                 generateFormulaExpression();
             });
             
-            document.getElementById('base-weight').addEventListener('input', updateFormulaPreview);
-            document.getElementById('custom-price').addEventListener('input', updateFormulaPreview);
-            document.getElementById('next-custom-price').addEventListener('input', updateFormulaPreview);
+            document.getElementById('base-weight').addEventListener('input', function() {
+                updateFormulaPreview();
+                generateFormulaExpression();
+            });
+            document.getElementById('custom-price').addEventListener('input', function() {
+                updateFormulaPreview();
+                generateFormulaExpression();
+            });
+            document.getElementById('next-custom-price').addEventListener('input', function() {
+                updateFormulaPreview();
+                generateFormulaExpression();
+            });
             
             // 添加公式按钮事件
             document.getElementById('add-formula-btn').addEventListener('click', function() {
